@@ -296,9 +296,6 @@
       "settings": {
         "title": "Dónde comprar",
         "subtitle": "Farmacias seleccionadas",
-        "pharmacy_title": "En tu farmacia",
-        "cities": "Madrid · Barcelona · Valencia · Sevilla",
-        "contact_title": "Contacto",
         "email": "info@wacat.com"
       }
     },
