@@ -103,24 +103,303 @@
 }
 {% endschema %}
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-header>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20 transition-all duration-300" data-header-content>
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-wacat-navy hover:text-wacat-navy-dark transition-colors">
+<style>
+  #header-{{ section.id }} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    font-family: Assistant, sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  #header-{{ section.id }} .header-container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 21px;
+  }
+
+  @media (min-width: 768px) {
+    #header-{{ section.id }} .header-container {
+      padding: 0 28px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #header-{{ section.id }} .header-container {
+      padding: 0 36px;
+    }
+  }
+
+  #header-{{ section.id }} .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    transition: all 0.3s ease;
+  }
+
+  #header-{{ section.id }} .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #121212;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  #header-{{ section.id }} .logo-link:hover {
+    color: #121212;
+  }
+
+  #header-{{ section.id }} .logo-mobile {
+    display: block;
+    height: {{ section.settings.logo_height_mobile }}px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+  }
+
+  #header-{{ section.id }} .logo-desktop {
+    display: none;
+    height: {{ section.settings.logo_height_desktop }}px;
+    width: auto;
+    max-width: 300px;
+    object-fit: contain;
+  }
+
+  @media (min-width: 640px) {
+    #header-{{ section.id }} .logo-mobile {
+      display: none;
+    }
+
+    #header-{{ section.id }} .logo-desktop {
+      display: block;
+    }
+
+    #header-{{ section.id }} .logo-link {
+      font-size: 24px;
+    }
+  }
+
+  #header-{{ section.id }} .desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    #header-{{ section.id }} .desktop-nav {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    #header-{{ section.id }} .desktop-nav {
+      gap: 32px;
+    }
+  }
+
+  #header-{{ section.id }} .desktop-nav a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #7C7C7C;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  #header-{{ section.id }} .desktop-nav a:hover {
+    color: #121212;
+  }
+
+  #header-{{ section.id }} .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #header-{{ section.id }} .cta-button {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 32px;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  #header-{{ section.id }} .cta-button:hover {
+    background-color: #000000;
+  }
+
+  @media (min-width: 768px) {
+    #header-{{ section.id }} .cta-button {
+      display: inline-flex;
+    }
+  }
+
+  #header-{{ section.id }} .mobile-menu-button {
+    display: block;
+    padding: 8px;
+    color: #121212;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #header-{{ section.id }} .mobile-menu-button:hover {
+    background-color: #F3F3F3;
+  }
+
+  @media (min-width: 1024px) {
+    #header-{{ section.id }} .mobile-menu-button {
+      display: none;
+    }
+  }
+
+  #header-{{ section.id }} .mobile-menu-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #header-{{ section.id }} .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 40;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media (min-width: 1024px) {
+    #header-{{ section.id }} .mobile-menu-overlay {
+      display: none;
+    }
+  }
+
+  #header-{{ section.id }} .mobile-menu-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 384px;
+    background-color: #ffffff;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  #header-{{ section.id }} .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #EDEDED;
+  }
+
+  #header-{{ section.id }} .mobile-menu-header span {
+    font-size: 18px;
+    font-weight: 400;
+    color: #121212;
+  }
+
+  #header-{{ section.id }} .mobile-menu-close {
+    padding: 8px;
+    color: #121212;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #header-{{ section.id }} .mobile-menu-close:hover {
+    background-color: #F3F3F3;
+  }
+
+  #header-{{ section.id }} .mobile-menu-close svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #header-{{ section.id }} .mobile-nav {
+    padding: 16px;
+  }
+
+  #header-{{ section.id }} .mobile-nav a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #121212;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 4px;
+  }
+
+  #header-{{ section.id }} .mobile-nav a:hover {
+    background-color: #F3F3F3;
+  }
+
+  #header-{{ section.id }} .mobile-cta-container {
+    padding: 16px;
+    border-top: 1px solid #EDEDED;
+  }
+
+  #header-{{ section.id }} .mobile-cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 16px 24px;
+    border-radius: 32px;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    width: 100%;
+  }
+
+  #header-{{ section.id }} .mobile-cta-button:hover {
+    background-color: #000000;
+  }
+</style>
+
+<header id="header-{{ section.id }}" data-header>
+  <div class="header-container">
+    <div class="header-content" data-header-content>
+      <a href="/" class="logo-link">
         {%- if section.settings.logo != blank -%}
           <img
             src="{{ section.settings.logo | img_url: 'master' }}"
             alt="{{ shop.name }}"
-            style="height: {{ section.settings.logo_height_mobile }}px; width: auto; max-width: 200px; object-fit: contain;"
-            class="sm:hidden"
+            class="logo-mobile"
             loading="eager"
           >
           <img
             src="{{ section.settings.logo | img_url: 'master' }}"
             alt="{{ shop.name }}"
-            style="height: {{ section.settings.logo_height_desktop }}px; width: auto; max-width: 300px; object-fit: contain;"
-            class="hidden sm:block"
+            class="logo-desktop"
             loading="eager"
           >
         {%- else -%}
@@ -128,37 +407,34 @@
         {%- endif -%}
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
-        <a href="{{ section.settings.nav_link_1_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+      <nav class="desktop-nav">
+        <a href="{{ section.settings.nav_link_1_url }}">
           {{ section.settings.nav_link_1_text }}
         </a>
-        <a href="{{ section.settings.nav_link_2_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+        <a href="{{ section.settings.nav_link_2_url }}">
           {{ section.settings.nav_link_2_text }}
         </a>
-        <a href="{{ section.settings.nav_link_3_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+        <a href="{{ section.settings.nav_link_3_url }}">
           {{ section.settings.nav_link_3_text }}
         </a>
-        <a href="{{ section.settings.nav_link_4_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+        <a href="{{ section.settings.nav_link_4_url }}">
           {{ section.settings.nav_link_4_text }}
         </a>
       </nav>
 
-      <!-- CTA & Mobile Menu -->
-      <div class="flex items-center gap-3">
-        <a href="{{ section.settings.cta_url }}" class="hidden md:inline-flex items-center gap-2 bg-wacat-navy text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark transition-all duration-300 shadow-md">
+      <div class="header-actions">
+        <a href="{{ section.settings.cta_url }}" class="cta-button">
           <i class="las la-shopping-cart"></i>
           {{ section.settings.cta_text }}
         </a>
 
-        <!-- Mobile Menu Button -->
         <button
-          id="mobile-menu-btn"
-          class="lg:hidden p-2 text-wacat-navy hover:bg-wacat-navy/5 rounded-lg transition-colors"
+          id="mobile-menu-btn-{{ section.id }}"
+          class="mobile-menu-button"
           aria-label="Abrir menú"
           aria-expanded="false"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
@@ -166,46 +442,42 @@
     </div>
   </div>
 
-  <!-- Mobile Menu Overlay -->
   <div
-    id="mobile-menu"
-    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 opacity-0 pointer-events-none"
+    id="mobile-menu-{{ section.id }}"
+    class="mobile-menu-overlay"
     aria-hidden="true"
   >
-    <div class="fixed right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300">
-      <!-- Mobile Menu Header -->
-      <div class="flex items-center justify-between p-4 border-b border-wacat-navy/10">
-        <span class="text-lg font-bold text-wacat-navy">{{ section.settings.logo_text }}</span>
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-header">
+        <span>{{ section.settings.logo_text }}</span>
         <button
-          id="mobile-menu-close"
-          class="p-2 text-wacat-navy hover:bg-wacat-navy/5 rounded-lg transition-colors"
+          id="mobile-menu-close-{{ section.id }}"
+          class="mobile-menu-close"
           aria-label="Cerrar menú"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
 
-      <!-- Mobile Navigation -->
-      <nav class="p-4 space-y-1">
-        <a href="{{ section.settings.nav_link_1_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+      <nav class="mobile-nav">
+        <a href="{{ section.settings.nav_link_1_url }}" class="mobile-menu-link">
           {{ section.settings.nav_link_1_text }}
         </a>
-        <a href="{{ section.settings.nav_link_2_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+        <a href="{{ section.settings.nav_link_2_url }}" class="mobile-menu-link">
           {{ section.settings.nav_link_2_text }}
         </a>
-        <a href="{{ section.settings.nav_link_3_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+        <a href="{{ section.settings.nav_link_3_url }}" class="mobile-menu-link">
           {{ section.settings.nav_link_3_text }}
         </a>
-        <a href="{{ section.settings.nav_link_4_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+        <a href="{{ section.settings.nav_link_4_url }}" class="mobile-menu-link">
           {{ section.settings.nav_link_4_text }}
         </a>
       </nav>
 
-      <!-- Mobile CTA -->
-      <div class="p-4 border-t border-wacat-navy/10">
-        <a href="{{ section.settings.cta_url }}" class="mobile-menu-link flex items-center justify-center gap-2 bg-wacat-navy text-white px-6 py-4 rounded-full text-base font-bold hover:bg-wacat-navy-dark transition-all duration-300 shadow-lg w-full">
+      <div class="mobile-cta-container">
+        <a href="{{ section.settings.cta_url }}" class="mobile-cta-button mobile-menu-link">
           <i class="las la-shopping-cart"></i>
           {{ section.settings.mobile_cta_text }}
         </a>
@@ -216,11 +488,15 @@
 
 <script>
   (function() {
-    // ========================================================================
-    // HEADER SCROLL BEHAVIOR - Ultra smooth Apple-style
-    // ========================================================================
-    const header = document.querySelector('[data-header]');
-    const headerContent = document.querySelector('[data-header-content]');
+    const sectionId = '{{ section.id }}';
+    const header = document.querySelector('#header-' + sectionId);
+    const headerContent = header.querySelector('[data-header-content]');
+    const menuBtn = document.getElementById('mobile-menu-btn-' + sectionId);
+    const menuClose = document.getElementById('mobile-menu-close-' + sectionId);
+    const mobileMenu = document.getElementById('mobile-menu-' + sectionId);
+    const menuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
+    const menuPanel = mobileMenu.querySelector('.mobile-menu-panel');
+
     let lastScroll = 0;
     let ticking = false;
 
@@ -228,24 +504,22 @@
       const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
       if (currentScroll > 20) {
-        // Scrolled state: more opaque, compact, shadow
         header.style.backdropFilter = 'blur(20px) saturate(180%)';
         header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = '0 1px 3px 0 rgba(30, 69, 99, 0.08)';
-        header.style.borderBottom = '1px solid rgba(30, 69, 99, 0.08)';
+        header.style.boxShadow = '0 1px 3px 0 rgba(18, 18, 18, 0.08)';
+        header.style.borderBottom = '1px solid #EDEDED';
 
         if (headerContent) {
-          headerContent.style.height = '64px'; // h-16
+          headerContent.style.height = '64px';
         }
       } else {
-        // Top state: transparent, taller
         header.style.backdropFilter = 'blur(8px)';
         header.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
         header.style.boxShadow = 'none';
-        header.style.borderBottom = '1px solid rgba(30, 69, 99, 0.05)';
+        header.style.borderBottom = '1px solid rgba(237, 237, 237, 0.5)';
 
         if (headerContent) {
-          headerContent.style.height = '80px'; // h-20
+          headerContent.style.height = '80px';
         }
       }
 
@@ -261,11 +535,8 @@
     }
 
     window.addEventListener('scroll', requestTick, { passive: true });
-    updateHeader(); // Initial call
+    updateHeader();
 
-    // ========================================================================
-    // SMOOTH SCROLL - For all anchor links
-    // ========================================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -276,7 +547,6 @@
 
         e.preventDefault();
 
-        // Calculate offset (header height + padding)
         const headerHeight = header?.offsetHeight || 80;
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = targetPosition - headerHeight - 20;
@@ -286,18 +556,14 @@
           behavior: 'smooth'
         });
 
-        // Update URL without jumping
         if (history.pushState) {
           history.pushState(null, null, href);
         }
       });
     });
 
-    // ========================================================================
-    // ACTIVE SECTION HIGHLIGHTING - Intersection Observer
-    // ========================================================================
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const navLinks = header.querySelectorAll('nav a[href^="#"]');
 
     const observerOptions = {
       threshold: 0.2,
@@ -309,15 +575,14 @@
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
 
-          // Update active states
           navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === `#${id}`) {
-              link.style.color = 'var(--wacat-navy)';
-              link.style.fontWeight = '600';
+            if (href === '#' + id) {
+              link.style.color = '#121212';
+              link.style.fontWeight = '400';
             } else {
-              link.style.color = 'rgba(30, 69, 99, 0.7)';
-              link.style.fontWeight = '500';
+              link.style.color = '#7C7C7C';
+              link.style.fontWeight = '400';
             }
           });
         }
@@ -326,23 +591,14 @@
 
     sections.forEach(section => sectionObserver.observe(section));
 
-    // ========================================================================
-    // MOBILE MENU - Enhanced with staggered animations
-    // ========================================================================
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const menuClose = document.getElementById('mobile-menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuLinks = document.querySelectorAll('.mobile-menu-link');
-    const menuPanel = mobileMenu?.querySelector('div');
-
     function openMenu() {
-      mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
-      menuPanel.classList.remove('translate-x-full');
+      mobileMenu.style.opacity = '1';
+      mobileMenu.style.pointerEvents = 'auto';
+      menuPanel.style.transform = 'translateX(0)';
       menuBtn.setAttribute('aria-expanded', 'true');
       mobileMenu.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
-      // Staggered animation for menu items
       menuLinks.forEach((link, index) => {
         link.style.opacity = '0';
         link.style.transform = 'translateX(20px)';
@@ -355,13 +611,13 @@
     }
 
     function closeMenu() {
-      mobileMenu.classList.add('opacity-0');
-      menuPanel.classList.add('translate-x-full');
+      mobileMenu.style.opacity = '0';
+      menuPanel.style.transform = 'translateX(100%)';
       menuBtn.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       setTimeout(() => {
-        mobileMenu.classList.add('pointer-events-none');
+        mobileMenu.style.pointerEvents = 'none';
       }, 300);
     }
 
@@ -377,9 +633,8 @@
       });
     });
 
-    // Close on ESC key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !mobileMenu.classList.contains('pointer-events-none')) {
+      if (e.key === 'Escape' && mobileMenu.style.pointerEvents !== 'none') {
         closeMenu();
       }
     });

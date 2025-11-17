@@ -296,14 +296,53 @@
 
 <style>
   #statistics-{{ section.id }} {
+    background-color: #ffffff;
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
     padding-right: {{ section.settings.padding_right_mobile }}px;
   }
 
+  #statistics-{{ section.id }} .statistics-wrapper {
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 21px;
+    padding-right: 21px;
+  }
+
   #statistics-{{ section.id }} .statistics-container {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: {{ section.settings.content_gap_mobile }}px;
+  }
+
+  #statistics-{{ section.id }} .stat-item {
+    text-align: center;
+  }
+
+  #statistics-{{ section.id }} .stat-number {
+    font-family: Assistant, sans-serif;
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(18, 18, 18, 0.3);
+    margin-bottom: 1.5rem;
+  }
+
+  #statistics-{{ section.id }} .stat-number.featured {
+    color: #121212;
+  }
+
+  #statistics-{{ section.id }} .stat-label {
+    font-family: Assistant, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(18, 18, 18, 0.5);
+  }
+
+  #statistics-{{ section.id }} .stat-label.featured {
+    color: #121212;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -314,8 +353,17 @@
       padding-right: {{ section.settings.padding_right_tablet }}px;
     }
 
+    #statistics-{{ section.id }} .statistics-wrapper {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
     #statistics-{{ section.id }} .statistics-container {
       gap: {{ section.settings.content_gap_tablet }}px;
+    }
+
+    #statistics-{{ section.id }} .stat-number {
+      font-size: 6rem;
     }
   }
 
@@ -327,13 +375,23 @@
       padding-right: {{ section.settings.padding_right_desktop }}px;
     }
 
+    #statistics-{{ section.id }} .statistics-wrapper {
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+
     #statistics-{{ section.id }} .statistics-container {
+      grid-template-columns: repeat(3, 1fr);
       gap: {{ section.settings.content_gap_desktop }}px;
+    }
+
+    #statistics-{{ section.id }} .stat-number {
+      font-size: 6rem;
     }
   }
 </style>
 
-<section id="statistics-{{ section.id }}" class="bg-white"
+<section id="statistics-{{ section.id }}"
   {% if section.settings.animation_enabled %}
     data-animate="true"
     data-animation-type="{{ section.settings.animation_type }}"
@@ -342,34 +400,31 @@
     data-animation-stagger="{{ section.settings.animation_stagger }}"
     data-animation-repeat="{{ section.settings.animation_repeat }}"
   {% endif %}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="statistics-container grid grid-cols-1 md:grid-cols-3">
-      <!-- Stat 1 -->
-      <div class="text-center" data-animate-child>
-        <div class="stat-number text-7xl md:text-8xl font-extralight text-wacat-navy/30 mb-6 leading-none" data-target="{{ section.settings.stat_1_number }}" data-unit="{{ section.settings.stat_1_unit }}">
+  <div class="statistics-wrapper">
+    <div class="statistics-container">
+      <div class="stat-item" data-animate-child>
+        <div class="stat-number" data-target="{{ section.settings.stat_1_number }}" data-unit="{{ section.settings.stat_1_unit }}">
           {{ section.settings.stat_1_number }}{{ section.settings.stat_1_unit }}
         </div>
-        <p class="caption text-wacat-navy/50">
+        <p class="stat-label">
           {{ section.settings.stat_1_label }}
         </p>
       </div>
 
-      <!-- Stat 2 -->
-      <div class="text-center" data-animate-child>
-        <div class="stat-number text-7xl md:text-8xl font-extralight text-wacat-navy/30 mb-6 leading-none" data-target="{{ section.settings.stat_2_number }}" data-unit="{{ section.settings.stat_2_unit }}">
+      <div class="stat-item" data-animate-child>
+        <div class="stat-number" data-target="{{ section.settings.stat_2_number }}" data-unit="{{ section.settings.stat_2_unit }}">
           {{ section.settings.stat_2_number }}{{ section.settings.stat_2_unit }}
         </div>
-        <p class="caption text-wacat-navy/50">
+        <p class="stat-label">
           {{ section.settings.stat_2_label }}
         </p>
       </div>
 
-      <!-- Stat 3 - Featured -->
-      <div class="text-center" data-animate-child>
-        <div class="stat-number text-7xl md:text-8xl font-extralight text-wacat-navy mb-6 leading-none" data-target="{{ section.settings.stat_3_number }}" data-unit="{{ section.settings.stat_3_unit }}">
+      <div class="stat-item" data-animate-child>
+        <div class="stat-number featured" data-target="{{ section.settings.stat_3_number }}" data-unit="{{ section.settings.stat_3_unit }}">
           {{ section.settings.stat_3_number }}{{ section.settings.stat_3_unit }}
         </div>
-        <p class="caption text-wacat-navy">
+        <p class="stat-label featured">
           {{ section.settings.stat_3_label }}
         </p>
       </div>

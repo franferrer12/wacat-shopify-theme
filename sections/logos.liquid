@@ -255,10 +255,47 @@
 
 <style>
   #logos-{{ section.id }} {
+    background-color: #ffffff;
+    font-family: Assistant, sans-serif;
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
     padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+
+  #logos-{{ section.id }} .logos-container {
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #logos-{{ section.id }} .logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+  }
+
+  #logos-{{ section.id }} .logo-item {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    filter: grayscale(100%);
+    display: block;
+  }
+
+  #logos-{{ section.id }} .logo-item:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  #logos-{{ section.id }} .logo-image {
+    max-width: 90px;
+    max-height: 45px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -267,6 +304,15 @@
       padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
       padding-left: {{ section.settings.padding_left_tablet }}px;
       padding-right: {{ section.settings.padding_right_tablet }}px;
+    }
+
+    #logos-{{ section.id }} .logos-grid {
+      gap: 28px;
+    }
+
+    #logos-{{ section.id }} .logo-image {
+      max-width: 105px;
+      max-height: 52px;
     }
   }
 
@@ -277,37 +323,19 @@
       padding-left: {{ section.settings.padding_left_desktop }}px;
       padding-right: {{ section.settings.padding_right_desktop }}px;
     }
-  }
 
-  /* B3TTER FOODS style logos */
-  #logos-{{ section.id }} .logo-item {
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-    filter: grayscale(100%);
-  }
+    #logos-{{ section.id }} .logos-grid {
+      gap: 36px;
+    }
 
-  #logos-{{ section.id }} .logo-item:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-  }
-
-  #logos-{{ section.id }} .logo-image {
-    max-width: 120px;
-    max-height: 60px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-  }
-
-  @media (max-width: 767px) {
     #logos-{{ section.id }} .logo-image {
-      max-width: 90px;
-      max-height: 45px;
+      max-width: 120px;
+      max-height: 60px;
     }
   }
 </style>
 
-<section id="logos-{{ section.id }}" class="bg-white"
+<section id="logos-{{ section.id }}"
   {% if section.settings.animation_enabled %}
     data-animate="true"
     data-animation-type="{{ section.settings.animation_type }}"
@@ -316,8 +344,8 @@
     data-animation-stagger="{{ section.settings.animation_stagger }}"
     data-animation-repeat="{{ section.settings.animation_repeat }}"
   {% endif %}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+  <div class="logos-container">
+    <div class="logos-grid">
       {% for block in section.blocks %}
         {% if block.settings.logo_image %}
           {% if block.settings.logo_link != blank %}

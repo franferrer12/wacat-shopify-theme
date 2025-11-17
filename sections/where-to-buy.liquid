@@ -266,14 +266,65 @@
 
 <style>
   #where-to-buy-{{ section.id }} {
+    background-color: #ffffff;
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
     padding-right: {{ section.settings.padding_right_mobile }}px;
   }
 
+  #where-to-buy-{{ section.id }} .where-to-buy-wrapper {
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 21px;
+    padding-right: 21px;
+  }
+
   #where-to-buy-{{ section.id }} .where-to-buy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: {{ section.settings.content_gap_mobile }}px;
+  }
+
+  #where-to-buy-{{ section.id }} .where-to-buy-title {
+    font-family: Assistant, sans-serif;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #121212;
+    margin: 0;
+  }
+
+  #where-to-buy-{{ section.id }} .where-to-buy-description {
+    font-family: Assistant, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #7C7C7C;
+    margin: 0;
+  }
+
+  #where-to-buy-{{ section.id }} .where-to-buy-link {
+    font-family: Assistant, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #121212;
+    border: none;
+    border-radius: 32px;
+    padding: 21px 27px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.3s ease;
+  }
+
+  #where-to-buy-{{ section.id }} .where-to-buy-link:hover {
+    opacity: 0.8;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -284,8 +335,25 @@
       padding-right: {{ section.settings.padding_right_tablet }}px;
     }
 
+    #where-to-buy-{{ section.id }} .where-to-buy-wrapper {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
     #where-to-buy-{{ section.id }} .where-to-buy-container {
       gap: {{ section.settings.content_gap_tablet }}px;
+    }
+
+    #where-to-buy-{{ section.id }} .where-to-buy-title {
+      font-size: 3rem;
+    }
+
+    #where-to-buy-{{ section.id }} .where-to-buy-description {
+      font-size: 1.25rem;
+    }
+
+    #where-to-buy-{{ section.id }} .where-to-buy-link {
+      padding: 28px 36px;
     }
   }
 
@@ -297,13 +365,30 @@
       padding-right: {{ section.settings.padding_right_desktop }}px;
     }
 
+    #where-to-buy-{{ section.id }} .where-to-buy-wrapper {
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+
     #where-to-buy-{{ section.id }} .where-to-buy-container {
       gap: {{ section.settings.content_gap_desktop }}px;
+    }
+
+    #where-to-buy-{{ section.id }} .where-to-buy-title {
+      font-size: 3.75rem;
+    }
+
+    #where-to-buy-{{ section.id }} .where-to-buy-description {
+      font-size: 1.5rem;
+    }
+
+    #where-to-buy-{{ section.id }} .where-to-buy-link {
+      padding: 36px 48px;
     }
   }
 </style>
 
-<section id="where-to-buy-{{ section.id }}" class="bg-white"
+<section id="where-to-buy-{{ section.id }}"
   {% if section.settings.animation_enabled %}
     data-animate="true"
     data-animation-type="{{ section.settings.animation_type }}"
@@ -312,18 +397,15 @@
     data-animation-stagger="{{ section.settings.animation_stagger }}"
     data-animation-repeat="{{ section.settings.animation_repeat }}"
   {% endif %}>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="where-to-buy-container flex flex-col items-center text-center">
-      <h2 class="heading-xl text-wacat-navy">
+  <div class="where-to-buy-wrapper">
+    <div class="where-to-buy-container">
+      <h2 class="where-to-buy-title">
         {{ section.settings.title }}
       </h2>
-      <p class="body-lg text-secondary">
+      <p class="where-to-buy-description">
         {{ section.settings.description }}
       </p>
-      <a
-        href="mailto:{{ section.settings.email }}"
-        class="btn btn-primary btn-lg"
-      >
+      <a href="mailto:{{ section.settings.email }}" class="where-to-buy-link">
         <i class="las la-envelope"></i>
         {{ section.settings.email }}
       </a>

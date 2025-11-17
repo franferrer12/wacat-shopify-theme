@@ -317,17 +317,208 @@
 
 <style>
   #cta-final-{{ section.id }} {
+    position: relative;
+    background-color: #121212;
+    overflow: hidden;
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
     padding-right: {{ section.settings.padding_right_mobile }}px;
   }
 
+  #cta-final-{{ section.id }} .cta-final-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-wrapper {
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 10;
+  }
+
   #cta-final-{{ section.id }} .cta-final-container {
+    display: flex;
+    flex-direction: column;
     gap: {{ section.settings.content_gap_mobile }}px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  #cta-final-{{ section.id }} .cta-final-content {
+    text-align: center;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-title {
+    font-family: Assistant, sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-subtitle {
+    font-family: Assistant, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 48px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 21px 27px;
+    font-family: Assistant, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #ffffff;
+    color: #121212;
+    border: 2px solid #ffffff;
+    border-radius: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-button-primary:hover {
+    background-color: #F3F3F3;
+    border-color: #F3F3F3;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 21px 27px;
+    font-family: Assistant, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-button-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  #cta-final-{{ section.id }} .cta-final-button-icon {
+    font-size: 20px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-button-price {
+    margin-left: 8px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  #cta-final-{{ section.id }} .cta-final-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-trust-icon {
+    font-size: 20px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-trust-text {
+    font-family: Assistant, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial-wrapper {
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial-inner {
+    text-align: center;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial-quote-icon {
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 24px;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial-quote {
+    font-family: Assistant, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+    font-style: italic;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial-author-wrapper {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial-author {
+    font-family: Assistant, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 4px 0;
+  }
+
+  #cta-final-{{ section.id }} .cta-final-testimonial-meta {
+    font-family: Assistant, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
     #cta-final-{{ section.id }} {
       padding-top: {{ section.settings.padding_top_tablet }}px;
       padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
@@ -337,6 +528,31 @@
 
     #cta-final-{{ section.id }} .cta-final-container {
       gap: {{ section.settings.content_gap_tablet }}px;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-title {
+      font-size: 48px;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-subtitle {
+      font-size: 24px;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-buttons {
+      flex-direction: row;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-button-primary,
+    #cta-final-{{ section.id }} .cta-final-button-secondary {
+      padding: 28px 36px;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-testimonial {
+      padding: 40px;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-testimonial-quote {
+      font-size: 20px;
     }
   }
 
@@ -351,10 +567,24 @@
     #cta-final-{{ section.id }} .cta-final-container {
       gap: {{ section.settings.content_gap_desktop }}px;
     }
+
+    #cta-final-{{ section.id }} .cta-final-title {
+      font-size: 60px;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-subtitle {
+      font-size: 24px;
+    }
+
+    #cta-final-{{ section.id }} .cta-final-button-primary,
+    #cta-final-{{ section.id }} .cta-final-button-secondary {
+      padding: 36px 48px;
+      font-size: 20px;
+    }
   }
 </style>
 
-<section id="cta-final-{{ section.id }}" class="relative bg-wacat-navy overflow-hidden"
+<section id="cta-final-{{ section.id }}"
   {% if section.settings.animation_enabled %}
     data-animate="true"
     data-animation-type="{{ section.settings.animation_type }}"
@@ -363,71 +593,67 @@
     data-animation-stagger="{{ section.settings.animation_stagger }}"
     data-animation-repeat="{{ section.settings.animation_repeat }}"
   {% endif %}>
-  <!-- Background pattern -->
-  <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="cta-final-container flex flex-col">
+  <div class="cta-final-background"></div>
 
-    <!-- Main CTA Content -->
-    <div class="text-center">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-8 leading-tight">
-        {{ section.settings.title }}
-      </h2>
+  <div class="cta-final-wrapper">
+    <div class="cta-final-container">
 
-      <p class="text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto mb-12">
-        {{ section.settings.subtitle }}
-      </p>
+      <div class="cta-final-content">
+        <h2 class="cta-final-title">
+          {{ section.settings.title }}
+        </h2>
 
-      <!-- Primary CTA -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-        <a href="{{ checkout_url }}" class="btn btn-white btn-xl">
-          <i class="las la-shopping-cart"></i>
-          {{ section.settings.cta_primary_text }}
-          {% if product_price != '' %}
-            <span class="ml-2">{{ product_price }}</span>
-          {% endif %}
-        </a>
-        <a href="#donde-comprar" class="btn btn-ghost-white btn-xl">
-          {{ section.settings.cta_secondary_text }}
-        </a>
-      </div>
+        <p class="cta-final-subtitle">
+          {{ section.settings.subtitle }}
+        </p>
 
-      <!-- Trust indicators -->
-      <div class="flex flex-wrap justify-center items-center gap-8 text-white/70">
-        <div class="flex items-center gap-2">
-          <i class="las la-shield-alt text-xl"></i>
-          <span class="text-sm">{{ section.settings.trust_guarantee }}</span>
+        <div class="cta-final-buttons">
+          <a href="{{ checkout_url }}" class="cta-final-button-primary">
+            <i class="las la-shopping-cart cta-final-button-icon"></i>
+            {{ section.settings.cta_primary_text }}
+            {% if product_price != '' %}
+              <span class="cta-final-button-price">{{ product_price }}</span>
+            {% endif %}
+          </a>
+          <a href="#donde-comprar" class="cta-final-button-secondary">
+            {{ section.settings.cta_secondary_text }}
+          </a>
         </div>
-        <div class="flex items-center gap-2">
-          <i class="las la-shipping-fast text-xl"></i>
-          <span class="text-sm">{{ section.settings.trust_shipping }}</span>
-        </div>
-      </div>
-    </div>
 
-    <!-- Optional Testimonial -->
-    {% if section.settings.testimonial_quote != blank %}
-      <div class="max-w-2xl mx-auto">
-        <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/20">
-          <div class="text-center">
-            <i class="las la-quote-left text-3xl text-white/40 mb-6"></i>
-            <blockquote class="text-lg md:text-xl text-white/90 font-light mb-6 leading-relaxed">
-              "{{ section.settings.testimonial_quote }}"
-            </blockquote>
-            <div class="text-white/80">
-              <p class="font-medium">{{ section.settings.testimonial_author }}</p>
-              {% if section.settings.testimonial_cat_name %}
-                <p class="text-sm text-white/60">
-                  {{ section.settings.testimonial_cat_name }}
-                  {% if section.settings.testimonial_cat_age %} · {{ section.settings.testimonial_cat_age }}{% endif %}
-                </p>
-              {% endif %}
-            </div>
+        <div class="cta-final-trust">
+          <div class="cta-final-trust-item">
+            <i class="las la-shield-alt cta-final-trust-icon"></i>
+            <span class="cta-final-trust-text">{{ section.settings.trust_guarantee }}</span>
+          </div>
+          <div class="cta-final-trust-item">
+            <i class="las la-shipping-fast cta-final-trust-icon"></i>
+            <span class="cta-final-trust-text">{{ section.settings.trust_shipping }}</span>
           </div>
         </div>
       </div>
-    {% endif %}
+
+      {% if section.settings.testimonial_quote != blank %}
+        <div class="cta-final-testimonial-wrapper">
+          <div class="cta-final-testimonial">
+            <div class="cta-final-testimonial-inner">
+              <i class="las la-quote-left cta-final-testimonial-quote-icon"></i>
+              <blockquote class="cta-final-testimonial-quote">
+                "{{ section.settings.testimonial_quote }}"
+              </blockquote>
+              <div class="cta-final-testimonial-author-wrapper">
+                <p class="cta-final-testimonial-author">{{ section.settings.testimonial_author }}</p>
+                {% if section.settings.testimonial_cat_name %}
+                  <p class="cta-final-testimonial-meta">
+                    {{ section.settings.testimonial_cat_name }}
+                    {% if section.settings.testimonial_cat_age %} · {{ section.settings.testimonial_cat_age }}{% endif %}
+                  </p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
     </div>
 
   </div>
