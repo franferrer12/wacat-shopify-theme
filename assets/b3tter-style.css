@@ -464,6 +464,43 @@ select:focus {
   transition: all 0.3s ease;
 }
 
+/* Animation Classes EXACTAS B3TTER
+   ========================================================================== */
+.web-b3-ani {
+  -webkit-transition: all 0.3s ease !important;
+  -moz-transition: all 0.3s ease !important;
+  -o-transition: all 0.3s ease !important;
+  transition: all 0.3s ease !important;
+}
+
+.up-on-hover {
+  transition: transform 0.3s ease !important;
+}
+
+.up-on-hover:hover {
+  transform: translateY(-5px) !important;
+}
+
+/* Responsive Image Classes EXACTAS B3TTER
+   ========================================================================== */
+.only-desktop {
+  display: block !important;
+}
+
+.only-mobile {
+  display: none !important;
+}
+
+@media screen and (max-width: 749px) {
+  .only-desktop {
+    display: none !important;
+  }
+
+  .only-mobile {
+    display: block !important;
+  }
+}
+
 /* Ocultar elementos de WACAT que no existen en B3TTER
    ========================================================================== */
 .simplify-b3tter .absolute.blur-3xl,
