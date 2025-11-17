@@ -104,12 +104,75 @@ html {
 
 /* Tipografía EXACTA B3TTER
    ========================================================================== */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5 {
   font-family: Assistant, sans-serif !important;
   color: rgb(var(--color-foreground)) !important;
   font-weight: 400 !important; /* B3TTER usa 400 regular, NO 300 */
-  letter-spacing: normal !important;
-  line-height: 1.2 !important;
+  letter-spacing: 0.06rem !important; /* EXACTO B3TTER */
+  line-height: 1.3 !important; /* EXACTO B3TTER */
+  word-break: break-word !important;
+}
+
+/* Heading Sizes EXACTOS B3TTER FOODS
+   ========================================================================== */
+h1, .h1 {
+  font-size: 3rem !important; /* 30px mobile */
+}
+
+@media screen and (min-width: 750px) {
+  h1, .h1 {
+    font-size: 4rem !important; /* 40px desktop */
+  }
+}
+
+h2, .h2 {
+  font-size: 2rem !important; /* 20px mobile */
+}
+
+@media screen and (min-width: 750px) {
+  h2, .h2 {
+    font-size: 2.4rem !important; /* 24px desktop */
+  }
+}
+
+h3, .h3 {
+  font-size: 1.7rem !important; /* 17px mobile */
+}
+
+@media screen and (min-width: 750px) {
+  h3, .h3 {
+    font-size: 1.8rem !important; /* 18px desktop */
+  }
+}
+
+h4, .h4 {
+  font-size: 1.5rem !important; /* 15px */
+}
+
+h5, .h5 {
+  font-size: 1.2rem !important; /* 12px mobile */
+}
+
+@media screen and (min-width: 750px) {
+  h5, .h5 {
+    font-size: 1.3rem !important; /* 13px desktop */
+  }
+}
+
+/* Custom Section Headings EXACTO B3TTER
+   ========================================================================== */
+.section-title {
+  color: #7C7C7C !important;
+  font-size: 2rem !important; /* 20px mobile */
+  font-weight: 700 !important; /* Bold para títulos destacados */
+  line-height: normal !important;
+}
+
+@media screen and (min-width: 750px) {
+  .section-title {
+    font-size: 3.2rem !important; /* 32px desktop - EXACTO B3TTER */
+  }
 }
 
 p {
