@@ -11,220 +11,151 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "menu_item_1": "Productos",
+        "menu_item_1_url": "/collections/all",
+        "menu_item_2": "Packs",
+        "menu_item_2_url": "/collections/packs",
+        "menu_item_3": "Misión",
+        "menu_item_3_url": "/pages/mision",
+        "menu_item_4": "Encuéntranos",
+        "menu_item_4_url": "/pages/encuentranos"
+      }
+    },
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "ENVIO GRATIS EN PEDIDOS SUPERIORES A 35€",
+        "minimum_order": "15€ Pedido Mínimo",
+        "free_shipping": "35€ Envío gratis"
+      }
     },
     "hero": {
       "type": "hero",
       "settings": {
-        "title": "AGUA QUE TU GATO ELIJE.\nSALUD QUE AGRADECES.",
-        "text_position": "middle"
+        "title": ""
       }
     },
-    "logos": {
-      "type": "logos",
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Compra B3tter",
+        "collection": ""
+      }
+    },
+    "packs": {
+      "type": "packs-section",
       "blocks": {
-        "logo_1": {
-          "type": "logo",
+        "pack_1": {
+          "type": "pack",
           "settings": {
-            "logo_alt": "Certificado Veterinario"
+            "title": "Original Pack",
+            "product": ""
           }
         },
-        "logo_2": {
-          "type": "logo",
+        "pack_2": {
+          "type": "pack",
           "settings": {
-            "logo_alt": "Ingredientes Naturales"
+            "title": "Starter Pack",
+            "product": ""
           }
         },
-        "logo_3": {
-          "type": "logo",
+        "pack_3": {
+          "type": "pack",
           "settings": {
-            "logo_alt": "Made in Spain"
-          }
-        },
-        "logo_4": {
-          "type": "logo",
-          "settings": {
-            "logo_alt": "Aprobado por veterinarios"
+            "title": "Energy Pack",
+            "product": ""
           }
         }
       },
       "block_order": [
-        "logo_1",
-        "logo_2",
-        "logo_3",
-        "logo_4"
+        "pack_1",
+        "pack_2",
+        "pack_3"
+      ],
+      "settings": {
+        "section_title": "AHORRA CON PACKS"
+      }
+    },
+    "products-grid": {
+      "type": "products-grid",
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "product_title": "Original Crunchy Granola",
+            "product": ""
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "product_title": "Cacao Crunchy Granola",
+            "product": ""
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "product_title": "Arándano Bar",
+            "product": ""
+          }
+        },
+        "product_4": {
+          "type": "product",
+          "settings": {
+            "product_title": "Cacahuete Bar",
+            "product": ""
+          }
+        },
+        "product_5": {
+          "type": "product",
+          "settings": {
+            "product_title": "Cacao Bar",
+            "product": ""
+          }
+        },
+        "product_6": {
+          "type": "product",
+          "settings": {
+            "product_title": "Coco Bar",
+            "product": ""
+          }
+        },
+        "product_7": {
+          "type": "product",
+          "settings": {
+            "product_title": "Crema de Cacao y Avellanas",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4",
+        "product_5",
+        "product_6",
+        "product_7"
       ],
       "settings": {}
-    },
-    "benefits": {
-      "type": "benefits",
-      "blocks": {
-        "benefit_1": {
-          "type": "benefit",
-          "settings": {
-            "icon": "la-tint",
-            "title": "Hidratación natural",
-            "description": "Formulado con electrolitos que estimulan la sed natural de tu gato. Resultados visibles en 3-5 días."
-          }
-        },
-        "benefit_2": {
-          "type": "benefit",
-          "settings": {
-            "icon": "la-leaf",
-            "title": "100% Natural",
-            "description": "Sin químicos, sin aditivos artificiales. Solo ingredientes que tu gato reconoce instintivamente."
-          }
-        },
-        "benefit_3": {
-          "type": "benefit",
-          "settings": {
-            "icon": "la-heart",
-            "title": "Salud renal",
-            "description": "Apoya la función renal y previene problemas urinarios. Para gatos de todas las edades."
-          }
-        }
-      },
-      "block_order": [
-        "benefit_1",
-        "benefit_2",
-        "benefit_3"
-      ],
-      "settings": {}
-    },
-    "product-featured": {
-      "type": "product-featured",
-      "settings": {
-        "section_title": "¿Por qué WACAT?",
-        "section_subtitle": "La primera agua formulada específicamente para gatos",
-        "product": "",
-        "product_tagline": "Mejora la hidratación naturalmente",
-        "cta_primary_text": "Pruébalo ahora",
-        "cta_secondary_text": "",
-        "guarantee_title": "Garantía 30 días",
-        "guarantee_description": "Si no ves resultados, te devolvemos el 100%"
-      }
-    },
-    "how-it-works": {
-      "type": "how-it-works",
-      "settings": {
-        "title": "Cómo funciona",
-        "subtitle": "",
-        "step_1_title": "Añade unas gotas",
-        "step_1_description": "3-5 gotas por cuenco de agua",
-        "step_2_title": "Tu gato descubre",
-        "step_2_description": "El sabor natural atrae su instinto",
-        "step_3_title": "Hidratación mejorada",
-        "step_3_description": "Resultados visibles en días"
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Llevaba meses preocupada porque Luna apenas bebía. Con WACAT ha sido un cambio increíble. Ahora bebe 3 veces más y está mucho más activa.",
-            "author": "María",
-            "cat_name": "Luna",
-            "cat_age": "7 años",
-            "rating": 5
-          }
-        },
-        "testimonial_2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Mi veterinario me lo recomendó para Simba que tenía problemas renales. En 2 semanas ya notamos la diferencia. Es increíble.",
-            "author": "Carlos",
-            "cat_name": "Simba",
-            "cat_age": "9 años",
-            "rating": 5
-          }
-        },
-        "testimonial_3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Probé de todo: fuentes, cuencos de cerámica, agua filtrada... Nada funcionó hasta WACAT. Ahora Milo bebe agua sin problemas.",
-            "author": "Laura",
-            "cat_name": "Milo",
-            "cat_age": "5 años",
-            "rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_1",
-        "testimonial_2",
-        "testimonial_3"
-      ],
-      "settings": {
-        "title": "Miles de gatos ya lo usan",
-        "subtitle": ""
-      }
-    },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "faq_1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "¿Cómo funciona WACAT?",
-            "answer": "WACAT contiene sabores naturales que los gatos encuentran irresistibles. Al añadir unas gotas al agua, estimula su instinto natural de beber."
-          }
-        },
-        "faq_2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "¿Es seguro para mi gato?",
-            "answer": "Completamente. WACAT está formulado con ingredientes 100% naturales, sin químicos ni aditivos. Testado y recomendado por veterinarios."
-          }
-        },
-        "faq_3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "¿Funciona con todos los gatos?",
-            "answer": "WACAT funciona con la mayoría de los gatos. Si después de 30 días no ves resultados, te devolvemos el 100% de tu dinero."
-          }
-        }
-      },
-      "block_order": [
-        "faq_1",
-        "faq_2",
-        "faq_3"
-      ],
-      "settings": {
-        "title": "Preguntas frecuentes",
-        "subtitle": ""
-      }
-    },
-    "cta-final": {
-      "type": "cta-final",
-      "settings": {
-        "title": "Dale a tu gato la hidratación que merece",
-        "subtitle": "No esperes a que aparezcan problemas de salud. Previene ahora.",
-        "cta_primary_text": "Comprar ahora",
-        "cta_secondary_text": "",
-        "product": "",
-        "testimonial_quote": "",
-        "testimonial_author": "",
-        "testimonial_cat_name": "",
-        "testimonial_cat_age": ""
-      }
     },
     "footer": {
       "type": "footer",
-      "settings": {}
+      "settings": {
+        "show_country_selector": true,
+        "countries": "España, Portugal, Alemania, Bélgica, Francia, Italia, Países Bajos"
+      }
     }
   },
   "order": [
     "header",
+    "announcement",
     "hero",
-    "logos",
-    "benefits",
-    "product-featured",
-    "how-it-works",
-    "testimonials",
-    "faq",
-    "cta-final",
+    "featured-collection",
+    "packs",
+    "products-grid",
     "footer"
   ]
 }
