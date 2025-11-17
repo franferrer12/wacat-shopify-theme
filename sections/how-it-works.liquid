@@ -211,6 +211,78 @@
       "step": 4,
       "default": 64,
       "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Animaciones"
+    },
+    {
+      "type": "checkbox",
+      "id": "animation_enabled",
+      "label": "Habilitar animaciones",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "animation_type",
+      "label": "Tipo de animación",
+      "default": "fadeInUp",
+      "options": [
+        { "value": "none", "label": "Sin animación" },
+        { "value": "fadeIn", "label": "Fade In" },
+        { "value": "fadeInUp", "label": "Fade In Up" },
+        { "value": "fadeInDown", "label": "Fade In Down" },
+        { "value": "fadeInLeft", "label": "Fade In Left" },
+        { "value": "fadeInRight", "label": "Fade In Right" },
+        { "value": "scaleIn", "label": "Scale In" },
+        { "value": "zoomIn", "label": "Zoom In" },
+        { "value": "slideInUp", "label": "Slide In Up" },
+        { "value": "slideInDown", "label": "Slide In Down" },
+        { "value": "slideInLeft", "label": "Slide In Left" },
+        { "value": "slideInRight", "label": "Slide In Right" },
+        { "value": "rotateIn", "label": "Rotate In" },
+        { "value": "flipInX", "label": "Flip In X" },
+        { "value": "flipInY", "label": "Flip In Y" },
+        { "value": "bounceIn", "label": "Bounce In" },
+        { "value": "elastic", "label": "Elastic" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "label": "Duración animación (ms)",
+      "min": 200,
+      "max": 2000,
+      "step": 100,
+      "default": 800,
+      "unit": "ms"
+    },
+    {
+      "type": "range",
+      "id": "animation_delay",
+      "label": "Delay animación (ms)",
+      "min": 0,
+      "max": 2000,
+      "step": 100,
+      "default": 0,
+      "unit": "ms"
+    },
+    {
+      "type": "range",
+      "id": "animation_stagger",
+      "label": "Stagger entre elementos (ms)",
+      "min": 0,
+      "max": 300,
+      "step": 50,
+      "default": 100,
+      "unit": "ms",
+      "info": "Retraso escalonado entre elementos hijos animados"
+    },
+    {
+      "type": "checkbox",
+      "id": "animation_repeat",
+      "label": "Repetir animación al hacer scroll",
+      "default": false
     }
   ]
 }
@@ -255,7 +327,15 @@
   }
 </style>
 
-<section id="how-it-works-{{ section.id }}" class="bg-white">
+<section id="how-it-works-{{ section.id }}" class="bg-white"
+  {% if section.settings.animation_enabled %}
+    data-animate="true"
+    data-animation-type="{{ section.settings.animation_type }}"
+    data-animation-duration="{{ section.settings.animation_duration }}"
+    data-animation-delay="{{ section.settings.animation_delay }}"
+    data-animation-stagger="{{ section.settings.animation_stagger }}"
+    data-animation-repeat="{{ section.settings.animation_repeat }}"
+  {% endif %}>
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
@@ -272,7 +352,7 @@
     <div class="how-it-works-container grid grid-cols-1 md:grid-cols-3">
 
       <!-- Step 1 -->
-      <div class="text-center relative">
+      <div class="text-center relative" data-animate-child>
         <!-- Step number circle -->
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-wacat-navy text-white mb-8">
           <span class="text-2xl font-extralight">01</span>
@@ -293,7 +373,7 @@
       </div>
 
       <!-- Step 2 -->
-      <div class="text-center relative">
+      <div class="text-center relative" data-animate-child>
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-wacat-navy text-white mb-8">
           <span class="text-2xl font-extralight">02</span>
         </div>
@@ -312,7 +392,7 @@
       </div>
 
       <!-- Step 3 -->
-      <div class="text-center">
+      <div class="text-center" data-animate-child>
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-wacat-navy text-white mb-8">
           <span class="text-2xl font-extralight">03</span>
         </div>
