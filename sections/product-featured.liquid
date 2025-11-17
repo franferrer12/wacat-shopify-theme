@@ -1,0 +1,136 @@
+{% schema %}
+{
+  "name": "Product Featured",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "WACAT"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Esencia natural que estimula el instinto de beber"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "product_description",
+      "label": "Product Description",
+      "default": "Esencia natural para hidratación felina"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping Text",
+      "default": "Envío gratuito 24-48h"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Comprar Ahora"
+    },
+    {
+      "type": "text",
+      "id": "pharmacy_link_text",
+      "label": "Pharmacy Link Text",
+      "default": "También en farmacias"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "Garantía 30 días"
+    }
+  ]
+}
+{% endschema %}
+
+{%- assign product = all_products[section.settings.product] -%}
+{%- if product.selected_or_first_available_variant -%}
+  {%- assign variant = product.selected_or_first_available_variant -%}
+  {%- assign product_price = variant.price | divided_by: 100 -%}
+  {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
+{%- else -%}
+  {%- assign product_price = 0 -%}
+  {%- assign checkout_url = '#producto' -%}
+{%- endif -%}
+
+<section class="bg-white py-12 md:py-16 lg:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-3">
+        {{ section.settings.title }}
+      </h2>
+      <p class="text-base text-wacat-navy/60">
+        {{ section.settings.subtitle }}
+      </p>
+
+      <!-- Product Card compacto -->
+      <div class="max-w-sm mx-auto mt-8">
+        <div class="bg-gradient-to-br from-wacat-cream-light to-white rounded-2xl shadow-lg border border-wacat-navy/10 overflow-hidden animated-section">
+          <!-- Image -->
+          {% if product.featured_image %}
+            <div class="relative aspect-square overflow-hidden bg-white">
+              <img
+                src="{{ product.featured_image | img_url: 'master' }}"
+                alt="{{ product.title }}"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          {% endif %}
+
+          <!-- Product Info -->
+          <div class="p-6 text-center space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-wacat-navy mb-1">
+                {{ product.title | default: 'WACAT - 30ml' }}
+              </h3>
+              <p class="text-sm text-wacat-navy/60">
+                {{ section.settings.product_description }}
+              </p>
+            </div>
+
+            <!-- Price -->
+            {% if product_price > 0 %}
+              <div class="py-2">
+                <div class="text-3xl font-bold text-wacat-navy">
+                  {{ product_price }}€
+                </div>
+                <p class="text-xs text-wacat-navy/50 mt-1">
+                  ✓ {{ section.settings.shipping_text }}
+                </p>
+              </div>
+            {% endif %}
+
+            <!-- CTA -->
+            <div class="space-y-3">
+              <a
+                href="{{ checkout_url }}"
+                class="buy-button block w-full bg-wacat-navy text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark hover:scale-105 transition-all duration-300 shadow-lg"
+              >
+                🛒 {{ section.settings.cta_text }}
+              </a>
+
+              <div class="flex items-center justify-center gap-4 text-xs text-wacat-navy/60">
+                <span>🛡️ {{ section.settings.guarantee_text }}</span>
+                <span>•</span>
+                <a href="#donde-comprar" class="hover:text-wacat-navy transition-colors">
+                  {{ section.settings.pharmacy_link_text }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

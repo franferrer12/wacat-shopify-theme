@@ -1,0 +1,9 @@
+# MacOS
+.DS_Store
+
+# Archives
+*.zip
+
+# IDE
+.vscode/
+.idea/

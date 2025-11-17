@@ -1,0 +1,109 @@
+{% schema %}
+{
+  "name": "How It Works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Cómo funciona"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Tres pasos simples"
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Step 1 Title",
+      "default": "Añade unas gotas"
+    },
+    {
+      "type": "text",
+      "id": "step_1_description",
+      "label": "Step 1 Description",
+      "default": "Mezcla WACAT con el agua diaria de tu gato"
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Step 2 Title",
+      "default": "Tu gato descubre"
+    },
+    {
+      "type": "text",
+      "id": "step_2_description",
+      "label": "Step 2 Description",
+      "default": "Los sabores naturales atraen su instinto"
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Step 3 Title",
+      "default": "Hidratación mejorada"
+    },
+    {
+      "type": "text",
+      "id": "step_3_description",
+      "label": "Step 3 Description",
+      "default": "Mejora su salud renal y vitalidad general"
+    }
+  ]
+}
+{% endschema %}
+
+<section id="como-funciona" class="bg-gray-50 py-12 md:py-16 lg:py-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-2">
+        {{ section.settings.title }}
+      </h2>
+      <p class="text-sm text-wacat-navy/60">
+        {{ section.settings.subtitle }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div class="animated-section text-center">
+        <div class="bg-white rounded-2xl p-6 shadow border border-wacat-navy/5 hover:shadow-lg transition-all duration-300 h-full">
+          <div class="text-5xl mb-4">💧</div>
+          <div class="step-number text-4xl font-bold text-wacat-navy/20 mb-3 opacity-0">01</div>
+          <h3 class="text-lg font-bold text-wacat-navy mb-2">
+            {{ section.settings.step_1_title }}
+          </h3>
+          <p class="text-sm text-wacat-navy/60">
+            {{ section.settings.step_1_description }}
+          </p>
+        </div>
+      </div>
+
+      <div class="animated-section text-center">
+        <div class="bg-white rounded-2xl p-6 shadow border border-wacat-navy/5 hover:shadow-lg transition-all duration-300 h-full">
+          <div class="text-5xl mb-4">🐱</div>
+          <div class="step-number text-4xl font-bold text-wacat-navy/20 mb-3 opacity-0">02</div>
+          <h3 class="text-lg font-bold text-wacat-navy mb-2">
+            {{ section.settings.step_2_title }}
+          </h3>
+          <p class="text-sm text-wacat-navy/60">
+            {{ section.settings.step_2_description }}
+          </p>
+        </div>
+      </div>
+
+      <div class="animated-section text-center">
+        <div class="bg-white rounded-2xl p-6 shadow border border-wacat-navy/5 hover:shadow-lg transition-all duration-300 h-full">
+          <div class="text-5xl mb-4">✨</div>
+          <div class="step-number text-4xl font-bold text-wacat-navy/20 mb-3 opacity-0">03</div>
+          <h3 class="text-lg font-bold text-wacat-navy mb-2">
+            {{ section.settings.step_3_title }}
+          </h3>
+          <p class="text-sm text-wacat-navy/60">
+            {{ section.settings.step_3_description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

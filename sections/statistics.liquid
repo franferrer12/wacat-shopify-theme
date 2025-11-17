@@ -1,0 +1,162 @@
+{% schema %}
+{
+  "name": "Statistics",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "No estás solo en esta preocupación"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Miles de dueños comparten tu inquietud sobre la hidratación de sus gatos"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Stat 1 Number",
+      "default": "70"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_unit",
+      "label": "Stat 1 Unit (%,×, or blank)",
+      "default": "%"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_title",
+      "label": "Stat 1 Title",
+      "default": "de los gatos están deshidratados"
+    },
+    {
+      "type": "textarea",
+      "id": "stat_1_description",
+      "label": "Stat 1 Description",
+      "default": "La mayoría de los dueños no se dan cuenta hasta que aparecen problemas"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Stat 2 Number",
+      "default": "30"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_unit",
+      "label": "Stat 2 Unit",
+      "default": "%"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_title",
+      "label": "Stat 2 Title",
+      "default": "enfermedad renal en gatos mayores"
+    },
+    {
+      "type": "textarea",
+      "id": "stat_2_description",
+      "label": "Stat 2 Description",
+      "default": "La prevención temprana es clave para evitar problemas graves"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Stat 3 Number",
+      "default": "3"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_unit",
+      "label": "Stat 3 Unit",
+      "default": "×"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_title",
+      "label": "Stat 3 Title",
+      "default": "más hidratación con WACAT"
+    },
+    {
+      "type": "textarea",
+      "id": "stat_3_description",
+      "label": "Stat 3 Description",
+      "default": "Los gatos beben hasta 3 veces más agua sin darse cuenta"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_footer",
+      "label": "Stat 3 Footer",
+      "default": "Datos verificados por veterinarios"
+    },
+    {
+      "type": "text",
+      "id": "hope_message",
+      "label": "Hope Message",
+      "default": "La buena noticia: la deshidratación tiene solución fácil y natural"
+    }
+  ]
+}
+{% endschema %}
+
+<section id="estadisticas" class="bg-white py-12 md:py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Intro simple -->
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-3">
+        ¿Por qué WACAT?
+      </h2>
+      <p class="text-base text-wacat-navy/60 font-light">
+        Datos que importan
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <!-- Stat 1 -->
+      <div class="animated-section">
+        <div class="bg-gradient-to-br from-wacat-cream-light to-white rounded-2xl p-6 text-center shadow border border-wacat-navy/5 hover:shadow-lg transition-all duration-300">
+          <div class="text-5xl mb-3">⚠️</div>
+          <div class="stat-number text-5xl font-bold text-wacat-navy mb-2" data-target="{{ section.settings.stat_1_number }}" data-unit="{{ section.settings.stat_1_unit }}">
+            {{ section.settings.stat_1_number }}{{ section.settings.stat_1_unit }}
+          </div>
+          <p class="text-sm font-semibold text-wacat-navy">
+            Gatos deshidratados
+          </p>
+        </div>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="animated-section">
+        <div class="bg-gradient-to-br from-wacat-cream-light to-white rounded-2xl p-6 text-center shadow border border-wacat-navy/5 hover:shadow-lg transition-all duration-300">
+          <div class="text-5xl mb-3">💔</div>
+          <div class="stat-number text-5xl font-bold text-wacat-navy mb-2" data-target="{{ section.settings.stat_2_number }}" data-unit="{{ section.settings.stat_2_unit }}">
+            {{ section.settings.stat_2_number }}{{ section.settings.stat_2_unit }}
+          </div>
+          <p class="text-sm font-semibold text-wacat-navy">
+            Problemas renales
+          </p>
+        </div>
+      </div>
+
+      <!-- Stat 3 - Featured -->
+      <div class="animated-section">
+        <div class="bg-gradient-to-br from-wacat-navy to-wacat-navy-dark rounded-2xl p-6 text-center shadow-lg relative overflow-hidden hover:scale-105 transition-all duration-300">
+          <div class="text-5xl mb-3">✨</div>
+          <div class="stat-number text-5xl font-bold text-white mb-2 relative z-10" data-target="{{ section.settings.stat_3_number }}" data-unit="{{ section.settings.stat_3_unit }}">
+            {{ section.settings.stat_3_number }}{{ section.settings.stat_3_unit }}
+          </div>
+          <p class="text-sm font-bold text-wacat-cream relative z-10">
+            Más hidratación con WACAT
+          </p>
+          <p class="text-xs text-white/70 mt-4 pt-4 border-t border-white/20 relative z-10">
+            👨‍⚕️ Veterinarios
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

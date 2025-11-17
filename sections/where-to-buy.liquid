@@ -1,0 +1,81 @@
+{% schema %}
+{
+  "name": "Where to Buy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Dónde comprar"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Farmacias seleccionadas"
+    },
+    {
+      "type": "text",
+      "id": "pharmacy_title",
+      "label": "Pharmacy Section Title",
+      "default": "En tu farmacia"
+    },
+    {
+      "type": "text",
+      "id": "cities",
+      "label": "Cities List",
+      "default": "Madrid · Barcelona · Valencia · Sevilla"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Title",
+      "default": "Contacto"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@wacat.com"
+    }
+  ]
+}
+{% endschema %}
+
+<section id="donde-comprar" class="bg-gray-50 py-12 md:py-16 lg:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-3">
+        {{ section.settings.title }}
+      </h2>
+      <p class="text-sm text-wacat-navy/60">
+        {{ section.settings.subtitle }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="animated-section bg-white rounded-2xl p-6 text-center border border-wacat-navy/5 shadow">
+        <div class="text-4xl mb-4">🏪</div>
+        <h3 class="text-lg font-bold text-wacat-navy mb-3">
+          {{ section.settings.pharmacy_title }}
+        </h3>
+        <p class="text-sm text-wacat-navy/60">
+          {{ section.settings.cities }}
+        </p>
+      </div>
+
+      <div class="animated-section bg-white rounded-2xl p-6 text-center border border-wacat-navy/5 shadow">
+        <div class="text-4xl mb-4">📧</div>
+        <h3 class="text-lg font-bold text-wacat-navy mb-3">
+          {{ section.settings.contact_title }}
+        </h3>
+        <a
+          href="mailto:{{ section.settings.email }}"
+          class="text-sm text-wacat-navy/60 hover:text-wacat-navy font-medium transition-colors"
+        >
+          {{ section.settings.email }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,215 @@
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Para gatos que necesitan beber más"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "¿Tu gato no bebe suficiente agua?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "La mayoría de los gatos están deshidratados y sus dueños no lo saben. WACAT hace que beber agua sea irresistible para tu gato."
+    },
+    {
+      "type": "text",
+      "id": "checkpoint_1_title",
+      "label": "Checkpoint 1 Title",
+      "default": "¿Notas su cuenco siempre lleno?"
+    },
+    {
+      "type": "text",
+      "id": "checkpoint_1_subtitle",
+      "label": "Checkpoint 1 Subtitle",
+      "default": "La deshidratación es silenciosa pero peligrosa"
+    },
+    {
+      "type": "text",
+      "id": "checkpoint_2_title",
+      "label": "Checkpoint 2 Title",
+      "default": "¿Te preocupan sus riñones?"
+    },
+    {
+      "type": "text",
+      "id": "checkpoint_2_subtitle",
+      "label": "Checkpoint 2 Subtitle",
+      "default": "30% de gatos mayores desarrollan enfermedad renal"
+    },
+    {
+      "type": "text",
+      "id": "checkpoint_3_title",
+      "label": "Checkpoint 3 Title",
+      "default": "¿Has probado de todo?"
+    },
+    {
+      "type": "text",
+      "id": "checkpoint_3_subtitle",
+      "label": "Checkpoint 3 Subtitle",
+      "default": "Fuentes, cambiar el agua, diferentes cuencos..."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Quiero que mi gato beba más"
+    },
+    {
+      "type": "text",
+      "id": "cta_subtitle",
+      "label": "CTA Subtitle",
+      "default": "Envío 24-48h · Garantía 30 días o reembolso"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image (optional, will use product image if not set)"
+    },
+    {
+      "type": "text",
+      "id": "badge_multiplier",
+      "label": "Hydration Multiplier Badge",
+      "default": "3"
+    },
+    {
+      "type": "text",
+      "id": "badge_bottom_text",
+      "label": "Bottom Badge Text",
+      "default": "Recomendado por veterinarios"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} Get product data {% endcomment %}
+{%- assign product = all_products[section.settings.product] -%}
+{%- if section.settings.hero_image != blank -%}
+  {%- assign hero_image = section.settings.hero_image | img_url: 'master' -%}
+{%- elsif product.featured_image -%}
+  {%- assign hero_image = product.featured_image | img_url: 'master' -%}
+{%- else -%}
+  {%- assign hero_image = '' -%}
+{%- endif -%}
+
+{%- if product.selected_or_first_available_variant -%}
+  {%- assign variant = product.selected_or_first_available_variant -%}
+  {%- assign product_price = variant.price | money_without_trailing_zeros -%}
+  {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
+{%- else -%}
+  {%- assign product_price = '' -%}
+  {%- assign checkout_url = '#producto' -%}
+{%- endif -%}
+
+<section class="bg-gradient-to-br from-wacat-cream-light via-white to-wacat-cream-light min-h-[90vh] flex items-center relative overflow-hidden py-16 md:py-20" style="overflow-x: hidden; overflow-y: visible;">
+  <!-- Decoración sutil -->
+  <div class="absolute inset-0 pointer-events-none opacity-30">
+    <div class="paw-decoration absolute top-20 left-10 text-4xl opacity-0">🐾</div>
+    <div class="paw-decoration absolute bottom-32 right-20 text-4xl opacity-0">🐾</div>
+    <div class="paw-decoration absolute top-1/2 right-10 text-3xl opacity-0">🐾</div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+      <!-- Izquierda - Contenido -->
+      <div class="space-y-6">
+        <!-- Badge emocional -->
+        <div class="hero-badge-initial opacity-0">
+          <span class="inline-flex items-center gap-2 bg-wacat-navy/10 text-wacat-navy px-5 py-2 rounded-full text-sm font-semibold tracking-tight backdrop-blur-sm border border-wacat-navy/10 shadow-lg">
+            <i class="las la-heart text-lg"></i>
+            {{ section.settings.badge_text }}
+          </span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extralight text-wacat-navy leading-tight tracking-tight hero-title">
+          {{ section.settings.title | replace: 'no bebe', '<span class="font-bold">no bebe</span>' | newline_to_br }}
+        </h1>
+
+        <p class="text-base md:text-lg text-wacat-navy/70 font-light leading-relaxed tracking-tight hero-subtitle">
+          WACAT hace que beber agua sea <span class="font-bold bg-gradient-to-r from-wacat-navy to-wacat-navy-dark bg-clip-text text-transparent">irresistible</span> para tu gato
+        </p>
+
+        <!-- Beneficios visuales rápidos -->
+        <div class="flex flex-wrap gap-3 py-4">
+          <div class="hero-checkpoint opacity-0 flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-wacat-navy/10 shadow-sm">
+            <span class="text-2xl">💧</span>
+            <span class="text-sm font-medium text-wacat-navy">3× más hidratación</span>
+          </div>
+          <div class="hero-checkpoint opacity-0 flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-wacat-navy/10 shadow-sm">
+            <span class="text-2xl">🌿</span>
+            <span class="text-sm font-medium text-wacat-navy">100% Natural</span>
+          </div>
+          <div class="hero-checkpoint opacity-0 flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-wacat-navy/10 shadow-sm">
+            <span class="text-2xl">⚡</span>
+            <span class="text-sm font-medium text-wacat-navy">Resultados en 3-5 días</span>
+          </div>
+        </div>
+
+        <!-- CTA Simple -->
+        <div class="pt-4 flex flex-col sm:flex-row gap-3">
+          <a
+            href="{{ checkout_url }}"
+            class="hero-cta opacity-0 inline-flex items-center justify-center gap-2 bg-wacat-navy text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark hover:scale-105 transition-all duration-300 shadow-lg tracking-tight"
+          >
+            💧 Mejorar hidratación
+            {% if product_price != '' %}
+              <span class="opacity-80">({{ product_price }})</span>
+            {% endif %}
+          </a>
+          <p class="hero-cta-subtitle opacity-0 text-xs text-wacat-navy/50 font-medium flex items-center justify-center sm:justify-start gap-2">
+            ✓ Envío 24-48h · ✓ Garantía 30 días
+          </p>
+        </div>
+      </div>
+
+      <!-- Derecha - Imagen de gato feliz -->
+      <div class="hero-image relative will-change-transform">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+          {% if hero_image != '' %}
+            <img
+              src="{{ hero_image }}"
+              alt="WACAT - Gato bebiendo agua feliz"
+              class="w-full h-auto will-change-transform transition-transform duration-100"
+              loading="eager"
+            />
+          {% else %}
+            <div class="aspect-square bg-gradient-to-br from-wacat-cream to-wacat-cream-light flex flex-col items-center justify-center p-12">
+              <i class="las la-cat text-9xl text-wacat-navy/30 mb-4"></i>
+              <p class="text-2xl text-wacat-navy/40 font-light text-center">Gato hidratado,<br />gato feliz</p>
+            </div>
+          {% endif %}
+
+          <!-- Badge flotante compacto -->
+          <div class="hero-badge-float absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg border border-wacat-navy/10 opacity-0">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-wacat-navy">
+                {{ section.settings.badge_multiplier }}×
+              </div>
+              <div class="text-xs text-wacat-navy/70 font-medium">hidratación</div>
+            </div>
+          </div>
+
+          <!-- Trust badge compacto -->
+          <div class="hero-badge-float absolute bottom-4 left-4 bg-wacat-navy/90 backdrop-blur-sm text-white rounded-xl px-4 py-2 shadow-lg opacity-0">
+            <div class="flex items-center gap-2 text-sm font-medium">
+              <span>👨‍⚕️</span>
+              <span class="hidden sm:inline">Veterinarios</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

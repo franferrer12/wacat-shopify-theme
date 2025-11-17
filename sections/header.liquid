@@ -1,0 +1,62 @@
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "WACAT"
+    }
+  ]
+}
+{% endschema %}
+
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-apple border-b border-wacat-navy/10 bg-white/80" data-header>
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="flex items-center justify-between py-5">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 text-2xl font-bold text-wacat-navy tracking-tight hover:text-wacat-navy-dark transition-colors">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | img_url: '120x' }}" alt="{{ shop.name }}" class="h-8" loading="lazy">
+        {%- else -%}
+          <span>{{ section.settings.logo_text }}</span>
+        {%- endif -%}
+      </a>
+
+      <!-- Navigation -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#beneficios" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+          Beneficios
+        </a>
+        <a href="#como-funciona" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+          Cómo Funciona
+        </a>
+        <a href="#testimonios" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+          Testimonios
+        </a>
+        <a href="#faq" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+          FAQ
+        </a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex items-center gap-4">
+        <a href="#producto" class="hidden sm:inline-flex items-center gap-2 bg-wacat-navy text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark transition-all duration-300 hover:scale-105 shadow-lg tracking-tight">
+          <i class="las la-shopping-cart text-lg"></i>
+          Comprar Ahora
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden p-2 text-wacat-navy" aria-label="Menu">
+          <i class="las la-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

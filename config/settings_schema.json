@@ -1,0 +1,57 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "WACAT Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "WACAT",
+    "theme_documentation_url": "https://wacat.com",
+    "theme_support_url": "https://wacat.com/support"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "WACAT Brand Colors"
+      },
+      {
+        "type": "paragraph",
+        "content": "These are the official WACAT brand colors. Changing these may affect the overall design."
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Settings"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "dm_sans_n4",
+        "label": "Heading font",
+        "info": "DM Sans is recommended for WACAT branding"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "dm_sans_n4",
+        "label": "Body font",
+        "info": "DM Sans is recommended for WACAT branding"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  }
+]

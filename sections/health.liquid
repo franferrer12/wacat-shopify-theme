@@ -1,0 +1,114 @@
+{% schema %}
+{
+  "name": "Health",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "La importancia de la hidratación"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Los gatos tienen un instinto de sed reducido heredado de sus ancestros del desierto"
+    },
+    {
+      "type": "text",
+      "id": "without_title",
+      "label": "Without Hydration Title",
+      "default": "Sin hidratación"
+    },
+    {
+      "type": "text",
+      "id": "with_title",
+      "label": "With Hydration Title",
+      "default": "Con hidratación"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "negative_point",
+      "name": "Negative Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "positive_point",
+      "name": "Positive Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section id="salud" class="bg-white py-12 md:py-16 lg:py-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-3">
+        {{ section.settings.title }}
+      </h2>
+      <p class="text-sm text-wacat-navy/60 max-w-2xl mx-auto">
+        {{ section.settings.subtitle }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <!-- Sin hidratación -->
+      <div class="animated-section">
+        <div class="bg-gray-50 rounded-2xl p-6 border border-wacat-navy/5 h-full">
+          <div class="text-center mb-6">
+            <div class="text-4xl mb-3">❌</div>
+            <h3 class="text-lg font-bold text-wacat-navy/50">
+              {{ section.settings.without_title }}
+            </h3>
+          </div>
+          <div class="space-y-3">
+            {% for block in section.blocks %}
+              {% if block.type == 'negative_point' %}
+                <p class="flex items-start gap-2 text-sm text-wacat-navy/60">
+                  <span class="text-lg flex-shrink-0">•</span>
+                  <span>{{ block.settings.text }}</span>
+                </p>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Con hidratación -->
+      <div class="animated-section">
+        <div class="bg-gradient-to-br from-wacat-cream-light to-white rounded-2xl p-6 border border-wacat-navy/10 h-full">
+          <div class="text-center mb-6">
+            <div class="text-4xl mb-3">✅</div>
+            <h3 class="text-lg font-bold text-wacat-navy">
+              {{ section.settings.with_title }}
+            </h3>
+          </div>
+          <div class="space-y-3">
+            {% for block in section.blocks %}
+              {% if block.type == 'positive_point' %}
+                <p class="flex items-start gap-2 text-sm text-wacat-navy font-medium">
+                  <span class="text-lg flex-shrink-0">✓</span>
+                  <span>{{ block.settings.text }}</span>
+                </p>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

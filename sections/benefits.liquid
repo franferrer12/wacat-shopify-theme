@@ -1,0 +1,137 @@
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "¿Qué hace que WACAT sea diferente?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Diseñado específicamente para el comportamiento y las necesidades de los gatos"
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "CTA Title",
+      "default": "Tu gato merece lo mejor"
+    },
+    {
+      "type": "textarea",
+      "id": "cta_description",
+      "label": "CTA Description",
+      "default": "Miles de dueños ya han mejorado la salud de sus gatos con WACAT. Únete a ellos y dale a tu gato la hidratación que necesita."
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "CTA Button Text",
+      "default": "Empezar ahora"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product (for pricing)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Line Awesome Icon (e.g., la-leaf)",
+          "default": "la-leaf"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "100% Natural"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente"
+        },
+        {
+          "type": "text",
+          "id": "footer_icon",
+          "label": "Footer Icon",
+          "default": "la-check-circle"
+        },
+        {
+          "type": "text",
+          "id": "footer_text",
+          "label": "Footer Text",
+          "default": "Seguro para uso diario"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- assign product = all_products[section.settings.product] -%}
+{%- if product.selected_or_first_available_variant -%}
+  {%- assign variant = product.selected_or_first_available_variant -%}
+  {%- assign product_price = variant.price | money_without_trailing_zeros -%}
+  {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
+{%- else -%}
+  {%- assign product_price = '' -%}
+  {%- assign checkout_url = '#producto' -%}
+{%- endif -%}
+
+<section id="beneficios" class="bg-gradient-to-br from-wacat-cream-light via-white to-wacat-cream-light py-12 md:py-16 lg:py-20 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-2">
+        Por qué funciona
+      </h2>
+      <p class="text-sm text-wacat-navy/60">
+        Diseñado para gatos
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+      {% for block in section.blocks %}
+        <div class="animated-section">
+          <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-all duration-300 h-full border border-wacat-navy/5 hover:border-wacat-navy/10">
+            <div class="text-center">
+              <i class="las {{ block.settings.icon }} text-5xl text-wacat-navy mb-4 block"></i>
+              <h3 class="text-lg font-bold text-wacat-navy mb-2">
+                {{ block.settings.title }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- CTA compacto -->
+    <div class="mt-12 text-center">
+      <div class="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto border border-wacat-navy/10">
+        <div class="text-4xl mb-4">💙</div>
+        <h3 class="text-xl md:text-2xl font-bold text-wacat-navy mb-3">
+          {{ section.settings.cta_title }}
+        </h3>
+        <a
+          href="{{ checkout_url }}"
+          class="inline-flex items-center justify-center gap-2 bg-wacat-navy text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark hover:scale-105 transition-all duration-300 shadow-lg"
+        >
+          🛒 {{ section.settings.cta_button_text }}
+          {% if product_price != '' %}
+            <span class="opacity-80">({{ product_price }})</span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
