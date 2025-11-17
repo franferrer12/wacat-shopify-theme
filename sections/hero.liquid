@@ -1,46 +1,17 @@
 {% schema %}
 {
-  "name": "Hero",
+  "name": "Hero B3TTER Style",
   "settings": [
-    {
-      "type": "text",
-      "id": "badge_text",
-      "label": "Badge Text",
-      "default": "Para gatos que necesitan beber más"
-    },
     {
       "type": "textarea",
       "id": "title",
-      "label": "Title",
-      "default": "Tu gato necesita más agua"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "La mayoría de los gatos están deshidratados y sus dueños no lo saben. WACAT hace que beber agua sea irresistible para tu gato."
-    },
-    {
-      "type": "text",
-      "id": "cta_primary_text",
-      "label": "Primary CTA Text",
-      "default": "Comprar ahora"
-    },
-    {
-      "type": "text",
-      "id": "cta_secondary_text",
-      "label": "Secondary CTA Text",
-      "default": "Ver beneficios"
-    },
-    {
-      "type": "product",
-      "id": "product",
-      "label": "Product"
+      "label": "Hero Title",
+      "default": "AGUA QUE TU GATO ELIJE. SALUD QUE AGRADECES."
     },
     {
       "type": "image_picker",
       "id": "hero_image",
-      "label": "Hero Image (optional, will use product image if not set)"
+      "label": "Hero Background Image"
     },
     {
       "type": "text",
@@ -49,196 +20,43 @@
       "default": "WACAT - Hidratación natural para gatos"
     },
     {
-      "type": "header",
-      "content": "Espaciado Móvil (< 768px)"
+      "type": "select",
+      "id": "text_position",
+      "label": "Text Position",
+      "default": "middle",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "middle", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#6B6B6B"
     },
     {
       "type": "range",
-      "id": "padding_top_mobile",
-      "label": "Espaciado superior móvil (px)",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
       "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 64,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_mobile",
-      "label": "Espaciado inferior móvil (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 64,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_left_mobile",
-      "label": "Espaciado izquierdo móvil (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 16,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_right_mobile",
-      "label": "Espaciado derecho móvil (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 16,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "content_gap_mobile",
-      "label": "Separación entre elementos móvil (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "heading_gap_mobile",
-      "label": "Separación badge/título móvil (px)",
-      "min": 0,
-      "max": 120,
-      "step": 2,
-      "default": 24,
-      "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Espaciado Tablet (768px - 1024px)"
-    },
-    {
-      "type": "range",
-      "id": "padding_top_tablet",
-      "label": "Espaciado superior tablet (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 80,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_tablet",
-      "label": "Espaciado inferior tablet (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 80,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_left_tablet",
-      "label": "Espaciado izquierdo tablet (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 24,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_right_tablet",
-      "label": "Espaciado derecho tablet (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 24,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "content_gap_tablet",
-      "label": "Separación entre elementos tablet (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 48,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "heading_gap_tablet",
-      "label": "Separación badge/título tablet (px)",
-      "min": 0,
-      "max": 120,
-      "step": 2,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Espaciado Desktop (>= 1024px)"
-    },
-    {
-      "type": "range",
-      "id": "padding_top_desktop",
-      "label": "Espaciado superior desktop (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 96,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_desktop",
-      "label": "Espaciado inferior desktop (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 96,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_left_desktop",
-      "label": "Espaciado izquierdo desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_right_desktop",
-      "label": "Espaciado derecho desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "content_gap_desktop",
-      "label": "Separación entre elementos desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 64,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "heading_gap_desktop",
-      "label": "Separación badge/título desktop (px)",
-      "min": 0,
-      "max": 120,
-      "step": 2,
-      "default": 40,
-      "unit": "px"
+      "max": 100,
+      "step": 5,
+      "default": 0,
+      "unit": "%",
+      "info": "Dark overlay para mejorar legibilidad"
     },
     {
       "type": "header",
@@ -254,25 +72,12 @@
       "type": "select",
       "id": "animation_type",
       "label": "Tipo de animación",
-      "default": "fadeInUp",
+      "default": "fadeIn",
       "options": [
         { "value": "none", "label": "Sin animación" },
         { "value": "fadeIn", "label": "Fade In" },
         { "value": "fadeInUp", "label": "Fade In Up" },
-        { "value": "fadeInDown", "label": "Fade In Down" },
-        { "value": "fadeInLeft", "label": "Fade In Left" },
-        { "value": "fadeInRight", "label": "Fade In Right" },
-        { "value": "scaleIn", "label": "Scale In" },
-        { "value": "zoomIn", "label": "Zoom In" },
-        { "value": "slideInUp", "label": "Slide In Up" },
-        { "value": "slideInDown", "label": "Slide In Down" },
-        { "value": "slideInLeft", "label": "Slide In Left" },
-        { "value": "slideInRight", "label": "Slide In Right" },
-        { "value": "rotateIn", "label": "Rotate In" },
-        { "value": "flipInX", "label": "Flip In X" },
-        { "value": "flipInY", "label": "Flip In Y" },
-        { "value": "bounceIn", "label": "Bounce In" },
-        { "value": "elastic", "label": "Elastic" }
+        { "value": "fadeInDown", "label": "Fade In Down" }
       ]
     },
     {
@@ -294,170 +99,82 @@
       "step": 100,
       "default": 0,
       "unit": "ms"
-    },
-    {
-      "type": "range",
-      "id": "animation_stagger",
-      "label": "Stagger entre elementos (ms)",
-      "min": 0,
-      "max": 300,
-      "step": 50,
-      "default": 100,
-      "unit": "ms",
-      "info": "Retraso escalonado entre elementos hijos animados"
-    },
-    {
-      "type": "checkbox",
-      "id": "animation_repeat",
-      "label": "Repetir animación al hacer scroll",
-      "default": false
     }
   ]
 }
 {% endschema %}
 
-{% comment %} Get product data {% endcomment %}
-{%- assign product = all_products[section.settings.product] -%}
+{% comment %} Get hero image {% endcomment %}
 {%- if section.settings.hero_image != blank -%}
-  {%- assign hero_image = section.settings.hero_image | img_url: 'master' -%}
-{%- elsif product.featured_image -%}
-  {%- assign hero_image = product.featured_image | img_url: 'master' -%}
+  {%- assign hero_image = section.settings.hero_image | img_url: '2000x' -%}
 {%- else -%}
-  {%- assign hero_image = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=800&fit=crop' -%}
-{%- endif -%}
-
-{%- if product.selected_or_first_available_variant -%}
-  {%- assign variant = product.selected_or_first_available_variant -%}
-  {%- assign product_price = variant.price | money_without_trailing_zeros -%}
-  {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
-{%- else -%}
-  {%- assign product_price = '29€' -%}
-  {%- assign checkout_url = '#producto' -%}
+  {%- assign hero_image = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=2000&h=1200&fit=crop' -%}
 {%- endif -%}
 
 <style>
-  #hero-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top_mobile }}px;
-    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-    padding-left: {{ section.settings.padding_left_mobile }}px;
-    padding-right: {{ section.settings.padding_right_mobile }}px;
+  #hero-b3tter-{{ section.id }} {
+    min-height: 85vh;
+    position: relative;
+    display: flex;
+    align-items: {% if section.settings.text_position == 'top' %}flex-start{% elsif section.settings.text_position == 'bottom' %}flex-end{% else %}center{% endif %};
+    justify-content: center;
+    background-image: url('{{ hero_image }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
   }
 
-  #hero-{{ section.id }} .hero-grid {
-    gap: {{ section.settings.content_gap_mobile }}px;
+  #hero-b3tter-{{ section.id }}::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    pointer-events: none;
   }
 
-  #hero-{{ section.id }} .hero-content {
-    gap: {{ section.settings.heading_gap_mobile }}px;
+  #hero-b3tter-{{ section.id }} .hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    text-align: {{ section.settings.text_align }};
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    #hero-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top_tablet }}px;
-      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
-      padding-left: {{ section.settings.padding_left_tablet }}px;
-      padding-right: {{ section.settings.padding_right_tablet }}px;
-    }
-
-    #hero-{{ section.id }} .hero-grid {
-      gap: {{ section.settings.content_gap_tablet }}px;
-    }
-
-    #hero-{{ section.id }} .hero-content {
-      gap: {{ section.settings.heading_gap_tablet }}px;
-    }
+  #hero-b3tter-{{ section.id }} .hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: {{ section.settings.text_color }};
+    margin: 0;
   }
 
-  @media (min-width: 1024px) {
-    #hero-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top_desktop }}px;
-      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
-      padding-left: {{ section.settings.padding_left_desktop }}px;
-      padding-right: {{ section.settings.padding_right_desktop }}px;
+  @media (max-width: 768px) {
+    #hero-b3tter-{{ section.id }} {
+      min-height: 70vh;
     }
 
-    #hero-{{ section.id }} .hero-grid {
-      gap: {{ section.settings.content_gap_desktop }}px;
+    #hero-b3tter-{{ section.id }} .hero-content {
+      padding: 2rem 1rem;
     }
 
-    #hero-{{ section.id }} .hero-content {
-      gap: {{ section.settings.heading_gap_desktop }}px;
+    #hero-b3tter-{{ section.id }} .hero-title {
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
     }
   }
 </style>
 
-<section id="hero-{{ section.id }}" class="relative min-h-screen flex items-center overflow-hidden bg-white"
+<section id="hero-b3tter-{{ section.id }}"
   {% if section.settings.animation_enabled %}
     data-animate="true"
     data-animation-type="{{ section.settings.animation_type }}"
     data-animation-duration="{{ section.settings.animation_duration }}"
     data-animation-delay="{{ section.settings.animation_delay }}"
-    data-animation-stagger="{{ section.settings.animation_stagger }}"
-    data-animation-repeat="{{ section.settings.animation_repeat }}"
   {% endif %}>
-  <!-- Background pattern - subtle -->
-  <div class="absolute inset-0 bg-pattern-dots opacity-20"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-    <div class="hero-grid grid grid-cols-1 lg:grid-cols-2 items-center">
-
-      <!-- Content -->
-      <div class="hero-content flex flex-col order-2 lg:order-1">
-        <!-- Badge -->
-        <div class="inline-flex">
-          <span class="badge badge-primary">
-            <i class="las la-water mr-1"></i>
-            {{ section.settings.badge_text }}
-          </span>
-        </div>
-
-        <!-- Main heading -->
-        <div class="space-y-6">
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extralight text-wacat-navy leading-tight tracking-tight">
-            {{ section.settings.title }}
-          </h1>
-
-          <p class="body-lg text-secondary max-w-xl">
-            {{ section.settings.subtitle }}
-          </p>
-        </div>
-
-        <!-- CTA -->
-        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <a href="{{ checkout_url }}" class="btn btn-primary btn-lg">
-            <i class="las la-shopping-cart"></i>
-            {{ section.settings.cta_primary_text }}
-            {% if product_price != '' %}
-              <span class="ml-2">{{ product_price }}</span>
-            {% endif %}
-          </a>
-          <a href="#beneficios" class="btn btn-secondary btn-lg">
-            {{ section.settings.cta_secondary_text }}
-          </a>
-        </div>
-      </div>
-
-      <!-- Image -->
-      <div class="order-1 lg:order-2 hero-image relative">
-        <!-- Decorative circle - simplified -->
-        <div class="absolute -top-20 -right-20 w-96 h-96 bg-wacat-cream rounded-full opacity-30 blur-3xl hidden lg:block"></div>
-
-        <div class="relative z-10">
-          {% if hero_image != '' %}
-            <img
-              src="{{ hero_image }}"
-              alt="{{ section.settings.image_alt_text }}"
-              class="w-full h-auto rounded-3xl shadow-lg"
-              loading="eager"
-            />
-          {% else %}
-            <div class="aspect-square bg-gradient-to-br from-wacat-cream to-white rounded-3xl shadow-lg flex items-center justify-center">
-              <i class="las la-cat text-9xl text-wacat-navy/20"></i>
-            </div>
-          {% endif %}
-        </div>
-      </div>
-
-    </div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      {{ section.settings.title }}
+    </h1>
   </div>
 </section>

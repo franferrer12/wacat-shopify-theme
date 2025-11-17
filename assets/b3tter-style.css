@@ -36,24 +36,43 @@
   --border-radius-pill: 9999px;
 }
 
-/* Actualizar colores base del body
+/* Sobrescribir colores base del body - FORZAR PALETA GRIS
    ========================================================================== */
 body {
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
 }
 
-/* Actualizar colores de texto
+/* Sobrescribir TODOS los colores de texto para usar paleta gris
    ========================================================================== */
-.text-primary {
-  color: var(--color-primary);
+.text-primary,
+.text-wacat-navy,
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary) !important;
 }
 
-.text-secondary {
-  color: var(--color-secondary);
+.text-secondary,
+.text-wacat-navy\/70,
+.text-wacat-navy\/80,
+p {
+  color: var(--color-secondary) !important;
 }
 
-.text-tertiary {
-  color: var(--color-tertiary);
+.text-tertiary,
+.text-wacat-navy\/50,
+.text-wacat-navy\/60 {
+  color: var(--color-tertiary) !important;
+}
+
+/* Sobrescribir fondos oscuros */
+.bg-wacat-navy,
+.bg-wacat-navy-dark {
+  background-color: var(--color-primary) !important;
+}
+
+/* Sobrescribir fondos claros */
+.bg-wacat-cream,
+.bg-wacat-cream-light {
+  background-color: var(--color-bg-secondary) !important;
 }
 
 /* Fondos neutros
@@ -542,4 +561,114 @@ strong {
 .simplify-b3tter .absolute.blur-3xl,
 .simplify-b3tter .bg-gradient-to-br {
   display: none;
+}
+
+/* SOBRESCRIBIR BOTONES - Forzar estilo B3TTER
+   ========================================================================== */
+.btn,
+.btn-primary,
+.btn-secondary,
+button,
+a.btn {
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+  border: 1px solid var(--color-primary) !important;
+  border-radius: var(--border-radius-pill) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 12px 32px !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+button:hover,
+a.btn:hover {
+  background-color: rgba(107, 107, 107, 0.05) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: none !important;
+}
+
+/* Botones para fondos oscuros */
+.btn-white,
+.btn-ghost-white {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+.btn-white:hover,
+.btn-ghost-white:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: #ffffff !important;
+}
+
+/* SOBRESCRIBIR BADGES - Estilo B3TTER
+   ========================================================================== */
+.badge,
+.badge-primary,
+.badge-light {
+  background-color: transparent !important;
+  color: var(--color-secondary) !important;
+  border: 1px solid var(--color-tertiary) !important;
+  border-radius: var(--border-radius-pill) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 16px !important;
+}
+
+/* SOBRESCRIBIR CARDS - Estilo minimalista
+   ========================================================================== */
+.card,
+.benefit-card {
+  background-color: #ffffff !important;
+  border: 1px solid var(--color-bg-tertiary) !important;
+  border-radius: var(--border-radius-md) !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.card:hover,
+.benefit-card:hover {
+  border-color: var(--color-tertiary) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ELIMINAR GRADIENTES Y DECORACIONES
+   ========================================================================== */
+.bg-gradient-to-br,
+.bg-gradient-to-r,
+.absolute.blur-3xl,
+.bg-pattern-dots {
+  display: none !important;
+}
+
+/* FORZAR BORDES REDONDEADOS B3TTER
+   ========================================================================== */
+img,
+.rounded-3xl,
+.rounded-2xl,
+.rounded-xl {
+  border-radius: var(--border-radius-md) !important;
+}
+
+/* FORZAR TIPOGRAFÍA LIGERA
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6,
+.heading-xl,
+.heading-lg,
+.heading-md,
+.heading-display {
+  font-weight: 300 !important;
+  letter-spacing: -0.02em !important;
 }
