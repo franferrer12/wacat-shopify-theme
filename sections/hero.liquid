@@ -113,51 +113,114 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section class="bg-white min-h-screen flex items-center relative overflow-hidden pt-20 pb-12 md:py-20" style="overflow-x: hidden; overflow-y: visible;">
+<section class="relative min-h-screen flex items-center overflow-hidden bg-white">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 bg-pattern-dots opacity-50"></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-      <!-- Contenido - order-2 en móvil -->
-      <div class="space-y-12 order-2 lg:order-1">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-light text-wacat-navy leading-tight hero-title">
-          Tu gato necesita agua
-        </h1>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-20 md:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-        <p class="text-xl md:text-2xl text-wacat-navy/60 font-light hero-subtitle">
-          WACAT ayuda
-        </p>
+      <!-- Content -->
+      <div class="space-y-10 order-2 lg:order-1">
+        <!-- Badge -->
+        <div class="inline-flex">
+          <span class="badge badge-primary">
+            <i class="las la-water mr-1"></i>
+            {{ section.settings.badge_text }}
+          </span>
+        </div>
 
-        <!-- CTA Touch-Friendly -->
-        <div class="pt-8 flex flex-col gap-4">
-          <a
-            href="{{ checkout_url }}"
-            class="hero-cta opacity-0 flex items-center justify-center bg-wacat-navy text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-wacat-navy-dark active:scale-95 transition-all duration-300"
-          >
-            Comprar
+        <!-- Main heading -->
+        <div class="space-y-6">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extralight text-wacat-navy leading-tight tracking-tight hero-title">
+            Tu gato necesita
+            <span class="block font-light text-gradient">más agua</span>
+          </h1>
+
+          <p class="body-lg text-secondary max-w-xl hero-subtitle">
+            {{ section.settings.subtitle }}
+          </p>
+        </div>
+
+        <!-- Stats inline -->
+        <div class="flex gap-8 py-4">
+          <div>
+            <div class="text-3xl font-extralight text-wacat-navy">{{ section.settings.badge_multiplier }}×</div>
+            <div class="caption text-tertiary">Más hidratación</div>
+          </div>
+          <div class="divider-vertical"></div>
+          <div>
+            <div class="text-3xl font-extralight text-wacat-navy">70%</div>
+            <div class="caption text-tertiary">Gatos deshidratados</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <a href="{{ checkout_url }}" class="btn btn-primary btn-lg hero-cta opacity-0">
+            <i class="las la-shopping-cart"></i>
+            Comprar ahora
             {% if product_price != '' %}
-              <span class="opacity-70 ml-2">{{ product_price }}</span>
+              <span class="ml-2">{{ product_price }}</span>
             {% endif %}
           </a>
+          <a href="#beneficios" class="btn btn-secondary btn-lg">
+            Ver beneficios
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap items-center gap-6 pt-6 text-sm text-tertiary">
+          <div class="flex items-center gap-2">
+            <i class="las la-shipping-fast text-lg"></i>
+            <span>Envío 24-48h</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="las la-shield-alt text-lg"></i>
+            <span>Garantía 30 días</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="las la-user-md text-lg"></i>
+            <span>Recomendado por vets</span>
+          </div>
         </div>
       </div>
 
-      <!-- Imagen - order-1 en móvil (aparece primero) -->
-      <div class="hero-image relative will-change-transform order-1 lg:order-2">
-        <div class="relative rounded-2xl overflow-hidden">
+      <!-- Image -->
+      <div class="order-1 lg:order-2 hero-image relative">
+        <!-- Decorative circle -->
+        <div class="absolute -top-10 -right-10 w-64 h-64 bg-wacat-cream rounded-full opacity-50 blur-3xl"></div>
+        <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-wacat-navy/10 rounded-full opacity-50 blur-3xl"></div>
+
+        <div class="relative z-10">
           {% if hero_image != '' %}
             <img
               src="{{ hero_image }}"
-              alt="WACAT"
-              class="w-full h-auto"
+              alt="WACAT - Hidratación natural para gatos"
+              class="w-full h-auto rounded-3xl shadow-2xl"
               loading="eager"
             />
           {% else %}
-            <div class="aspect-square bg-wacat-cream flex items-center justify-center">
+            <div class="aspect-square bg-gradient-to-br from-wacat-cream to-white rounded-3xl shadow-2xl flex items-center justify-center">
               <i class="las la-cat text-9xl text-wacat-navy/20"></i>
             </div>
           {% endif %}
+
+          <!-- Floating badge -->
+          <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 hidden sm:block">
+            <div class="flex items-center gap-4">
+              <div class="icon-circle icon-circle-lg">
+                <i class="las la-heart text-2xl"></i>
+              </div>
+              <div>
+                <div class="text-2xl font-extralight text-wacat-navy">+1000</div>
+                <div class="text-sm text-tertiary">Gatos felices</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>

@@ -89,36 +89,61 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section id="beneficios" class="bg-white py-20 md:py-32">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-20">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-wacat-navy">
-        Beneficios
+<section id="beneficios" class="bg-wacat-cream section-spacing">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="heading-xl text-wacat-navy mb-6">
+        Por qué elegir WACAT
       </h2>
+      <p class="body-lg text-secondary">
+        Diseñado específicamente para las necesidades naturales de hidratación de los gatos
+      </p>
     </div>
 
-    <div class="grid grid-cols-3 lg:grid-cols-6 gap-12 md:gap-16">
+    <!-- Benefits grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {% for block in section.blocks %}
-        <div class="animated-section text-center">
-          <i class="las {{ block.settings.icon }} text-6xl text-wacat-navy mb-6 block"></i>
-          <h3 class="text-sm font-medium text-wacat-navy/70">
+        <div class="card hover-lift animated-section">
+          <!-- Icon header -->
+          <div class="icon-circle icon-circle-lg bg-wacat-navy/5 mb-6">
+            <i class="las {{ block.settings.icon }} text-3xl text-wacat-navy"></i>
+          </div>
+
+          <!-- Content -->
+          <h3 class="heading-md text-primary mb-3">
             {{ block.settings.title }}
           </h3>
+
+          <p class="body-sm text-secondary">
+            {{ block.settings.description }}
+          </p>
         </div>
       {% endfor %}
     </div>
 
-    <!-- CTA -->
-    <div class="mt-32 text-center">
-      <a
-        href="{{ checkout_url }}"
-        class="inline-flex items-center justify-center bg-wacat-navy text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-wacat-navy-dark active:scale-95 transition-all duration-300"
-      >
-        Comprar
-        {% if product_price != '' %}
-          <span class="opacity-70 ml-2">{{ product_price }}</span>
-        {% endif %}
-      </a>
+    <!-- Bottom CTA -->
+    <div class="mt-16 text-center">
+      <div class="inline-flex flex-col items-center gap-6 p-10 bg-white rounded-3xl shadow-lg max-w-2xl">
+        <div>
+          <h3 class="heading-lg text-primary mb-3">
+            {{ section.settings.cta_title }}
+          </h3>
+          <p class="body-md text-secondary">
+            {{ section.settings.cta_description }}
+          </p>
+        </div>
+
+        <a href="{{ checkout_url }}" class="btn btn-primary btn-xl">
+          <i class="las la-shopping-cart"></i>
+          {{ section.settings.cta_button_text }}
+          {% if product_price != '' %}
+            <span class="ml-2">{{ product_price }}</span>
+          {% endif %}
+        </a>
+      </div>
     </div>
+
   </div>
 </section>

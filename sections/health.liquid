@@ -54,42 +54,80 @@
 }
 {% endschema %}
 
-<section id="salud" class="bg-wacat-cream py-20 md:py-32">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-20">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-wacat-navy">
+<section id="salud" class="bg-wacat-cream section-spacing">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-20 max-w-3xl mx-auto">
+      <h2 class="heading-xl text-wacat-navy mb-6">
         {{ section.settings.title }}
       </h2>
+      <p class="body-lg text-secondary">
+        {{ section.settings.subtitle }}
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
-      <!-- Sin hidratación -->
-      <div class="animated-section space-y-4">
-        <h3 class="text-xl font-medium text-wacat-navy/40 mb-8">
-          {{ section.settings.without_title }}
-        </h3>
-        {% for block in section.blocks %}
-          {% if block.type == 'negative_point' %}
-            <p class="text-sm text-wacat-navy/50 font-light">
-              {{ block.settings.text }}
-            </p>
-          {% endif %}
-        {% endfor %}
+    <!-- Comparison Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+
+      <!-- Without Hydration -->
+      <div class="card bg-white/50 border border-wacat-navy/10 animated-section">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="icon-circle bg-red-500/10">
+            <i class="las la-times text-2xl text-red-600"></i>
+          </div>
+          <h3 class="heading-md text-wacat-navy/60">
+            {{ section.settings.without_title }}
+          </h3>
+        </div>
+
+        <div class="space-y-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'negative_point' %}
+              <div class="flex items-start gap-3">
+                <i class="las la-exclamation-circle text-lg text-red-500/60 flex-shrink-0 mt-1"></i>
+                <p class="body-sm text-secondary">
+                  {{ block.settings.text }}
+                </p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
 
-      <!-- Con hidratación -->
-      <div class="animated-section space-y-4">
-        <h3 class="text-xl font-medium text-wacat-navy mb-8">
-          {{ section.settings.with_title }}
-        </h3>
-        {% for block in section.blocks %}
-          {% if block.type == 'positive_point' %}
-            <p class="text-sm text-wacat-navy font-light">
-              {{ block.settings.text }}
-            </p>
-          {% endif %}
-        {% endfor %}
+      <!-- With Hydration -->
+      <div class="card bg-white border-2 border-wacat-navy/20 animated-section relative overflow-hidden">
+        <!-- Highlight badge -->
+        <div class="absolute top-4 right-4">
+          <span class="badge badge-primary text-xs">
+            <i class="las la-star"></i>
+            Recomendado
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3 mb-8">
+          <div class="icon-circle bg-green-500/10">
+            <i class="las la-check text-2xl text-green-600"></i>
+          </div>
+          <h3 class="heading-md text-primary">
+            {{ section.settings.with_title }}
+          </h3>
+        </div>
+
+        <div class="space-y-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'positive_point' %}
+              <div class="flex items-start gap-3">
+                <i class="las la-check-circle text-lg text-green-600 flex-shrink-0 mt-1"></i>
+                <p class="body-sm text-primary">
+                  {{ block.settings.text }}
+                </p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
+
     </div>
   </div>
 </section>

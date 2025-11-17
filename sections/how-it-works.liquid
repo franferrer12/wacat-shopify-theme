@@ -54,44 +54,77 @@
 }
 {% endschema %}
 
-<section id="como-funciona" class="bg-white py-20 md:py-32">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-20">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-wacat-navy">
+<section id="como-funciona" class="bg-white section-spacing">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-20 max-w-3xl mx-auto">
+      <h2 class="heading-xl text-wacat-navy mb-6">
         {{ section.settings.title }}
       </h2>
+      <p class="body-lg text-secondary">
+        {{ section.settings.subtitle }}
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
-      <div class="animated-section text-center">
-        <div class="step-number text-7xl font-light text-wacat-navy/20 mb-8">01</div>
-        <h3 class="text-lg font-medium text-wacat-navy mb-3">
+    <!-- Steps -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Step 1 -->
+      <div class="animated-section text-center relative">
+        <!-- Step number circle -->
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-wacat-navy text-white mb-8">
+          <span class="text-2xl font-extralight">01</span>
+        </div>
+
+        <h3 class="heading-md text-primary mb-4">
           {{ section.settings.step_1_title }}
         </h3>
-        <p class="text-sm text-wacat-navy/60 font-light">
+
+        <p class="body-sm text-secondary">
           {{ section.settings.step_1_description }}
         </p>
+
+        <!-- Connector arrow (hidden on mobile) -->
+        <div class="hidden md:block absolute top-10 -right-8 text-wacat-navy/20">
+          <i class="las la-arrow-right text-3xl"></i>
+        </div>
       </div>
 
-      <div class="animated-section text-center">
-        <div class="step-number text-7xl font-light text-wacat-navy/20 mb-8">02</div>
-        <h3 class="text-lg font-medium text-wacat-navy mb-3">
+      <!-- Step 2 -->
+      <div class="animated-section text-center relative">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-wacat-navy text-white mb-8">
+          <span class="text-2xl font-extralight">02</span>
+        </div>
+
+        <h3 class="heading-md text-primary mb-4">
           {{ section.settings.step_2_title }}
         </h3>
-        <p class="text-sm text-wacat-navy/60 font-light">
+
+        <p class="body-sm text-secondary">
           {{ section.settings.step_2_description }}
         </p>
+
+        <div class="hidden md:block absolute top-10 -right-8 text-wacat-navy/20">
+          <i class="las la-arrow-right text-3xl"></i>
+        </div>
       </div>
 
+      <!-- Step 3 -->
       <div class="animated-section text-center">
-        <div class="step-number text-7xl font-light text-wacat-navy/20 mb-8">03</div>
-        <h3 class="text-lg font-medium text-wacat-navy mb-3">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-wacat-navy text-white mb-8">
+          <span class="text-2xl font-extralight">03</span>
+        </div>
+
+        <h3 class="heading-md text-primary mb-4">
           {{ section.settings.step_3_title }}
         </h3>
-        <p class="text-sm text-wacat-navy/60 font-light">
+
+        <p class="body-sm text-secondary">
           {{ section.settings.step_3_description }}
         </p>
       </div>
+
     </div>
   </div>
 </section>

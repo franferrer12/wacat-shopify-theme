@@ -4,15 +4,15 @@
   "settings": [
     {
       "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "WACAT"
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "El producto"
     },
     {
       "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Esencia natural que estimula el instinto de beber"
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Cada gota cuenta para la salud de tu gato"
     },
     {
       "type": "product",
@@ -20,34 +20,78 @@
       "label": "Product"
     },
     {
-      "type": "text",
-      "id": "product_description",
-      "label": "Product Description",
-      "default": "Esencia natural para hidratación felina"
+      "type": "textarea",
+      "id": "product_tagline",
+      "label": "Product Tagline",
+      "default": "Esencia natural que hace que el agua sea irresistible para tu gato"
     },
     {
       "type": "text",
-      "id": "shipping_text",
-      "label": "Shipping Text",
-      "default": "Envío gratuito 24-48h"
+      "id": "cta_primary_text",
+      "label": "Primary CTA Text",
+      "default": "Comprar ahora"
     },
     {
       "type": "text",
-      "id": "cta_text",
-      "label": "CTA Button Text",
-      "default": "Comprar Ahora"
+      "id": "cta_secondary_text",
+      "label": "Secondary CTA Text",
+      "default": "Ver ingredientes"
     },
     {
       "type": "text",
-      "id": "pharmacy_link_text",
-      "label": "Pharmacy Link Text",
-      "default": "También en farmacias"
+      "id": "guarantee_title",
+      "label": "Guarantee Title",
+      "default": "Garantía satisfacción"
     },
     {
       "type": "text",
-      "id": "guarantee_text",
-      "label": "Guarantee Text",
-      "default": "Garantía 30 días"
+      "id": "guarantee_description",
+      "label": "Guarantee Description",
+      "default": "30 días o te devolvemos tu dinero"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Product Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Line Awesome)",
+          "default": "la-leaf"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "100% Natural"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Solo ingredientes naturales"
+        }
+      ]
+    },
+    {
+      "type": "trust_badge",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Line Awesome)",
+          "default": "la-shipping-fast"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Envío 24-48h"
+        }
+      ]
     }
   ]
 }
@@ -56,57 +100,149 @@
 {%- assign product = all_products[section.settings.product] -%}
 {%- if product.selected_or_first_available_variant -%}
   {%- assign variant = product.selected_or_first_available_variant -%}
-  {%- assign product_price = variant.price | divided_by: 100 -%}
+  {%- assign product_price = variant.price | money_without_trailing_zeros -%}
   {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
 {%- else -%}
-  {%- assign product_price = 0 -%}
+  {%- assign product_price = '29€' -%}
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section class="bg-wacat-cream py-20 md:py-32">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <!-- Image -->
-      <div class="animated-section">
-        {% if product.featured_image %}
-          <img
-            src="{{ product.featured_image | img_url: 'master' }}"
-            alt="{{ product.title }}"
-            class="w-full h-auto rounded-2xl"
-            loading="lazy"
-          />
-        {% else %}
-          <img
-            src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=600&fit=crop"
-            alt="WACAT Product"
-            class="w-full h-auto rounded-2xl"
-            loading="lazy"
-          />
-        {% endif %}
+<section id="producto" class="bg-white section-spacing">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center mb-20 max-w-3xl mx-auto">
+      <h2 class="heading-xl text-wacat-navy mb-6">
+        {{ section.settings.section_title }}
+      </h2>
+      <p class="body-lg text-secondary">
+        {{ section.settings.section_subtitle }}
+      </p>
+    </div>
+
+    <!-- Main Product Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start mb-20">
+
+      <!-- Product Image Column -->
+      <div class="relative animated-section">
+        <!-- Decorative background -->
+        <div class="absolute -top-12 -right-12 w-80 h-80 bg-wacat-cream rounded-full opacity-60 blur-3xl"></div>
+        <div class="absolute -bottom-12 -left-12 w-80 h-80 bg-wacat-navy/5 rounded-full opacity-60 blur-3xl"></div>
+
+        <div class="relative z-10">
+          {% if product.featured_image %}
+            <img
+              src="{{ product.featured_image | img_url: 'master' }}"
+              alt="{{ product.title }}"
+              class="w-full h-auto rounded-3xl shadow-2xl"
+              loading="lazy"
+            />
+          {% else %}
+            <div class="aspect-square bg-gradient-to-br from-wacat-cream to-white rounded-3xl shadow-2xl flex items-center justify-center">
+              <i class="las la-box text-9xl text-wacat-navy/20"></i>
+            </div>
+          {% endif %}
+
+          <!-- Floating guarantee badge -->
+          <div class="absolute -bottom-8 -right-8 bg-white rounded-2xl shadow-xl p-6 hidden sm:block">
+            <div class="flex items-center gap-3">
+              <div class="icon-circle bg-green-500/10">
+                <i class="las la-check-circle text-2xl text-green-600"></i>
+              </div>
+              <div>
+                <div class="text-sm font-medium text-primary">{{ section.settings.guarantee_title }}</div>
+                <div class="caption text-tertiary">{{ section.settings.guarantee_description }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Product Info -->
-      <div class="space-y-8 text-center lg:text-left">
+      <!-- Product Info Column -->
+      <div class="space-y-10">
+
+        <!-- Product Title & Price -->
         <div>
-          <h2 class="text-3xl md:text-4xl font-light text-wacat-navy mb-4">
-            {{ product.title | default: 'WACAT' }}
-          </h2>
-          <div class="text-5xl font-light text-wacat-navy">
-            {% if product_price > 0 %}
-              {{ product_price }}€
-            {% else %}
-              29€
-            {% endif %}
+          <div class="mb-4">
+            <span class="badge badge-primary">
+              <i class="las la-star mr-1"></i>
+              Producto destacado
+            </span>
+          </div>
+
+          <h3 class="heading-lg text-primary mb-4">
+            {{ product.title | default: 'WACAT Esencia Natural' }}
+          </h3>
+
+          <p class="body-md text-secondary mb-6">
+            {{ section.settings.product_tagline }}
+          </p>
+
+          <div class="flex items-baseline gap-3 mb-8">
+            <span class="text-5xl font-extralight text-wacat-navy">{{ product_price }}</span>
+            <span class="caption text-tertiary">IVA incluido</span>
           </div>
         </div>
 
-        <a
-          href="{{ checkout_url }}"
-          class="buy-button inline-flex items-center justify-center bg-wacat-navy text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-wacat-navy-dark active:scale-95 transition-all duration-300"
-        >
-          Comprar
-        </a>
+        <!-- Product Features Grid -->
+        {% if section.blocks.size > 0 %}
+          {% assign feature_blocks = section.blocks | where: "type", "feature" %}
+          {% if feature_blocks.size > 0 %}
+            <div class="grid grid-cols-2 gap-4">
+              {% for block in feature_blocks %}
+                <div class="flex items-start gap-3 p-4 bg-wacat-cream/30 rounded-xl">
+                  <div class="icon-circle icon-circle-sm bg-white flex-shrink-0">
+                    <i class="las {{ block.settings.icon }} text-lg text-wacat-navy"></i>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-primary mb-1">{{ block.settings.title }}</div>
+                    <div class="caption text-tertiary">{{ block.settings.description }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="{{ checkout_url }}" class="btn btn-primary btn-xl flex-1">
+            <i class="las la-shopping-cart"></i>
+            {{ section.settings.cta_primary_text }}
+          </a>
+          <a href="#beneficios" class="btn btn-secondary btn-xl flex-1">
+            {{ section.settings.cta_secondary_text }}
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        {% if section.blocks.size > 0 %}
+          {% assign trust_blocks = section.blocks | where: "type", "trust_badge" %}
+          {% if trust_blocks.size > 0 %}
+            <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-wacat-navy/10">
+              {% for block in trust_blocks %}
+                <div class="flex items-center gap-2 text-tertiary">
+                  <i class="las {{ block.settings.icon }} text-lg"></i>
+                  <span class="caption">{{ block.settings.text }}</span>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
+
       </div>
     </div>
+
+    <!-- Product Description or Additional Info -->
+    {% if product.description != blank %}
+      <div class="max-w-4xl mx-auto">
+        <div class="card">
+          <div class="prose prose-lg max-w-none">
+            {{ product.description }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
   </div>
 </section>

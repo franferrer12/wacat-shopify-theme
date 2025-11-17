@@ -1471,6 +1471,12 @@ html:not(.js-enabled) .js-only {
   transform: scale(1.05);
 }
 
+.icon-circle-sm {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
+}
+
 .icon-circle-lg {
   width: 4rem;
   height: 4rem;
@@ -1686,6 +1692,37 @@ html:not(.js-enabled) .js-only {
 
 .btn-ghost:active {
   background-color: rgba(30, 69, 99, 0.1);
+}
+
+.btn-white {
+  background-color: #ffffff;
+  color: var(--wacat-navy);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white:hover {
+  background-color: var(--wacat-cream);
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-white:active {
+  transform: scale(0.98);
+}
+
+.btn-ghost-white {
+  background-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+}
+
+.btn-ghost-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.btn-ghost-white:active {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Button with icon */
