@@ -1,0 +1,125 @@
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Compra B3tter"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #featured-collection-{{ section.id }} {
+    padding: 60px 20px;
+    background: #ffffff;
+  }
+
+  #featured-collection-{{ section.id }} .section-title {
+    font-family: Assistant, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #121212;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.06rem;
+  }
+
+  #featured-collection-{{ section.id }} .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #featured-collection-{{ section.id }} .product-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  #featured-collection-{{ section.id }} .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  #featured-collection-{{ section.id }} .product-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  #featured-collection-{{ section.id }} .product-info {
+    padding: 20px;
+  }
+
+  #featured-collection-{{ section.id }} .product-title {
+    font-family: Assistant, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #121212;
+    margin-bottom: 8px;
+  }
+
+  #featured-collection-{{ section.id }} .product-price {
+    font-family: Assistant, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #7C7C7C;
+  }
+
+  @media screen and (max-width: 989px) {
+    #featured-collection-{{ section.id }} .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #featured-collection-{{ section.id }} .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+  }
+</style>
+
+<section id="featured-collection-{{ section.id }}">
+  {% if section.settings.title != blank %}
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+  {% endif %}
+
+  <div class="products-grid">
+    {% if section.settings.collection != blank %}
+      {% for product in collections[section.settings.collection].products limit: 12 %}
+        <div class="product-card">
+          {% if product.featured_image %}
+            <img class="product-image" src="{{ product.featured_image | img_url: '500x500' }}" alt="{{ product.title }}">
+          {% endif %}
+          <div class="product-info">
+            <h3 class="product-title">{{ product.title }}</h3>
+            <p class="product-price">{{ product.price | money }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <!-- Placeholder products -->
+      {% for i in (1..8) %}
+        <div class="product-card">
+          <div class="product-image" style="background: #f3f3f3;"></div>
+          <div class="product-info">
+            <h3 class="product-title">Producto {{ i }}</h3>
+            <p class="product-price">€XX,XX</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>

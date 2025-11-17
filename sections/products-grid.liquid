@@ -1,0 +1,82 @@
+{% schema %}
+{
+  "name": "Products Grid",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product Title"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #products-grid-{{ section.id }} {
+    padding: 60px 20px;
+    background: #ffffff;
+  }
+
+  #products-grid-{{ section.id }} .products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #products-grid-{{ section.id }} .product-item {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  #products-grid-{{ section.id }} .product-item:hover {
+    transform: translateY(-5px);
+  }
+
+  #products-grid-{{ section.id }} .product-name {
+    font-family: Assistant, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #121212;
+    padding: 15px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 989px) {
+    #products-grid-{{ section.id }} .products-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #products-grid-{{ section.id }} .products-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+  }
+</style>
+
+<section id="products-grid-{{ section.id }}">
+  <div class="products-container">
+    {% for block in section.blocks %}
+      <div class="product-item">
+        <h3 class="product-name">{{ block.settings.product_title }}</h3>
+      </div>
+    {% endfor %}
+  </div>
+</section>

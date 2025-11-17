@@ -6,13 +6,13 @@
       "type": "text",
       "id": "brand_name",
       "label": "Brand Name",
-      "default": "WACAT"
+      "default": "B3TTER"
     },
     {
       "type": "textarea",
       "id": "brand_description",
       "label": "Brand Description",
-      "default": "Hidratación natural para gatos.\nSalud renal y vitalidad."
+      "default": "Alimentación natural y saludable"
     },
     {
       "type": "text",
@@ -24,49 +24,49 @@
       "type": "text",
       "id": "link_1_text",
       "label": "Link 1 Text",
-      "default": "Beneficios"
+      "default": "Productos"
     },
     {
       "type": "text",
       "id": "link_1_url",
       "label": "Link 1 URL",
-      "default": "#beneficios"
+      "default": "/collections/all"
     },
     {
       "type": "text",
       "id": "link_2_text",
       "label": "Link 2 Text",
-      "default": "Cómo Funciona"
+      "default": "Packs"
     },
     {
       "type": "text",
       "id": "link_2_url",
       "label": "Link 2 URL",
-      "default": "#como-funciona"
+      "default": "/collections/packs"
     },
     {
       "type": "text",
       "id": "link_3_text",
       "label": "Link 3 Text",
-      "default": "Testimonios"
+      "default": "Misión"
     },
     {
       "type": "text",
       "id": "link_3_url",
       "label": "Link 3 URL",
-      "default": "#testimonios"
+      "default": "/pages/mision"
     },
     {
       "type": "text",
       "id": "link_4_text",
       "label": "Link 4 Text",
-      "default": "FAQ"
+      "default": "Encuéntranos"
     },
     {
       "type": "text",
       "id": "link_4_url",
       "label": "Link 4 URL",
-      "default": "#faq"
+      "default": "/pages/encuentranos"
     },
     {
       "type": "text",
@@ -78,7 +78,19 @@
       "type": "text",
       "id": "email",
       "label": "Email",
-      "default": "info@wacat.com"
+      "default": "info@b3tterfoods.com"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country_selector",
+      "label": "Show Country Selector",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countries",
+      "label": "Countries (comma separated)",
+      "default": "España, Portugal, Alemania, Bélgica, Francia, Italia, Países Bajos"
     },
     {
       "type": "text",
@@ -225,6 +237,13 @@
           <i class="las la-envelope"></i>
           {{ section.settings.email }}
         </a>
+        {% if section.settings.show_country_selector and section.settings.countries != blank %}
+          <div class="footer-countries" style="margin-top: 24px;">
+            <p style="font-size: 14px; color: #7C7C7C; margin: 0;">
+              {{ section.settings.countries }}
+            </p>
+          </div>
+        {% endif %}
       </div>
     </div>
 

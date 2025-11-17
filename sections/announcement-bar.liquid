@@ -1,0 +1,80 @@
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement Text",
+      "default": "ENVIO GRATIS EN PEDIDOS SUPERIORES A 35€"
+    },
+    {
+      "type": "text",
+      "id": "minimum_order",
+      "label": "Minimum Order Text",
+      "default": "15€ Pedido Mínimo"
+    },
+    {
+      "type": "text",
+      "id": "free_shipping",
+      "label": "Free Shipping Text",
+      "default": "35€ Envío gratis"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #announcement-bar-{{ section.id }} {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: Assistant, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.06rem;
+  }
+
+  #announcement-bar-{{ section.id }} .announcement-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #announcement-bar-{{ section.id }} .announcement-text {
+    text-transform: uppercase;
+  }
+
+  #announcement-bar-{{ section.id }} .shipping-info {
+    display: flex;
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 749px) {
+    #announcement-bar-{{ section.id }} .announcement-content {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #announcement-bar-{{ section.id }} .shipping-info {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>
+
+<section id="announcement-bar-{{ section.id }}">
+  <div class="announcement-content">
+    <div class="announcement-text">
+      {{ section.settings.text }}
+    </div>
+    <div class="shipping-info">
+      <span>{{ section.settings.minimum_order }}</span>
+      <span>{{ section.settings.free_shipping }}</span>
+    </div>
+  </div>
+</section>

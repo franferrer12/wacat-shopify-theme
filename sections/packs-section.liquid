@@ -1,0 +1,98 @@
+{% schema %}
+{
+  "name": "Packs Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "AHORRA CON PACKS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pack",
+      "name": "Pack",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Pack Title"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #packs-section-{{ section.id }} {
+    padding: 60px 20px;
+    background: #F3F3F3;
+  }
+
+  #packs-section-{{ section.id }} .section-title {
+    font-family: Assistant, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #121212;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.06rem;
+    text-transform: uppercase;
+  }
+
+  #packs-section-{{ section.id }} .packs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #packs-section-{{ section.id }} .pack-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  #packs-section-{{ section.id }} .pack-card:hover {
+    transform: translateY(-5px);
+  }
+
+  #packs-section-{{ section.id }} .pack-title {
+    font-family: Assistant, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #121212;
+    padding: 20px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 989px) {
+    #packs-section-{{ section.id }} .packs-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>
+
+<section id="packs-section-{{ section.id }}">
+  {% if section.settings.section_title != blank %}
+    <h2 class="section-title">{{ section.settings.section_title }}</h2>
+  {% endif %}
+
+  <div class="packs-grid">
+    {% for block in section.blocks %}
+      <div class="pack-card">
+        <h3 class="pack-title">{{ block.settings.title }}</h3>
+      </div>
+    {% endfor %}
+  </div>
+</section>

@@ -11,67 +11,67 @@
       "type": "text",
       "id": "logo_text",
       "label": "Logo Text (if no image)",
-      "default": "WACAT"
+      "default": "B3TTER"
     },
     {
       "type": "text",
-      "id": "nav_link_1_text",
-      "label": "Nav Link 1 Text",
-      "default": "Beneficios"
+      "id": "menu_item_1",
+      "label": "Menu Item 1",
+      "default": "Productos"
     },
     {
       "type": "text",
-      "id": "nav_link_1_url",
-      "label": "Nav Link 1 URL",
-      "default": "#beneficios"
+      "id": "menu_item_1_url",
+      "label": "Menu Item 1 URL",
+      "default": "/collections/all"
     },
     {
       "type": "text",
-      "id": "nav_link_2_text",
-      "label": "Nav Link 2 Text",
-      "default": "Producto"
+      "id": "menu_item_2",
+      "label": "Menu Item 2",
+      "default": "Packs"
     },
     {
       "type": "text",
-      "id": "nav_link_2_url",
-      "label": "Nav Link 2 URL",
-      "default": "#producto"
+      "id": "menu_item_2_url",
+      "label": "Menu Item 2 URL",
+      "default": "/collections/packs"
     },
     {
       "type": "text",
-      "id": "nav_link_3_text",
-      "label": "Nav Link 3 Text",
-      "default": "Testimonios"
+      "id": "menu_item_3",
+      "label": "Menu Item 3",
+      "default": "Misión"
     },
     {
       "type": "text",
-      "id": "nav_link_3_url",
-      "label": "Nav Link 3 URL",
-      "default": "#testimonios"
+      "id": "menu_item_3_url",
+      "label": "Menu Item 3 URL",
+      "default": "/pages/mision"
     },
     {
       "type": "text",
-      "id": "nav_link_4_text",
-      "label": "Nav Link 4 Text",
-      "default": "FAQ"
+      "id": "menu_item_4",
+      "label": "Menu Item 4",
+      "default": "Encuéntranos"
     },
     {
       "type": "text",
-      "id": "nav_link_4_url",
-      "label": "Nav Link 4 URL",
-      "default": "#faq"
+      "id": "menu_item_4_url",
+      "label": "Menu Item 4 URL",
+      "default": "/pages/encuentranos"
     },
     {
       "type": "text",
       "id": "cta_text",
-      "label": "CTA Button Text",
-      "default": "Comprar"
+      "label": "Cart Text",
+      "default": "Carrito"
     },
     {
       "type": "text",
       "id": "cta_url",
-      "label": "CTA Button URL",
-      "default": "#producto"
+      "label": "Cart URL",
+      "default": "/cart"
     }
   ]
 }
@@ -384,8 +384,8 @@
 
     <!-- MENU IZQUIERDO -->
     <nav class="menu-left">
-      <a href="{{ section.settings.nav_link_1_url }}">{{ section.settings.nav_link_1_text }}</a>
-      <a href="{{ section.settings.nav_link_2_url }}">{{ section.settings.nav_link_2_text }}</a>
+      <a href="{{ section.settings.menu_item_1_url }}">{{ section.settings.menu_item_1 }}</a>
+      <a href="{{ section.settings.menu_item_2_url }}">{{ section.settings.menu_item_2 }}</a>
     </nav>
 
     <!-- LOGO CENTRAL -->
@@ -405,8 +405,8 @@
 
     <!-- MENU DERECHO -->
     <nav class="menu-right">
-      <a href="{{ section.settings.nav_link_3_url }}">{{ section.settings.nav_link_3_text }}</a>
-      <a href="{{ section.settings.nav_link_4_url }}">{{ section.settings.nav_link_4_text }}</a>
+      <a href="{{ section.settings.menu_item_3_url }}">{{ section.settings.menu_item_3 }}</a>
+      <a href="{{ section.settings.menu_item_4_url }}">{{ section.settings.menu_item_4 }}</a>
       <a href="{{ section.settings.cta_url }}" class="cart-icon">
         <i class="las la-shopping-cart"></i>
         <span>{{ section.settings.cta_text }}</span>
@@ -427,10 +427,10 @@
     &times;
   </button>
   <nav>
-    <a href="{{ section.settings.nav_link_1_url }}">{{ section.settings.nav_link_1_text }}</a>
-    <a href="{{ section.settings.nav_link_2_url }}">{{ section.settings.nav_link_2_text }}</a>
-    <a href="{{ section.settings.nav_link_3_url }}">{{ section.settings.nav_link_3_text }}</a>
-    <a href="{{ section.settings.nav_link_4_url }}">{{ section.settings.nav_link_4_text }}</a>
+    <a href="{{ section.settings.menu_item_1_url }}">{{ section.settings.menu_item_1 }}</a>
+    <a href="{{ section.settings.menu_item_2_url }}">{{ section.settings.menu_item_2 }}</a>
+    <a href="{{ section.settings.menu_item_3_url }}">{{ section.settings.menu_item_3 }}</a>
+    <a href="{{ section.settings.menu_item_4_url }}">{{ section.settings.menu_item_4 }}</a>
     <a href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }}</a>
   </nav>
 </div>
