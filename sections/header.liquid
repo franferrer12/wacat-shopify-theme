@@ -17,9 +17,9 @@
 }
 {% endschema %}
 
-<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-wacat-navy/10 bg-white/90" data-header>
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-header>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+    <div class="flex items-center justify-between h-20 transition-all duration-300" data-header-content>
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-wacat-navy hover:text-wacat-navy-dark transition-colors">
         {%- if section.settings.logo != blank -%}
@@ -114,8 +114,120 @@
 </header>
 
 <script>
-  // Mobile menu functionality
   (function() {
+    // ========================================================================
+    // HEADER SCROLL BEHAVIOR - Ultra smooth Apple-style
+    // ========================================================================
+    const header = document.querySelector('[data-header]');
+    const headerContent = document.querySelector('[data-header-content]');
+    let lastScroll = 0;
+    let ticking = false;
+
+    function updateHeader() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > 20) {
+        // Scrolled state: more opaque, compact, shadow
+        header.style.backdropFilter = 'blur(20px) saturate(180%)';
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 1px 3px 0 rgba(30, 69, 99, 0.08)';
+        header.style.borderBottom = '1px solid rgba(30, 69, 99, 0.08)';
+
+        if (headerContent) {
+          headerContent.style.height = '64px'; // h-16
+        }
+      } else {
+        // Top state: transparent, taller
+        header.style.backdropFilter = 'blur(8px)';
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        header.style.boxShadow = 'none';
+        header.style.borderBottom = '1px solid rgba(30, 69, 99, 0.05)';
+
+        if (headerContent) {
+          headerContent.style.height = '80px'; // h-20
+        }
+      }
+
+      lastScroll = currentScroll;
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+    updateHeader(); // Initial call
+
+    // ========================================================================
+    // SMOOTH SCROLL - For all anchor links
+    // ========================================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+
+        // Calculate offset (header height + padding)
+        const headerHeight = header?.offsetHeight || 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = targetPosition - headerHeight - 20;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Update URL without jumping
+        if (history.pushState) {
+          history.pushState(null, null, href);
+        }
+      });
+    });
+
+    // ========================================================================
+    // ACTIVE SECTION HIGHLIGHTING - Intersection Observer
+    // ========================================================================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '-80px 0px -60% 0px'
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+
+          // Update active states
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${id}`) {
+              link.style.color = 'var(--wacat-navy)';
+              link.style.fontWeight = '600';
+            } else {
+              link.style.color = 'rgba(30, 69, 99, 0.7)';
+              link.style.fontWeight = '500';
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // ========================================================================
+    // MOBILE MENU - Enhanced with staggered animations
+    // ========================================================================
     const menuBtn = document.getElementById('mobile-menu-btn');
     const menuClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -128,6 +240,17 @@
       menuBtn.setAttribute('aria-expanded', 'true');
       mobileMenu.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+
+      // Staggered animation for menu items
+      menuLinks.forEach((link, index) => {
+        link.style.opacity = '0';
+        link.style.transform = 'translateX(20px)';
+        setTimeout(() => {
+          link.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          link.style.opacity = '1';
+          link.style.transform = 'translateX(0)';
+        }, 100 + (index * 50));
+      });
     }
 
     function closeMenu() {
@@ -151,6 +274,13 @@
       link.addEventListener('click', () => {
         setTimeout(closeMenu, 150);
       });
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('pointer-events-none')) {
+        closeMenu();
+      }
     });
   })();
 </script>

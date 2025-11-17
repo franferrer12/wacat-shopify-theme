@@ -1813,3 +1813,478 @@ html:not(.js-enabled) .js-only {
 .fab i {
   font-size: 1.5rem;
 }
+
+/* ==========================================================================
+   ULTRA UX ENHANCEMENTS - Advanced micro-interactions
+   ========================================================================== */
+
+/* Enhanced keyboard navigation */
+body.using-keyboard *:focus {
+  outline: 3px solid var(--wacat-navy);
+  outline-offset: 4px;
+  border-radius: 0.375rem;
+}
+
+body:not(.using-keyboard) *:focus {
+  outline: none;
+}
+
+/* Smooth hover transitions for cards */
+.card,
+.benefit-card {
+  will-change: transform, box-shadow;
+}
+
+/* Enhanced button hover effects */
+.btn:hover {
+  will-change: transform;
+}
+
+/* Mobile touch optimizations */
+@media (max-width: 768px) {
+  /* Larger minimum touch targets */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better spacing for mobile */
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Optimize text for mobile readability */
+  .heading-xl {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+
+  .heading-lg {
+    font-size: 1.75rem;
+  }
+
+  .body-lg {
+    font-size: 1rem;
+  }
+
+  /* Better mobile buttons */
+  .btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Optimize hero for mobile */
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+
+  /* Better mobile cards */
+  .card {
+    padding: 1.25rem;
+  }
+
+  /* Hide decorative elements on mobile */
+  .absolute.blur-3xl {
+    display: none;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-spacing {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .heading-xl {
+    font-size: 2.5rem;
+  }
+}
+
+/* Desktop large screen optimizations */
+@media (min-width: 1440px) {
+  .max-w-7xl {
+    max-width: 90rem;
+  }
+
+  .section-spacing {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+
+  .heading-display {
+    font-size: 5.5rem;
+  }
+
+  .heading-xl {
+    font-size: 4rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-secondary,
+  .text-tertiary {
+    color: var(--wacat-navy);
+  }
+
+  .bg-wacat-cream {
+    background-color: #ffffff;
+  }
+
+  button,
+  .btn {
+    border: 2px solid var(--wacat-navy);
+  }
+}
+
+/* Dark mode support (future-proofing) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wacat-navy: #7BA3C0;
+    --wacat-navy-dark: #5A8AAF;
+    --wacat-cream: #2A2A2A;
+    --wacat-cream-light: #1A1A1A;
+  }
+
+  body {
+    background-color: #1A1A1A;
+    color: #E0E0E0;
+  }
+
+  .bg-white {
+    background-color: #2A2A2A;
+  }
+
+  .text-wacat-navy {
+    color: #7BA3C0;
+  }
+
+  .card {
+    background: #2A2A2A;
+    border: 1px solid rgba(123, 163, 192, 0.2);
+  }
+}
+
+/* Print styles */
+@media print {
+  header,
+  .back-to-top,
+  .scroll-indicator,
+  .mobile-menu,
+  .fab {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .section-spacing {
+    padding: 2rem 0;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .card {
+    page-break-inside: avoid;
+  }
+}
+
+/* ========================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ========================================================================== */
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--wacat-navy);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 100;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Visible focus for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--wacat-navy);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+/* High contrast borders */
+@media (prefers-contrast: more) {
+  .card,
+  .btn,
+  input,
+  select,
+  textarea {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Respecting user preferences */
+@media (prefers-reduced-transparency) {
+  .backdrop-blur-sm,
+  .backdrop-blur-apple,
+  header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: white !important;
+  }
+}
+
+/* ========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Will-change for animations */
+.animated-section,
+.hover-lift,
+.btn,
+.card {
+  will-change: auto;
+}
+
+.animated-section.visible {
+  will-change: transform, opacity;
+}
+
+/* GPU acceleration for transforms */
+.hero-image,
+.product-image,
+.floating-badge {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'DM Sans';
+  font-display: swap;
+  /* Add font-face declarations if needed */
+}
+
+/* Content visibility for off-screen sections */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* ========================================================================
+   UTILITY ADDITIONS
+   ========================================================================== */
+
+/* Aspect ratios */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+/* Widths */
+.w-20 {
+  width: 5rem;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+/* Heights */
+.h-20 {
+  height: 5rem;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+/* Negative margins */
+.-top-10 {
+  top: -2.5rem;
+}
+
+.-top-12 {
+  top: -3rem;
+}
+
+.-right-8 {
+  right: -2rem;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-right-12 {
+  right: -3rem;
+}
+
+.-bottom-8 {
+  bottom: -2rem;
+}
+
+.-bottom-12 {
+  bottom: -3rem;
+}
+
+.-left-8 {
+  left: -2rem;
+}
+
+.-left-10 {
+  left: -2.5rem;
+}
+
+.-left-12 {
+  left: -3rem;
+}
+
+/* Blur utilities */
+.blur { filter: blur(4px); }
+.blur-sm { filter: blur(2px); }
+.blur-md { filter: blur(8px); }
+.blur-lg { filter: blur(12px); }
+.blur-xl { filter: blur(16px); }
+.blur-2xl { filter: blur(24px); }
+.blur-3xl { filter: blur(40px); }
+
+/* Grayscale */
+.grayscale { filter: grayscale(100%); }
+.grayscale-0 { filter: grayscale(0%); }
+
+/* Saturate */
+.saturate-150 { filter: saturate(1.5); }
+.saturate-200 { filter: saturate(2); }
+
+/* Mix blend modes */
+.mix-blend-multiply { mix-blend-mode: multiply; }
+.mix-blend-screen { mix-blend-mode: screen; }
+.mix-blend-overlay { mix-blend-mode: overlay; }
+
+/* Object position */
+.object-center { object-position: center; }
+.object-top { object-position: top; }
+.object-bottom { object-position: bottom; }
+
+/* List styles */
+.list-none { list-style-type: none; }
+.list-disc { list-style-type: disc; }
+.list-decimal { list-style-type: decimal; }
+
+/* Whitespace */
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-pre-wrap { white-space: pre-wrap; }
+
+/* Word break */
+.break-words { word-break: break-word; }
+.break-all { word-break: break-all; }
+
+/* Truncate */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Additional colors needed */
+.bg-green-500\/10 { background-color: rgba(16, 185, 129, 0.1); }
+.bg-red-500\/10 { background-color: rgba(239, 68, 68, 0.1); }
+.text-green-600 { color: #059669; }
+.text-red-600 { color: #DC2626; }
+.text-red-500 { color: #EF4444; }
+
+/* Additional spacing */
+.mr-1 { margin-right: 0.25rem; }
+.ml-2 { margin-left: 0.5rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+
+/* Prose improvements */
+.prose-lg {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.prose-lg p {
+  margin-bottom: 1.5em;
+}
+
+/* Max width none */
+.max-w-none {
+  max-width: none;
+}
