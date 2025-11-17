@@ -17,46 +17,140 @@
 }
 {% endschema %}
 
-<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-apple border-b border-wacat-navy/10 bg-white/80" data-header>
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="flex items-center justify-between py-5">
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-wacat-navy/10 bg-white/90" data-header>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 text-2xl font-bold text-wacat-navy tracking-tight hover:text-wacat-navy-dark transition-colors">
+      <a href="/" class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-wacat-navy hover:text-wacat-navy-dark transition-colors">
         {%- if section.settings.logo != blank -%}
-          <img src="{{ section.settings.logo | img_url: '120x' }}" alt="{{ shop.name }}" class="h-8" loading="lazy">
+          <img src="{{ section.settings.logo | img_url: '120x' }}" alt="{{ shop.name }}" class="h-7 sm:h-8" loading="lazy">
         {%- else -%}
           <span>{{ section.settings.logo_text }}</span>
         {%- endif -%}
       </a>
 
-      <!-- Navigation -->
-      <nav class="hidden lg:flex items-center gap-8">
-        <a href="#beneficios" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+        <a href="#beneficios" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
           Beneficios
         </a>
-        <a href="#como-funciona" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+        <a href="#como-funciona" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
           Cómo Funciona
         </a>
-        <a href="#testimonios" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+        <a href="#testimonios" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
           Testimonios
         </a>
-        <a href="#faq" class="text-base font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors tracking-tight">
+        <a href="#faq" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
           FAQ
         </a>
       </nav>
 
-      <!-- CTA Button -->
-      <div class="flex items-center gap-4">
-        <a href="#producto" class="hidden sm:inline-flex items-center gap-2 bg-wacat-navy text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark transition-all duration-300 hover:scale-105 shadow-lg tracking-tight">
-          <i class="las la-shopping-cart text-lg"></i>
-          Comprar Ahora
+      <!-- CTA & Mobile Menu -->
+      <div class="flex items-center gap-3">
+        <a href="#producto" class="hidden md:inline-flex items-center gap-2 bg-wacat-navy text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark transition-all duration-300 shadow-md">
+          🛒 Comprar
         </a>
 
         <!-- Mobile Menu Button -->
-        <button class="lg:hidden p-2 text-wacat-navy" aria-label="Menu">
-          <i class="las la-bars text-2xl"></i>
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden p-2 text-wacat-navy hover:bg-wacat-navy/5 rounded-lg transition-colors"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
       </div>
     </div>
   </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 opacity-0 pointer-events-none"
+    aria-hidden="true"
+  >
+    <div class="fixed right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300">
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between p-4 border-b border-wacat-navy/10">
+        <span class="text-lg font-bold text-wacat-navy">{{ section.settings.logo_text }}</span>
+        <button
+          id="mobile-menu-close"
+          class="p-2 text-wacat-navy hover:bg-wacat-navy/5 rounded-lg transition-colors"
+          aria-label="Cerrar menú"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="p-4 space-y-1">
+        <a href="#beneficios" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          Beneficios
+        </a>
+        <a href="#como-funciona" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          Cómo Funciona
+        </a>
+        <a href="#testimonios" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          Testimonios
+        </a>
+        <a href="#faq" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          FAQ
+        </a>
+      </nav>
+
+      <!-- Mobile CTA -->
+      <div class="p-4 border-t border-wacat-navy/10">
+        <a href="#producto" class="mobile-menu-link flex items-center justify-center gap-2 bg-wacat-navy text-white px-6 py-4 rounded-full text-base font-bold hover:bg-wacat-navy-dark transition-all duration-300 shadow-lg w-full">
+          🛒 Comprar Ahora
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  // Mobile menu functionality
+  (function() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.mobile-menu-link');
+    const menuPanel = mobileMenu?.querySelector('div');
+
+    function openMenu() {
+      mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
+      menuPanel.classList.remove('translate-x-full');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.add('opacity-0');
+      menuPanel.classList.add('translate-x-full');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        mobileMenu.classList.add('pointer-events-none');
+      }, 300);
+    }
+
+    menuBtn?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    mobileMenu?.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) closeMenu();
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(closeMenu, 150);
+      });
+    });
+  })();
+</script>
