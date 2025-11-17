@@ -1,597 +1,197 @@
 /* ==========================================================================
-   B3TTER FOODS INSPIRED MINIMAL STYLE
-   Paleta minimalista, espaciado generoso, CTAs sutiles
+   B3TTER FOODS EXACT REPLICA STYLE
+   Valores EXACTOS copiados del sitio original B3TTER FOODS
    ========================================================================== */
 
-/* Paleta de colores minimalista - Inspirada en B3TTER FOODS
+/* Variables CSS EXACTAS de B3TTER FOODS
    ========================================================================== */
 :root {
-  /* Colores principales - Más neutros y minimalistas */
-  --color-primary: #6B6B6B;        /* Gris oscuro para texto principal */
-  --color-secondary: #9B9B9B;      /* Gris medio para texto secundario */
-  --color-tertiary: #CCCCCC;       /* Gris claro para bordes */
+  /* Colores EXACTOS B3TTER FOODS - Color Scheme 1 (Default) */
+  --color-background: 255, 255, 255; /* #FFFFFF */
+  --gradient-background: #ffffff;
+  --color-foreground: 18, 18, 18; /* #121212 */
+  --color-background-contrast: 191, 191, 191; /* #BFBFBF */
+  --color-shadow: 18, 18, 18;
+  --color-button: 18, 18, 18;
+  --color-button-text: 255, 255, 255;
+  --color-secondary-button: 255, 255, 255;
+  --color-secondary-button-text: 18, 18, 18;
+  --color-link: 18, 18, 18;
 
-  /* Fondos neutros */
-  --color-bg-primary: #FFFFFF;     /* Blanco puro */
-  --color-bg-secondary: #F5F5F5;   /* Gris muy claro */
-  --color-bg-tertiary: #EDEDED;    /* Gris claro */
+  /* Colores EXACTOS B3TTER FOODS - Color Scheme 2 (Gris Claro) */
+  --color-bg-scheme-2: 243, 243, 243; /* #F3F3F3 */
 
-  /* Acento sutil - Agua/hidratación */
-  --color-accent: #5C8A8F;         /* Azul petróleo suave */
-  --color-accent-light: #A8D5BA;   /* Verde agua muy suave */
+  /* Colores de Marca B3TTER EXACTOS */
+  --dark-grey: #7C7C7C;
+  --light-grey: #EDEDED;
+  --medium-grey: #737272;
 
-  /* B3TTER style spacing - Más generoso */
-  --spacing-xs: 8px;
-  --spacing-sm: 16px;
-  --spacing-md: 24px;
-  --spacing-lg: 40px;
-  --spacing-xl: 60px;
-  --spacing-2xl: 80px;
-  --spacing-3xl: 120px;
+  /* Page Settings EXACTOS */
+  --page-width: 120rem; /* 1200px EXACTO */
+  --page-width-margin: 0rem;
 
-  /* B3TTER style borders */
-  --border-radius-sm: 12px;
-  --border-radius-md: 20px;
-  --border-radius-lg: 32px;
-  --border-radius-pill: 9999px;
+  /* Spacing EXACTO - B3TTER no tiene spacing entre secciones */
+  --spacing-sections-desktop: 0px;
+  --spacing-sections-mobile: 0px;
+
+  /* Grid Spacing EXACTO */
+  --grid-desktop-vertical-spacing: 8px;
+  --grid-desktop-horizontal-spacing: 8px;
+  --grid-mobile-vertical-spacing: 4px;
+  --grid-mobile-horizontal-spacing: 4px;
+
+  /* Buttons EXACTOS */
+  --buttons-radius: 16px;
+  --buttons-radius-outset: 17px;
+  --buttons-border-width: 1px;
+  --buttons-border-opacity: 1.0;
+  --buttons-shadow-opacity: 0.0;
+  --buttons-shadow-horizontal-offset: 0px;
+  --buttons-shadow-vertical-offset: 4px;
+  --buttons-shadow-blur-radius: 5px;
+  --buttons-border-offset: 0.3px;
+
+  /* Border Radius EXACTO */
+  --border-radius-buttons-primary: 32px; /* Instagram, Newsletter */
+  --border-radius-buttons-secondary: 16px;
+  --border-radius-badges: 40px;
+  --border-radius-cards: 20px;
+  --border-radius-images: 20px;
+
+  /* Product Card EXACTO */
+  --product-card-image-padding: 0.0rem;
+  --product-card-corner-radius: 0.0rem;
+  --product-card-text-alignment: left;
+  --product-card-border-width: 0.0rem;
+  --product-card-border-opacity: 0.1;
+  --product-card-shadow-opacity: 0.0;
+
+  /* Media EXACTO */
+  --media-padding: 0px;
+  --media-border-opacity: 0.05;
+  --media-border-width: 1px;
+  --media-radius: 0px;
+  --media-shadow-opacity: 0.0;
+
+  /* Inputs EXACTO */
+  --inputs-radius: 0px;
+  --inputs-border-width: 1px;
+  --inputs-border-opacity: 0.55;
+  --inputs-shadow-opacity: 0.0;
 }
 
-/* Sobrescribir colores base del body - FORZAR PALETA GRIS
+/* Reset base - Aplicar colores B3TTER
    ========================================================================== */
 body {
-  color: var(--color-primary) !important;
+  color: rgb(var(--color-foreground)) !important;
+  background-color: rgb(var(--color-background)) !important;
+  font-family: Assistant, sans-serif !important;
+  font-size: 1.5rem !important; /* Mobile base */
+  letter-spacing: 0.06rem !important;
+  line-height: 1.8 !important;
+  font-weight: 400 !important;
 }
 
-/* Sobrescribir TODOS los colores de texto para usar paleta gris
+@media screen and (min-width: 750px) {
+  body {
+    font-size: 1.6rem !important; /* Desktop base - 16px */
+  }
+}
+
+html {
+  font-size: 62.5% !important; /* Base 10px para rem */
+}
+
+/* Tipografía EXACTA B3TTER
    ========================================================================== */
-.text-primary,
-.text-wacat-navy,
 h1, h2, h3, h4, h5, h6 {
-  color: var(--color-primary) !important;
+  font-family: Assistant, sans-serif !important;
+  color: rgb(var(--color-foreground)) !important;
+  font-weight: 400 !important; /* B3TTER usa 400 regular, NO 300 */
+  letter-spacing: normal !important;
+  line-height: 1.2 !important;
 }
 
-.text-secondary,
-.text-wacat-navy\/70,
-.text-wacat-navy\/80,
 p {
-  color: var(--color-secondary) !important;
-}
-
-.text-tertiary,
-.text-wacat-navy\/50,
-.text-wacat-navy\/60 {
-  color: var(--color-tertiary) !important;
-}
-
-/* Sobrescribir fondos oscuros */
-.bg-wacat-navy,
-.bg-wacat-navy-dark {
-  background-color: var(--color-primary) !important;
-}
-
-/* Sobrescribir fondos claros */
-.bg-wacat-cream,
-.bg-wacat-cream-light {
-  background-color: var(--color-bg-secondary) !important;
-}
-
-/* Fondos neutros
-   ========================================================================== */
-.bg-neutral {
-  background-color: var(--color-bg-secondary);
-}
-
-.bg-neutral-light {
-  background-color: var(--color-bg-tertiary);
-}
-
-/* Secciones con más espacio - Estilo B3TTER
-   ========================================================================== */
-section {
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-2xl);
-}
-
-@media (max-width: 768px) {
-  section {
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
-  }
-}
-
-/* CTAs estilo B3TTER FOODS - Bordes sutiles, sin relleno sólido
-   ========================================================================== */
-.btn-b3tter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 32px;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: var(--border-radius-pill);
-  border: 1px solid var(--color-primary);
-  background-color: transparent;
-  color: var(--color-primary);
-  transition: all 0.3s ease;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.btn-b3tter:hover {
-  background-color: rgba(107, 107, 107, 0.05);
-  border-color: var(--color-primary);
-  transform: translateY(-1px);
-}
-
-.btn-b3tter:active {
-  transform: translateY(0);
-}
-
-/* Variante con acento azul agua */
-.btn-b3tter-accent {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-.btn-b3tter-accent:hover {
-  background-color: rgba(92, 138, 143, 0.08);
-  border-color: var(--color-accent);
-}
-
-/* CTA para fondos oscuros - Estilo B3TTER */
-.btn-b3tter-white {
-  border-color: rgba(255, 255, 255, 0.6);
-  color: #ffffff;
-}
-
-.btn-b3tter-white:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
-}
-
-/* Títulos más sutiles - Estilo B3TTER
-   ========================================================================== */
-.heading-b3tter {
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: var(--color-primary);
-  line-height: 1.2;
-}
-
-.heading-xl-b3tter {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-}
-
-.heading-lg-b3tter {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 300;
-  letter-spacing: -0.025em;
-}
-
-/* Subtítulos más discretos */
-.subtitle-b3tter {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--color-secondary);
-  line-height: 1.5;
-}
-
-/* Cards estilo B3TTER - Más minimalistas
-   ========================================================================== */
-.card-b3tter {
-  background-color: #ffffff;
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-lg);
-  border: 1px solid var(--color-bg-tertiary);
-  transition: all 0.3s ease;
-}
-
-.card-b3tter:hover {
-  border-color: var(--color-tertiary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
-}
-
-/* Badges/Pills estilo B3TTER
-   ========================================================================== */
-.badge-b3tter {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 16px;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: var(--border-radius-pill);
-  border: 1px solid var(--color-tertiary);
-  background-color: transparent;
-  color: var(--color-secondary);
-}
-
-/* Dividers más sutiles
-   ========================================================================== */
-.divider-b3tter {
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    rgba(107, 107, 107, 0),
-    rgba(107, 107, 107, 0.1) 50%,
-    rgba(107, 107, 107, 0)
-  );
-  margin: var(--spacing-xl) 0;
-}
-
-/* Inputs estilo B3TTER
-   ========================================================================== */
-input.input-b3tter,
-textarea.input-b3tter,
-select.input-b3tter {
-  padding: 12px 20px;
-  font-size: 14px;
-  border-radius: var(--border-radius-sm);
-  border: 1px solid var(--color-tertiary);
-  background-color: #ffffff;
-  color: var(--color-primary);
-  transition: all 0.3s ease;
-}
-
-input.input-b3tter:focus,
-textarea.input-b3tter:focus,
-select.input-b3tter:focus {
-  outline: none;
-  border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(107, 107, 107, 0.08);
-}
-
-/* Hero section minimalista - Sin CTAs como B3TTER
-   ========================================================================== */
-.hero-b3tter {
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: var(--spacing-3xl) var(--spacing-md);
-}
-
-.hero-b3tter-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 300;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
-}
-
-.hero-b3tter-subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 400;
-  color: var(--color-secondary);
-  line-height: 1.5;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Ocultar CTAs en hero para estilo B3TTER */
-.hero-b3tter .btn-group {
-  display: none;
-}
-
-/* Iconos más sutiles
-   ========================================================================== */
-.icon-b3tter {
-  font-size: 2rem;
-  color: var(--color-tertiary);
-  transition: color 0.3s ease;
-}
-
-.icon-b3tter:hover {
-  color: var(--color-secondary);
-}
-
-/* Grid de beneficios - Máximo 3 columnas como B3TTER
-   ========================================================================== */
-.benefits-grid-b3tter {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-xl);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .benefits-grid-b3tter {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Producto destacado - Layout B3TTER
-   ========================================================================== */
-.product-featured-b3tter {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
-  align-items: center;
-}
-
-@media (min-width: 1024px) {
-  .product-featured-b3tter {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
-  }
-}
-
-/* Imágenes con bordes redondeados sutiles
-   ========================================================================== */
-.image-b3tter {
-  border-radius: var(--border-radius-md);
-  overflow: hidden;
-}
-
-.image-b3tter img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* Links más sutiles
-   ========================================================================== */
-a.link-b3tter {
-  color: var(--color-primary);
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-tertiary);
-  transition: all 0.3s ease;
-}
-
-a.link-b3tter:hover {
-  border-bottom-color: var(--color-secondary);
-  color: var(--color-secondary);
-}
-
-/* Espaciado entre secciones - Más generoso
-   ========================================================================== */
-.section-gap-b3tter {
-  margin-bottom: var(--spacing-2xl);
-}
-
-@media (min-width: 1024px) {
-  .section-gap-b3tter {
-    margin-bottom: var(--spacing-3xl);
-  }
-}
-
-/* Footer más limpio
-   ========================================================================== */
-footer.footer-b3tter {
-  background-color: var(--color-bg-secondary);
-  color: var(--color-primary);
-  padding: var(--spacing-2xl) var(--spacing-md);
-  border-top: 1px solid var(--color-bg-tertiary);
-}
-
-footer.footer-b3tter a {
-  color: var(--color-secondary);
-  transition: color 0.3s ease;
-}
-
-footer.footer-b3tter a:hover {
-  color: var(--color-primary);
-}
-
-/* Testimonials más discretos
-   ========================================================================== */
-.testimonial-b3tter {
-  padding: var(--spacing-lg);
-  background-color: #ffffff;
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--color-bg-tertiary);
-}
-
-.testimonial-b3tter-quote {
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--color-primary);
-  font-style: italic;
-}
-
-.testimonial-b3tter-author {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-secondary);
-  margin-top: var(--spacing-sm);
-}
-
-/* FAQ más limpio
-   ========================================================================== */
-.faq-b3tter details {
-  border-bottom: 1px solid var(--color-bg-tertiary);
-  padding: var(--spacing-md) 0;
-}
-
-.faq-b3tter summary {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-primary);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.faq-b3tter summary:hover {
-  color: var(--color-secondary);
-}
-
-.faq-b3tter details[open] summary {
-  margin-bottom: var(--spacing-sm);
-}
-
-.faq-b3tter details p {
-  color: var(--color-secondary);
-  line-height: 1.6;
-}
-
-/* Números/Estadísticas - Estilo B3TTER
-   ========================================================================== */
-.stat-b3tter {
-  text-align: center;
-}
-
-.stat-b3tter-number {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 300;
-  letter-spacing: -0.03em;
-  color: var(--color-primary);
-  line-height: 1;
-}
-
-.stat-b3tter-label {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--color-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: var(--spacing-xs);
-}
-
-/* Animaciones más sutiles
-   ========================================================================== */
-.transition-b3tter {
-  transition: all 0.3s ease;
-}
-
-.hover-lift-b3tter:hover {
-  transform: translateY(-4px);
-  transition: transform 0.3s ease;
-}
-
-/* Responsive - Mobile first
-   ========================================================================== */
-@media (max-width: 768px) {
-  :root {
-    --spacing-xl: 40px;
-    --spacing-2xl: 60px;
-    --spacing-3xl: 80px;
-  }
-
-  .hero-b3tter {
-    min-height: 70vh;
-    padding: var(--spacing-2xl) var(--spacing-sm);
-  }
-
-  .benefits-grid-b3tter {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-
-  .btn-b3tter {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-/* Tipografía más consistente
-   ========================================================================== */
-body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-  letter-spacing: -0.02em;
-}
-
-/* Mejorar legibilidad
-   ========================================================================== */
-p {
-  line-height: 1.7;
-  color: var(--color-secondary);
+  color: rgb(var(--color-foreground)) !important;
+  line-height: 1.7 !important;
 }
 
 strong {
-  font-weight: 600;
-  color: var(--color-primary);
+  font-weight: 700 !important;
 }
 
-/* Background patterns más sutiles (como B3TTER)
+/* Page Width EXACTO - 120rem (1200px)
    ========================================================================== */
-.bg-pattern-subtle {
-  background-image: radial-gradient(rgba(107, 107, 107, 0.02) 1px, transparent 1px);
-  background-size: 30px 30px;
+.page-width,
+.container,
+.max-w-6xl,
+.max-w-7xl {
+  max-width: var(--page-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* Logos con efecto grayscale como B3TTER
+/* Spacing entre secciones - 0px como B3TTER
    ========================================================================== */
-.logo-grayscale {
-  filter: grayscale(100%);
-  opacity: 0.5;
-  transition: all 0.3s ease;
+section,
+.shopify-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
-.logo-grayscale:hover {
-  filter: grayscale(0%);
-  opacity: 1;
+/* Secciones específicas con padding interno */
+.section-padding {
+  padding-top: 28px !important;
+  padding-bottom: 36px !important;
 }
 
-/* Contenedor máximo más ancho para respirar
-   ========================================================================== */
-.container-b3tter {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-@media (min-width: 1024px) {
-  .container-b3tter {
-    padding: 0 var(--spacing-xl);
+@media screen and (max-width: 749px) {
+  .section-padding {
+    padding-top: 21px !important;
+    padding-bottom: 27px !important;
   }
 }
 
-/* Ocultar elementos decorativos excesivos
-   ========================================================================== */
-.simplify-b3tter .absolute.blur-3xl,
-.simplify-b3tter .bg-gradient-to-br {
-  display: none;
-}
-
-/* SOBRESCRIBIR BOTONES - Forzar estilo B3TTER
+/* Botones EXACTOS B3TTER FOODS
    ========================================================================== */
 .btn,
 .btn-primary,
 .btn-secondary,
 button,
-a.btn {
-  background-color: transparent !important;
-  color: var(--color-primary) !important;
-  border: 1px solid var(--color-primary) !important;
-  border-radius: var(--border-radius-pill) !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
+a.btn,
+.button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 7.5px 30px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  padding: 12px 32px !important;
-  box-shadow: none !important;
+  letter-spacing: normal !important;
+  border-radius: 32px !important; /* EXACTO B3TTER */
+  border: 1px solid var(--dark-grey) !important;
+  background-color: transparent !important;
+  color: var(--dark-grey) !important;
   transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  font-family: Assistant, sans-serif !important;
 }
 
 .btn:hover,
 .btn-primary:hover,
 .btn-secondary:hover,
 button:hover,
-a.btn:hover {
-  background-color: rgba(107, 107, 107, 0.05) !important;
-  border-color: var(--color-primary) !important;
-  color: var(--color-primary) !important;
-  transform: translateY(-1px) !important;
+a.btn:hover,
+.button:hover {
+  background-color: #e1e1e1 !important;
+  border-color: var(--dark-grey) !important;
+  color: var(--dark-grey) !important;
+  transform: none !important;
   box-shadow: none !important;
 }
 
@@ -610,65 +210,410 @@ a.btn:hover {
   color: #ffffff !important;
 }
 
-/* SOBRESCRIBIR BADGES - Estilo B3TTER
+/* Badges EXACTOS B3TTER
    ========================================================================== */
 .badge,
 .badge-primary,
 .badge-light {
-  background-color: transparent !important;
-  color: var(--color-secondary) !important;
-  border: 1px solid var(--color-tertiary) !important;
-  border-radius: var(--border-radius-pill) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 6px 16px !important;
   font-size: 11px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
-  padding: 6px 16px !important;
+  border-radius: var(--border-radius-badges) !important; /* 40px */
+  border: 1px solid var(--dark-grey) !important;
+  background-color: transparent !important;
+  color: var(--medium-grey) !important;
+  font-family: Assistant, sans-serif !important;
 }
 
-/* SOBRESCRIBIR CARDS - Estilo minimalista
+/* Cards EXACTOS B3TTER
    ========================================================================== */
 .card,
-.benefit-card {
+.benefit-card,
+.card-wrapper {
   background-color: #ffffff !important;
-  border: 1px solid var(--color-bg-tertiary) !important;
-  border-radius: var(--border-radius-md) !important;
+  border: none !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
   transition: all 0.3s ease !important;
 }
 
 .card:hover,
 .benefit-card:hover {
-  border-color: var(--color-tertiary) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-  transform: translateY(-2px) !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
-/* ELIMINAR GRADIENTES Y DECORACIONES
+/* Imágenes - Border Radius 20px EXACTO
+   ========================================================================== */
+img,
+.media,
+.image-b3tter,
+.rounded-3xl,
+.rounded-2xl,
+.rounded-xl,
+.card__media img {
+  border-radius: 20px !important;
+}
+
+/* Grid EXACTO - 4 columnas desktop
+   ========================================================================== */
+.grid {
+  gap: var(--grid-desktop-horizontal-spacing) var(--grid-desktop-vertical-spacing) !important;
+}
+
+@media screen and (max-width: 749px) {
+  .grid {
+    gap: var(--grid-mobile-horizontal-spacing) var(--grid-mobile-vertical-spacing) !important;
+  }
+}
+
+.grid--4-col-desktop {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+@media screen and (max-width: 989px) {
+  .grid--4-col-desktop {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Eliminar TODOS los gradientes y decoraciones
    ========================================================================== */
 .bg-gradient-to-br,
 .bg-gradient-to-r,
+.bg-gradient-to-l,
 .absolute.blur-3xl,
-.bg-pattern-dots {
+.bg-pattern-dots,
+.gradient {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Color Schemes EXACTOS
+   ========================================================================== */
+.color-scheme-1 {
+  background-color: rgb(var(--color-background)) !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.color-scheme-2 {
+  background-color: rgb(var(--color-bg-scheme-2)) !important; /* #F3F3F3 */
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* Sobrescribir colores de tema WACAT con B3TTER
+   ========================================================================== */
+.text-wacat-navy,
+.text-primary {
+  color: rgb(var(--color-foreground)) !important; /* #121212 */
+}
+
+.text-secondary,
+.text-wacat-navy\/70 {
+  color: var(--dark-grey) !important; /* #7C7C7C */
+}
+
+.bg-wacat-navy,
+.bg-wacat-navy-dark {
+  background-color: rgb(var(--color-foreground)) !important;
+}
+
+.bg-wacat-cream,
+.bg-wacat-cream-light {
+  background-color: rgb(var(--color-bg-scheme-2)) !important;
+}
+
+/* Links EXACTOS
+   ========================================================================== */
+a {
+  color: rgb(var(--color-link)) !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+a:hover {
+  color: var(--dark-grey) !important;
+}
+
+/* Inputs EXACTOS
+   ========================================================================== */
+input,
+textarea,
+select {
+  border-radius: var(--inputs-radius) !important;
+  border: var(--inputs-border-width) solid rgba(var(--color-foreground), var(--inputs-border-opacity)) !important;
+  padding: 12px 20px !important;
+  font-size: 14px !important;
+  font-family: Assistant, sans-serif !important;
+  background-color: #ffffff !important;
+  color: rgb(var(--color-foreground)) !important;
+  transition: all 0.3s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--dark-grey) !important;
+  box-shadow: none !important;
+}
+
+/* Hero EXACTO B3TTER
+   ========================================================================== */
+.b3-section-header {
+  position: relative !important;
+}
+
+.b3-section-header-banners {
+  position: relative !important;
+}
+
+.b3-section-header-banners-title {
+  position: absolute !important;
+  width: 100% !important;
+  z-index: 10 !important;
+  text-align: center !important;
+  font-family: Assistant, sans-serif !important;
+  color: #121212 !important; /* EXACTO B3TTER - texto negro */
+  font-weight: 400 !important;
+  font-size: clamp(2rem, 5vw, 4rem) !important;
+  line-height: 1.2 !important;
+  padding: 0 2rem !important;
+}
+
+.b3-section-header-banners-title.middle {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.b3-section-header-banners-imagen {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 85vh !important;
+}
+
+.b3-section-header-banners-imagen img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 0 !important; /* Hero NO tiene border-radius */
+}
+
+/* Logos Section EXACTA
+   ========================================================================== */
+.b3-section-logos {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 40px !important;
+  padding: 40px 20px !important;
+  background: #ffffff !important;
+}
+
+.b3-section-logos svg,
+.b3-section-logos img {
+  height: 40px !important;
+  width: auto !important;
+  opacity: 0.6 !important;
+  filter: grayscale(100%) !important;
+  transition: all 0.3s ease !important;
+}
+
+.b3-section-logos svg:hover,
+.b3-section-logos img:hover {
+  opacity: 1 !important;
+  filter: grayscale(0%) !important;
+}
+
+@media screen and (max-width: 749px) {
+  .b3-section-logos {
+    gap: 20px !important;
+    padding: 30px 10px !important;
+  }
+
+  .b3-section-logos svg,
+  .b3-section-logos img {
+    height: 30px !important;
+  }
+}
+
+/* Featured Collection Padding EXACTO
+   ========================================================================== */
+.collection {
+  padding-top: 28px !important;
+  padding-bottom: 36px !important;
+}
+
+@media screen and (max-width: 749px) {
+  .collection {
+    padding-top: 21px !important;
+    padding-bottom: 27px !important;
+  }
+}
+
+/* Transitions EXACTAS B3TTER
+   ========================================================================== */
+* {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Ocultar elementos de WACAT que no existen en B3TTER
+   ========================================================================== */
+.simplify-b3tter .absolute.blur-3xl,
+.simplify-b3tter .bg-gradient-to-br,
+.hero-badge,
+.hero-subtitle {
   display: none !important;
 }
 
-/* FORZAR BORDES REDONDEADOS B3TTER
+/* Responsive B3TTER Mobile
    ========================================================================== */
-img,
-.rounded-3xl,
-.rounded-2xl,
-.rounded-xl {
-  border-radius: var(--border-radius-md) !important;
+@media screen and (max-width: 749px) {
+  .b3-section-header-banners-imagen {
+    min-height: 70vh !important;
+  }
+
+  .b3-section-header-banners-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+  }
 }
 
-/* FORZAR TIPOGRAFÍA LIGERA
+/* Product Grid EXACTO
    ========================================================================== */
-h1, h2, h3, h4, h5, h6,
-.heading-xl,
-.heading-lg,
-.heading-md,
-.heading-display {
-  font-weight: 300 !important;
-  letter-spacing: -0.02em !important;
+.product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Collection View All Button EXACTO
+   ========================================================================== */
+.collection__view-all {
+  margin-top: 36px !important;
+  text-align: center !important;
+}
+
+@media screen and (max-width: 749px) {
+  .collection__view-all {
+    margin-top: 27px !important;
+  }
+}
+
+/* Instagram Feed EXACTO (si se usa)
+   ========================================================================== */
+.b3-instagram-feed {
+  margin: 30px 14px !important;
+  padding: 40px !important;
+  background: #fff !important;
+  border-radius: 20px !important;
+  padding-bottom: 48px !important;
+}
+
+.b3-instagram-feed-header h3 {
+  font-family: Assistant, sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: var(--dark-grey) !important;
+}
+
+@media screen and (max-width: 749px) {
+  .b3-instagram-feed {
+    margin: 10px 14px !important;
+    padding: 20px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .b3-instagram-feed-header h3 {
+    font-size: 20px !important;
+  }
+}
+
+/* Footer más limpio como B3TTER
+   ========================================================================== */
+footer {
+  background-color: var(--light-grey) !important;
+  color: rgb(var(--color-foreground)) !important;
+  padding: 40px 20px !important;
+  border-top: 1px solid #ddd !important;
+}
+
+footer a {
+  color: var(--dark-grey) !important;
+  transition: color 0.3s ease !important;
+}
+
+footer a:hover {
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* Testimonials más discretos como B3TTER
+   ========================================================================== */
+.testimonial {
+  padding: 30px !important;
+  background-color: #ffffff !important;
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.testimonial-quote {
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: rgb(var(--color-foreground)) !important;
+  font-style: italic !important;
+}
+
+.testimonial-author {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: var(--dark-grey) !important;
+  margin-top: 16px !important;
+}
+
+/* FAQ más limpio como B3TTER
+   ========================================================================== */
+.faq details {
+  border-bottom: 1px solid var(--light-grey) !important;
+  padding: 20px 0 !important;
+}
+
+.faq summary {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  color: rgb(var(--color-foreground)) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.faq summary:hover {
+  color: var(--dark-grey) !important;
+}
+
+.faq details[open] summary {
+  margin-bottom: 12px !important;
+}
+
+.faq details p {
+  color: var(--dark-grey) !important;
+  line-height: 1.6 !important;
 }
