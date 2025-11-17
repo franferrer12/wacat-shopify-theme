@@ -15,86 +15,124 @@
         "badge_text": "Para gatos que necesitan beber más",
         "title": "Tu gato necesita agua",
         "subtitle": "WACAT ayuda",
-        "badge_multiplier": "3"
+        "cta_primary_text": "Comprar ahora",
+        "cta_secondary_text": "Ver beneficios",
+        "product": ""
       }
     },
     "product-featured": {
       "type": "product-featured",
       "settings": {
-        "title": "WACAT",
-        "subtitle": "Esencia natural que estimula el instinto de beber"
+        "section_title": "El producto",
+        "section_subtitle": "Cada gota cuenta para la salud de tu gato",
+        "product": "",
+        "product_tagline": "Esencia natural que hace que el agua sea irresistible para tu gato",
+        "cta_primary_text": "Comprar ahora",
+        "cta_secondary_text": "Ver ingredientes",
+        "guarantee_title": "Garantía satisfacción",
+        "guarantee_description": "30 días o te devolvemos tu dinero"
       }
     },
     "statistics": {
       "type": "statistics",
       "settings": {
-        "title": "Estadísticas",
         "stat_1_number": "70",
         "stat_1_unit": "%",
-        "stat_1_title": "Gatos deshidratados",
+        "stat_1_label": "Gatos deshidratados",
         "stat_2_number": "30",
         "stat_2_unit": "%",
-        "stat_2_title": "Problemas renales",
+        "stat_2_label": "Problemas renales",
         "stat_3_number": "3",
         "stat_3_unit": "×",
-        "stat_3_title": "Más hidratación"
+        "stat_3_label": "Más hidratación"
       }
     },
     "benefits": {
       "type": "benefits",
-      "settings": {
-        "title": "Beneficios"
-      },
       "blocks": {
         "benefit_1": {
           "type": "benefit",
           "settings": {
             "icon": "la-leaf",
-            "title": "Natural"
+            "title": "Natural",
+            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "footer_icon": "la-check-circle",
+            "footer_text": "Seguro para uso diario"
           }
         },
         "benefit_2": {
           "type": "benefit",
           "settings": {
             "icon": "la-shield",
-            "title": "Seguro"
+            "title": "Seguro",
+            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "footer_icon": "la-check-circle",
+            "footer_text": "Seguro para uso diario"
           }
         },
         "benefit_3": {
           "type": "benefit",
           "settings": {
             "icon": "la-tint",
-            "title": "Hidratación"
+            "title": "Hidratación",
+            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "footer_icon": "la-check-circle",
+            "footer_text": "Seguro para uso diario"
           }
         },
         "benefit_4": {
           "type": "benefit",
           "settings": {
             "icon": "la-heart",
-            "title": "Salud"
+            "title": "Salud",
+            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "footer_icon": "la-check-circle",
+            "footer_text": "Seguro para uso diario"
           }
         },
         "benefit_5": {
           "type": "benefit",
           "settings": {
             "icon": "la-check-circle",
-            "title": "Efectivo"
+            "title": "Efectivo",
+            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "footer_icon": "la-check-circle",
+            "footer_text": "Seguro para uso diario"
           }
         },
         "benefit_6": {
           "type": "benefit",
           "settings": {
             "icon": "la-clock",
-            "title": "Rápido"
+            "title": "Rápido",
+            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "footer_icon": "la-check-circle",
+            "footer_text": "Seguro para uso diario"
           }
         }
       },
-      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4", "benefit_5", "benefit_6"]
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "benefit_5",
+        "benefit_6"
+      ],
+      "settings": {
+        "title": "Beneficios",
+        "subtitle": "Diseñado específicamente para el comportamiento y las necesidades de los gatos",
+        "cta_title": "Tu gato merece lo mejor",
+        "cta_description": "Miles de dueños ya han mejorado la salud de sus gatos con WACAT. Únete a ellos y dale a tu gato la hidratación que necesita.",
+        "cta_button_text": "Empezar ahora",
+        "product": ""
+      }
     },
     "how-it-works": {
       "type": "how-it-works",
       "settings": {
         "title": "Cómo funciona",
+        "subtitle": "Tres pasos simples",
         "step_1_title": "Añade unas gotas",
         "step_1_description": "Mezcla WACAT con el agua diaria de tu gato",
         "step_2_title": "Tu gato descubre",
@@ -105,11 +143,6 @@
     },
     "health": {
       "type": "health",
-      "settings": {
-        "title": "La importancia de la hidratación",
-        "without_title": "Sin hidratación",
-        "with_title": "Con hidratación"
-      },
       "blocks": {
         "negative_1": {
           "type": "negative_point",
@@ -148,13 +181,23 @@
           }
         }
       },
-      "block_order": ["negative_1", "negative_2", "negative_3", "positive_1", "positive_2", "positive_3"]
+      "block_order": [
+        "negative_1",
+        "negative_2",
+        "negative_3",
+        "positive_1",
+        "positive_2",
+        "positive_3"
+      ],
+      "settings": {
+        "title": "La importancia de la hidratación",
+        "subtitle": "Los gatos tienen un instinto de sed reducido heredado de sus ancestros del desierto",
+        "without_title": "Sin hidratación",
+        "with_title": "Con hidratación"
+      }
     },
     "testimonials": {
       "type": "testimonials",
-      "settings": {
-        "title": "Testimonios"
-      },
       "blocks": {
         "testimonial_1": {
           "type": "testimonial",
@@ -187,13 +230,18 @@
           }
         }
       },
-      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"]
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "title": "Testimonios",
+        "subtitle": "Gatos más felices"
+      }
     },
     "faq": {
       "type": "faq",
-      "settings": {
-        "title": "Preguntas frecuentes"
-      },
       "blocks": {
         "faq_1": {
           "type": "faq_item",
@@ -231,13 +279,26 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"]
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "title": "Preguntas frecuentes",
+        "subtitle": "Todo lo que necesitas saber"
+      }
     },
     "where-to-buy": {
       "type": "where-to-buy",
       "settings": {
         "title": "Dónde comprar",
+        "subtitle": "Farmacias seleccionadas",
+        "pharmacy_title": "En tu farmacia",
         "cities": "Madrid · Barcelona · Valencia · Sevilla",
+        "contact_title": "Contacto",
         "email": "info@wacat.com"
       }
     },
@@ -245,7 +306,14 @@
       "type": "cta-final",
       "settings": {
         "title": "Dale a tu gato la hidratación que merece",
-        "cta_primary_text": "Comprar ahora"
+        "subtitle": "No esperes a que aparezcan problemas de salud. Previene ahora y disfruta de más años juntos.",
+        "cta_primary_text": "Comprar ahora",
+        "cta_secondary_text": "Ver farmacias cercanas",
+        "product": "",
+        "testimonial_quote": "Llevaba meses preocupada porque Luna apenas bebía. Con WACAT ha sido un cambio increíble. Ahora bebe 3 veces más y está mucho más activa.",
+        "testimonial_author": "María",
+        "testimonial_cat_name": "Luna",
+        "testimonial_cat_age": "7 años"
       }
     }
   },
