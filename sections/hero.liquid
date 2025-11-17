@@ -106,6 +106,17 @@
       "default": 64,
       "unit": "px",
       "info": "Controla el espacio entre elementos principales de la sección"
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "label": "Separación entre badge, título y CTAs (px)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "info": "Controla el espacio vertical entre el badge, título y botones"
     }
   ]
 }
@@ -138,7 +149,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 items-center" style="gap: {{ section.settings.content_gap }}px;">
 
       <!-- Content -->
-      <div class="space-y-10 order-2 lg:order-1">
+      <div class="flex flex-col order-2 lg:order-1" style="gap: {{ section.settings.heading_gap }}px;">
         <!-- Badge -->
         <div class="inline-flex">
           <span class="badge badge-primary">
