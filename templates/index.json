@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "header": {
+      "type": "header",
+      "settings": {}
+    },
     "hero": {
       "type": "hero",
       "settings": {
@@ -218,9 +222,14 @@
         "testimonial_cat_name": "",
         "testimonial_cat_age": ""
       }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {}
     }
   },
   "order": [
+    "header",
     "hero",
     "logos",
     "benefits",
@@ -228,6 +237,7 @@
     "how-it-works",
     "testimonials",
     "faq",
-    "cta-final"
+    "cta-final",
+    "footer"
   ]
 }
