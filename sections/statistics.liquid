@@ -79,14 +79,49 @@
       "step": 8,
       "default": 96,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Espaciado izquierdo (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Espaciado derecho (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Interno"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Separación entre elementos (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64,
+      "unit": "px",
+      "info": "Controla el espacio entre elementos principales de la sección"
     }
   ]
 }
 {% endschema %}
 
-<section id="estadisticas" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<section id="estadisticas" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; padding-left: {{ section.settings.padding_left }}px; padding-right: {{ section.settings.padding_right }}px;">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-24">
+    <div class="grid grid-cols-1 md:grid-cols-3" style="gap: {{ section.settings.content_gap }}px;">
       <!-- Stat 1 -->
       <div class="text-center">
         <div class="stat-number text-7xl md:text-8xl font-extralight text-wacat-navy/30 mb-6 leading-none" data-target="{{ section.settings.stat_1_number }}" data-unit="{{ section.settings.stat_1_unit }}">

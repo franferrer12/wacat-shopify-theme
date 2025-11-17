@@ -73,12 +73,47 @@
       "step": 8,
       "default": 96,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Espaciado izquierdo (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Espaciado derecho (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Interno"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Separación entre elementos (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64,
+      "unit": "px",
+      "info": "Controla el espacio entre elementos principales de la sección"
     }
   ]
 }
 {% endschema %}
 
-<section id="como-funciona" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<section id="como-funciona" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; padding-left: {{ section.settings.padding_left }}px; padding-right: {{ section.settings.padding_right }}px;">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
@@ -92,7 +127,7 @@
     </div>
 
     <!-- Steps -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20">
+    <div class="grid grid-cols-1 md:grid-cols-3" style="gap: {{ section.settings.content_gap }}px;">
 
       <!-- Step 1 -->
       <div class="text-center relative">

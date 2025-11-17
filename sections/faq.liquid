@@ -37,6 +37,41 @@
       "step": 8,
       "default": 96,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Espaciado izquierdo (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Espaciado derecho (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Interno"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Separación entre elementos (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64,
+      "unit": "px",
+      "info": "Controla el espacio entre elementos principales de la sección"
     }
   ],
   "blocks": [
@@ -60,15 +95,16 @@
 }
 {% endschema %}
 
-<section id="faq" class="bg-wacat-cream" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<section id="faq" class="bg-wacat-cream" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; padding-left: {{ section.settings.padding_left }}px; padding-right: {{ section.settings.padding_right }}px;">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-20">
-      <h2 class="heading-xl text-wacat-navy">
-        {{ section.settings.title }}
-      </h2>
-    </div>
+    <div class="flex flex-col" style="gap: {{ section.settings.content_gap }}px;">
+      <div class="text-center">
+        <h2 class="heading-xl text-wacat-navy">
+          {{ section.settings.title }}
+        </h2>
+      </div>
 
-    <div class="space-y-1">
+      <div class="space-y-1">
       {% for block in section.blocks %}
         <details class="group bg-white rounded-lg transition-all duration-300 hover:shadow-sm">
           <summary class="flex justify-between items-center cursor-pointer px-6 py-5 list-none">
@@ -85,6 +121,7 @@
           </div>
         </details>
       {% endfor %}
+      </div>
     </div>
   </div>
 </section>

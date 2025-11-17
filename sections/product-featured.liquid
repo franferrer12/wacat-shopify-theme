@@ -84,6 +84,41 @@
       "step": 8,
       "default": 96,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Espaciado izquierdo (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Espaciado derecho (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Interno"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Separación entre elementos (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64,
+      "unit": "px",
+      "info": "Controla el espacio entre elementos principales de la sección"
     }
   ],
   "blocks": [
@@ -143,7 +178,7 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section id="producto" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<section id="producto" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; padding-left: {{ section.settings.padding_left }}px; padding-right: {{ section.settings.padding_right }}px;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section Header -->
@@ -157,7 +192,7 @@
     </div>
 
     <!-- Main Product Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start mb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-start mb-20" style="gap: {{ section.settings.content_gap }}px;">
 
       <!-- Product Image Column -->
       <div class="relative">

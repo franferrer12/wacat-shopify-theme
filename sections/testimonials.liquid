@@ -37,6 +37,41 @@
       "step": 8,
       "default": 96,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Espaciado izquierdo (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Espaciado derecho (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Interno"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Separación entre elementos (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64,
+      "unit": "px",
+      "info": "Controla el espacio entre elementos principales de la sección"
     }
   ],
   "blocks": [
@@ -78,19 +113,20 @@
 }
 {% endschema %}
 
-<section id="testimonios" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<section id="testimonios" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; padding-left: {{ section.settings.padding_left }}px; padding-right: {{ section.settings.padding_right }}px;">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Divider superior -->
     <div class="divider mb-20"></div>
 
-    <div class="text-center mb-24">
-      <h2 class="heading-xl text-wacat-navy">
-        {{ section.settings.title }}
-      </h2>
-    </div>
+    <div class="flex flex-col" style="gap: {{ section.settings.content_gap }}px;">
+      <div class="text-center">
+        <h2 class="heading-xl text-wacat-navy">
+          {{ section.settings.title }}
+        </h2>
+      </div>
 
-    <!-- Swiper Container -->
-    <div class="swiper testimonials-swiper">
+      <!-- Swiper Container -->
+      <div class="swiper testimonials-swiper">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           <div class="swiper-slide">
@@ -122,7 +158,8 @@
       </div>
 
       <!-- Pagination -->
-      <div class="swiper-pagination mt-16"></div>
+      <div class="swiper-pagination"></div>
+      </div>
     </div>
 
     <!-- Divider inferior -->

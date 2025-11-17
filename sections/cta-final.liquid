@@ -90,6 +90,41 @@
       "step": 8,
       "default": 96,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Espaciado izquierdo (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Espaciado derecho (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Interno"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Separación entre elementos (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64,
+      "unit": "px",
+      "info": "Controla el espacio entre elementos principales de la sección"
     }
   ]
 }
@@ -105,14 +140,15 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section class="relative bg-wacat-navy overflow-hidden" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<section class="relative bg-wacat-navy overflow-hidden" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; padding-left: {{ section.settings.padding_left }}px; padding-right: {{ section.settings.padding_right }}px;">
   <!-- Background pattern -->
   <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="flex flex-col" style="gap: {{ section.settings.content_gap }}px;">
 
     <!-- Main CTA Content -->
-    <div class="text-center mb-16">
+    <div class="text-center">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-8 leading-tight">
         {{ section.settings.title }}
       </h2>
@@ -150,7 +186,7 @@
 
     <!-- Optional Testimonial -->
     {% if section.settings.testimonial_quote != blank %}
-      <div class="max-w-2xl mx-auto mt-20">
+      <div class="max-w-2xl mx-auto">
         <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/20">
           <div class="text-center">
             <i class="las la-quote-left text-3xl text-white/40 mb-6"></i>
@@ -170,6 +206,7 @@
         </div>
       </div>
     {% endif %}
+    </div>
 
   </div>
 </section>
