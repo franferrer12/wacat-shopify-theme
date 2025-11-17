@@ -1,0 +1,350 @@
+{% schema %}
+{
+  "name": "Logos / Social Proof",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Espaciado Móvil (< 768px)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Espaciado superior móvil (px)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Espaciado inferior móvil (px)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Espaciado izquierdo móvil (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Espaciado derecho móvil (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Tablet (768px - 1024px)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_tablet",
+      "label": "Espaciado superior tablet (px)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "label": "Espaciado inferior tablet (px)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_tablet",
+      "label": "Espaciado izquierdo tablet (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_tablet",
+      "label": "Espaciado derecho tablet (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Desktop (>= 1024px)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Espaciado superior desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Espaciado inferior desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Espaciado izquierdo desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Espaciado derecho desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Animaciones"
+    },
+    {
+      "type": "checkbox",
+      "id": "animation_enabled",
+      "label": "Habilitar animaciones",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "animation_type",
+      "label": "Tipo de animación",
+      "default": "fadeIn",
+      "options": [
+        { "value": "none", "label": "Sin animación" },
+        { "value": "fadeIn", "label": "Fade In" },
+        { "value": "fadeInUp", "label": "Fade In Up" },
+        { "value": "fadeInDown", "label": "Fade In Down" },
+        { "value": "fadeInLeft", "label": "Fade In Left" },
+        { "value": "fadeInRight", "label": "Fade In Right" },
+        { "value": "scaleIn", "label": "Scale In" },
+        { "value": "zoomIn", "label": "Zoom In" },
+        { "value": "slideInUp", "label": "Slide In Up" },
+        { "value": "slideInDown", "label": "Slide In Down" },
+        { "value": "slideInLeft", "label": "Slide In Left" },
+        { "value": "slideInRight", "label": "Slide In Right" },
+        { "value": "rotateIn", "label": "Rotate In" },
+        { "value": "flipInX", "label": "Flip In X" },
+        { "value": "flipInY", "label": "Flip In Y" },
+        { "value": "bounceIn", "label": "Bounce In" },
+        { "value": "elastic", "label": "Elastic" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "label": "Duración animación (ms)",
+      "min": 200,
+      "max": 2000,
+      "step": 100,
+      "default": 600,
+      "unit": "ms"
+    },
+    {
+      "type": "range",
+      "id": "animation_delay",
+      "label": "Delay animación (ms)",
+      "min": 0,
+      "max": 2000,
+      "step": 100,
+      "default": 200,
+      "unit": "ms"
+    },
+    {
+      "type": "range",
+      "id": "animation_stagger",
+      "label": "Stagger entre elementos (ms)",
+      "min": 0,
+      "max": 300,
+      "step": 50,
+      "default": 100,
+      "unit": "ms",
+      "info": "Retraso escalonado entre logos"
+    },
+    {
+      "type": "checkbox",
+      "id": "animation_repeat",
+      "label": "Repetir animación al hacer scroll",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "logo_alt",
+          "label": "Logo Alt Text",
+          "default": "Logo"
+        },
+        {
+          "type": "url",
+          "id": "logo_link",
+          "label": "Logo Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logos / Social Proof",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #logos-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #logos-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+      padding-left: {{ section.settings.padding_left_tablet }}px;
+      padding-right: {{ section.settings.padding_right_tablet }}px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #logos-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+
+  /* B3TTER FOODS style logos */
+  #logos-{{ section.id }} .logo-item {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    filter: grayscale(100%);
+  }
+
+  #logos-{{ section.id }} .logo-item:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  #logos-{{ section.id }} .logo-image {
+    max-width: 120px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 767px) {
+    #logos-{{ section.id }} .logo-image {
+      max-width: 90px;
+      max-height: 45px;
+    }
+  }
+</style>
+
+<section id="logos-{{ section.id }}" class="bg-white"
+  {% if section.settings.animation_enabled %}
+    data-animate="true"
+    data-animation-type="{{ section.settings.animation_type }}"
+    data-animation-duration="{{ section.settings.animation_duration }}"
+    data-animation-delay="{{ section.settings.animation_delay }}"
+    data-animation-stagger="{{ section.settings.animation_stagger }}"
+    data-animation-repeat="{{ section.settings.animation_repeat }}"
+  {% endif %}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+      {% for block in section.blocks %}
+        {% if block.settings.logo_image %}
+          {% if block.settings.logo_link != blank %}
+            <a href="{{ block.settings.logo_link }}"
+               class="logo-item"
+               data-animate-child
+               target="_blank"
+               rel="noopener">
+              <img
+                src="{{ block.settings.logo_image | image_url: width: 240 }}"
+                alt="{{ block.settings.logo_alt }}"
+                class="logo-image"
+                loading="lazy"
+              >
+            </a>
+          {% else %}
+            <div class="logo-item" data-animate-child>
+              <img
+                src="{{ block.settings.logo_image | image_url: width: 240 }}"
+                alt="{{ block.settings.logo_alt }}"
+                class="logo-image"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

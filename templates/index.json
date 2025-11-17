@@ -13,39 +13,48 @@
       "type": "hero",
       "settings": {
         "badge_text": "Para gatos que necesitan beber más",
-        "title": "Tu gato necesita agua",
-        "subtitle": "WACAT ayuda",
-        "cta_primary_text": "Comprar ahora",
-        "cta_secondary_text": "Ver beneficios",
+        "title": "Agua que tu gato elije. Salud que agradeces.",
+        "subtitle": "",
+        "cta_primary_text": "",
+        "cta_secondary_text": "",
         "product": ""
       }
     },
-    "product-featured": {
-      "type": "product-featured",
-      "settings": {
-        "section_title": "El producto",
-        "section_subtitle": "Cada gota cuenta para la salud de tu gato",
-        "product": "",
-        "product_tagline": "Esencia natural que hace que el agua sea irresistible para tu gato",
-        "cta_primary_text": "Comprar ahora",
-        "cta_secondary_text": "Ver ingredientes",
-        "guarantee_title": "Garantía satisfacción",
-        "guarantee_description": "30 días o te devolvemos tu dinero"
-      }
-    },
-    "statistics": {
-      "type": "statistics",
-      "settings": {
-        "stat_1_number": "70",
-        "stat_1_unit": "%",
-        "stat_1_label": "Gatos deshidratados",
-        "stat_2_number": "30",
-        "stat_2_unit": "%",
-        "stat_2_label": "Problemas renales",
-        "stat_3_number": "3",
-        "stat_3_unit": "×",
-        "stat_3_label": "Más hidratación"
-      }
+    "logos": {
+      "type": "logos",
+      "blocks": {
+        "logo_1": {
+          "type": "logo",
+          "settings": {
+            "logo_alt": "Certificado Veterinario"
+          }
+        },
+        "logo_2": {
+          "type": "logo",
+          "settings": {
+            "logo_alt": "Ingredientes Naturales"
+          }
+        },
+        "logo_3": {
+          "type": "logo",
+          "settings": {
+            "logo_alt": "Made in Spain"
+          }
+        },
+        "logo_4": {
+          "type": "logo",
+          "settings": {
+            "logo_alt": "Aprobado por veterinarios"
+          }
+        }
+      },
+      "block_order": [
+        "logo_1",
+        "logo_2",
+        "logo_3",
+        "logo_4"
+      ],
+      "settings": {}
     },
     "benefits": {
       "type": "benefits",
@@ -53,147 +62,72 @@
         "benefit_1": {
           "type": "benefit",
           "settings": {
-            "icon": "la-leaf",
-            "title": "Natural",
-            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "icon": "la-tint",
+            "title": "Hidratación natural",
+            "description": "Formulado con electrolitos que estimulan la sed natural de tu gato. Resultados visibles en 3-5 días.",
             "footer_icon": "la-check-circle",
-            "footer_text": "Seguro para uso diario"
+            "footer_text": "Probado clínicamente"
           }
         },
         "benefit_2": {
           "type": "benefit",
           "settings": {
-            "icon": "la-shield",
-            "title": "Seguro",
-            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "icon": "la-leaf",
+            "title": "100% Natural",
+            "description": "Sin químicos, sin aditivos artificiales. Solo ingredientes que tu gato reconoce instintivamente.",
             "footer_icon": "la-check-circle",
-            "footer_text": "Seguro para uso diario"
+            "footer_text": "Ingredientes certificados"
           }
         },
         "benefit_3": {
           "type": "benefit",
           "settings": {
-            "icon": "la-tint",
-            "title": "Hidratación",
-            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
-            "footer_icon": "la-check-circle",
-            "footer_text": "Seguro para uso diario"
-          }
-        },
-        "benefit_4": {
-          "type": "benefit",
-          "settings": {
             "icon": "la-heart",
-            "title": "Salud",
-            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
+            "title": "Salud renal",
+            "description": "Apoya la función renal y previene problemas urinarios. Para gatos de todas las edades.",
             "footer_icon": "la-check-circle",
-            "footer_text": "Seguro para uso diario"
-          }
-        },
-        "benefit_5": {
-          "type": "benefit",
-          "settings": {
-            "icon": "la-check-circle",
-            "title": "Efectivo",
-            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
-            "footer_icon": "la-check-circle",
-            "footer_text": "Seguro para uso diario"
-          }
-        },
-        "benefit_6": {
-          "type": "benefit",
-          "settings": {
-            "icon": "la-clock",
-            "title": "Rápido",
-            "description": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente",
-            "footer_icon": "la-check-circle",
-            "footer_text": "Seguro para uso diario"
+            "footer_text": "Recomendado por veterinarios"
           }
         }
       },
       "block_order": [
         "benefit_1",
         "benefit_2",
-        "benefit_3",
-        "benefit_4",
-        "benefit_5",
-        "benefit_6"
+        "benefit_3"
       ],
       "settings": {
-        "title": "Beneficios",
-        "subtitle": "Diseñado específicamente para el comportamiento y las necesidades de los gatos",
-        "cta_title": "Tu gato merece lo mejor",
-        "cta_description": "Miles de dueños ya han mejorado la salud de sus gatos con WACAT. Únete a ellos y dale a tu gato la hidratación que necesita.",
-        "cta_button_text": "Empezar ahora",
+        "title": "",
+        "subtitle": "",
+        "cta_title": "",
+        "cta_description": "",
+        "cta_button_text": "",
         "product": ""
+      }
+    },
+    "product-featured": {
+      "type": "product-featured",
+      "settings": {
+        "section_title": "¿Por qué WACAT?",
+        "section_subtitle": "La primera agua formulada específicamente para gatos",
+        "product": "",
+        "product_tagline": "Mejora la hidratación naturalmente",
+        "cta_primary_text": "Pruébalo ahora",
+        "cta_secondary_text": "",
+        "guarantee_title": "Garantía 30 días",
+        "guarantee_description": "Si no ves resultados, te devolvemos el 100%"
       }
     },
     "how-it-works": {
       "type": "how-it-works",
       "settings": {
         "title": "Cómo funciona",
-        "subtitle": "Tres pasos simples",
+        "subtitle": "",
         "step_1_title": "Añade unas gotas",
-        "step_1_description": "Mezcla WACAT con el agua diaria de tu gato",
+        "step_1_description": "3-5 gotas por cuenco de agua",
         "step_2_title": "Tu gato descubre",
-        "step_2_description": "Los sabores naturales atraen su instinto",
+        "step_2_description": "El sabor natural atrae su instinto",
         "step_3_title": "Hidratación mejorada",
-        "step_3_description": "Mejora su salud renal y vitalidad general"
-      }
-    },
-    "health": {
-      "type": "health",
-      "blocks": {
-        "negative_1": {
-          "type": "negative_point",
-          "settings": {
-            "text": "Problemas renales"
-          }
-        },
-        "negative_2": {
-          "type": "negative_point",
-          "settings": {
-            "text": "Infecciones urinarias"
-          }
-        },
-        "negative_3": {
-          "type": "negative_point",
-          "settings": {
-            "text": "Pérdida de vitalidad"
-          }
-        },
-        "positive_1": {
-          "type": "positive_point",
-          "settings": {
-            "text": "Riñones saludables"
-          }
-        },
-        "positive_2": {
-          "type": "positive_point",
-          "settings": {
-            "text": "Sistema urinario óptimo"
-          }
-        },
-        "positive_3": {
-          "type": "positive_point",
-          "settings": {
-            "text": "Más energía y vitalidad"
-          }
-        }
-      },
-      "block_order": [
-        "negative_1",
-        "negative_2",
-        "negative_3",
-        "positive_1",
-        "positive_2",
-        "positive_3"
-      ],
-      "settings": {
-        "title": "La importancia de la hidratación",
-        "subtitle": "Los gatos tienen un instinto de sed reducido heredado de sus ancestros del desierto",
-        "without_title": "Sin hidratación",
-        "with_title": "Con hidratación"
+        "step_3_description": "Resultados visibles en días"
       }
     },
     "testimonials": {
@@ -236,8 +170,8 @@
         "testimonial_3"
       ],
       "settings": {
-        "title": "Testimonios",
-        "subtitle": "Gatos más felices"
+        "title": "Miles de gatos ya lo usan",
+        "subtitle": ""
       }
     },
     "faq": {
@@ -247,83 +181,57 @@
           "type": "faq_item",
           "settings": {
             "question": "¿Cómo funciona WACAT?",
-            "answer": "WACAT es una esencia natural que contiene sabores que los gatos encuentran irresistibles. Al añadir unas gotas al agua, estimula su instinto natural de beber sin alterar el sabor del agua de forma artificial."
+            "answer": "WACAT contiene sabores naturales que los gatos encuentran irresistibles. Al añadir unas gotas al agua, estimula su instinto natural de beber."
           }
         },
         "faq_2": {
           "type": "faq_item",
           "settings": {
             "question": "¿Es seguro para mi gato?",
-            "answer": "Completamente. WACAT está formulado con ingredientes 100% naturales, sin químicos ni aditivos. Ha sido testado y recomendado por veterinarios."
+            "answer": "Completamente. WACAT está formulado con ingredientes 100% naturales, sin químicos ni aditivos. Testado y recomendado por veterinarios."
           }
         },
         "faq_3": {
           "type": "faq_item",
           "settings": {
-            "question": "¿Cuánto tiempo tarda en hacer efecto?",
-            "answer": "La mayoría de los gatos empiezan a beber más agua en los primeros 3-5 días. Los resultados completos se aprecian después de 2-3 semanas de uso continuado."
-          }
-        },
-        "faq_4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "¿Cuánto dura un frasco?",
-            "answer": "Un frasco de 30ml dura aproximadamente 1 mes, usando 3-5 gotas por cuenco de agua al día."
-          }
-        },
-        "faq_5": {
-          "type": "faq_item",
-          "settings": {
             "question": "¿Funciona con todos los gatos?",
-            "answer": "WACAT funciona con la mayoría de los gatos. Si después de 30 días no ves resultados, te devolvemos el 100% de tu dinero, sin preguntas."
+            "answer": "WACAT funciona con la mayoría de los gatos. Si después de 30 días no ves resultados, te devolvemos el 100% de tu dinero."
           }
         }
       },
       "block_order": [
         "faq_1",
         "faq_2",
-        "faq_3",
-        "faq_4",
-        "faq_5"
+        "faq_3"
       ],
       "settings": {
         "title": "Preguntas frecuentes",
-        "subtitle": "Todo lo que necesitas saber"
-      }
-    },
-    "where-to-buy": {
-      "type": "where-to-buy",
-      "settings": {
-        "title": "Dónde comprar",
-        "subtitle": "Farmacias seleccionadas",
-        "email": "info@wacat.com"
+        "subtitle": ""
       }
     },
     "cta-final": {
       "type": "cta-final",
       "settings": {
         "title": "Dale a tu gato la hidratación que merece",
-        "subtitle": "No esperes a que aparezcan problemas de salud. Previene ahora y disfruta de más años juntos.",
+        "subtitle": "No esperes a que aparezcan problemas de salud. Previene ahora.",
         "cta_primary_text": "Comprar ahora",
-        "cta_secondary_text": "Ver farmacias cercanas",
+        "cta_secondary_text": "",
         "product": "",
-        "testimonial_quote": "Llevaba meses preocupada porque Luna apenas bebía. Con WACAT ha sido un cambio increíble. Ahora bebe 3 veces más y está mucho más activa.",
-        "testimonial_author": "María",
-        "testimonial_cat_name": "Luna",
-        "testimonial_cat_age": "7 años"
+        "testimonial_quote": "",
+        "testimonial_author": "",
+        "testimonial_cat_name": "",
+        "testimonial_cat_age": ""
       }
     }
   },
   "order": [
     "hero",
-    "product-featured",
-    "statistics",
+    "logos",
     "benefits",
+    "product-featured",
     "how-it-works",
-    "health",
     "testimonials",
     "faq",
-    "where-to-buy",
     "cta-final"
   ]
 }
