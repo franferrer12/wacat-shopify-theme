@@ -63,73 +63,40 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section class="bg-white py-12 md:py-16 lg:py-20">
+<section class="bg-wacat-cream py-20 md:py-32">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-3">
-        {{ section.settings.title }}
-      </h2>
-      <p class="text-base text-wacat-navy/60">
-        {{ section.settings.subtitle }}
-      </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Image -->
+      {% if product.featured_image %}
+        <div class="animated-section">
+          <img
+            src="{{ product.featured_image | img_url: 'master' }}"
+            alt="{{ product.title }}"
+            class="w-full h-auto rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+      {% endif %}
 
-      <!-- Product Card compacto -->
-      <div class="max-w-sm mx-auto mt-8">
-        <div class="bg-gradient-to-br from-wacat-cream-light to-white rounded-2xl shadow-lg border border-wacat-navy/10 overflow-hidden animated-section">
-          <!-- Image -->
-          {% if product.featured_image %}
-            <div class="relative aspect-square overflow-hidden bg-white">
-              <img
-                src="{{ product.featured_image | img_url: 'master' }}"
-                alt="{{ product.title }}"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+      <!-- Product Info -->
+      <div class="space-y-8 text-center lg:text-left">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-light text-wacat-navy mb-4">
+            {{ product.title | default: 'WACAT' }}
+          </h2>
+          {% if product_price > 0 %}
+            <div class="text-5xl font-light text-wacat-navy">
+              {{ product_price }}€
             </div>
           {% endif %}
-
-          <!-- Product Info -->
-          <div class="p-6 text-center space-y-4">
-            <div>
-              <h3 class="text-xl font-bold text-wacat-navy mb-1">
-                {{ product.title | default: 'WACAT - 30ml' }}
-              </h3>
-              <p class="text-sm text-wacat-navy/60">
-                {{ section.settings.product_description }}
-              </p>
-            </div>
-
-            <!-- Price -->
-            {% if product_price > 0 %}
-              <div class="py-2">
-                <div class="text-3xl font-bold text-wacat-navy">
-                  {{ product_price }}€
-                </div>
-                <p class="text-xs text-wacat-navy/50 mt-1">
-                  ✓ {{ section.settings.shipping_text }}
-                </p>
-              </div>
-            {% endif %}
-
-            <!-- CTA -->
-            <div class="space-y-3">
-              <a
-                href="{{ checkout_url }}"
-                class="buy-button block w-full bg-wacat-navy text-white px-8 py-4 rounded-full text-base sm:text-sm font-bold hover:bg-wacat-navy-dark active:scale-95 transition-all duration-300 shadow-lg"
-              >
-                🛒 {{ section.settings.cta_text }}
-              </a>
-
-              <div class="flex items-center justify-center gap-4 text-xs text-wacat-navy/60">
-                <span>🛡️ {{ section.settings.guarantee_text }}</span>
-                <span>•</span>
-                <a href="#donde-comprar" class="hover:text-wacat-navy transition-colors">
-                  {{ section.settings.pharmacy_link_text }}
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
+
+        <a
+          href="{{ checkout_url }}"
+          class="buy-button inline-flex items-center justify-center bg-wacat-navy text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-wacat-navy-dark active:scale-95 transition-all duration-300"
+        >
+          Comprar
+        </a>
       </div>
     </div>
   </div>

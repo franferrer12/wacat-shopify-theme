@@ -89,49 +89,36 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section id="beneficios" class="bg-gradient-to-br from-wacat-cream-light via-white to-wacat-cream-light py-12 md:py-16 lg:py-20 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-10">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wacat-navy mb-2">
-        Por qué funciona
+<section id="beneficios" class="bg-white py-20 md:py-32">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-wacat-navy">
+        Beneficios
       </h2>
-      <p class="text-sm text-wacat-navy/60">
-        Diseñado para gatos
-      </p>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 md:gap-6">
+    <div class="grid grid-cols-3 lg:grid-cols-6 gap-12 md:gap-16">
       {% for block in section.blocks %}
-        <div class="animated-section">
-          <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-all duration-300 h-full border border-wacat-navy/5 hover:border-wacat-navy/10">
-            <div class="text-center">
-              <i class="las {{ block.settings.icon }} text-5xl text-wacat-navy mb-4 block"></i>
-              <h3 class="text-lg font-bold text-wacat-navy mb-2">
-                {{ block.settings.title }}
-              </h3>
-            </div>
-          </div>
+        <div class="animated-section text-center">
+          <i class="las {{ block.settings.icon }} text-6xl text-wacat-navy mb-6 block"></i>
+          <h3 class="text-sm font-medium text-wacat-navy/70">
+            {{ block.settings.title }}
+          </h3>
         </div>
       {% endfor %}
     </div>
 
-    <!-- CTA compacto -->
-    <div class="mt-12 text-center">
-      <div class="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto border border-wacat-navy/10">
-        <div class="text-4xl mb-4">💙</div>
-        <h3 class="text-xl md:text-2xl font-bold text-wacat-navy mb-3">
-          {{ section.settings.cta_title }}
-        </h3>
-        <a
-          href="{{ checkout_url }}"
-          class="inline-flex items-center justify-center gap-2 bg-wacat-navy text-white px-8 py-4 rounded-full text-base sm:text-sm font-bold hover:bg-wacat-navy-dark active:scale-95 transition-all duration-300 shadow-lg w-full sm:w-auto"
-        >
-          🛒 {{ section.settings.cta_button_text }}
-          {% if product_price != '' %}
-            <span class="opacity-80">({{ product_price }})</span>
-          {% endif %}
-        </a>
-      </div>
+    <!-- CTA -->
+    <div class="mt-32 text-center">
+      <a
+        href="{{ checkout_url }}"
+        class="inline-flex items-center justify-center bg-wacat-navy text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-wacat-navy-dark active:scale-95 transition-all duration-300"
+      >
+        Comprar
+        {% if product_price != '' %}
+          <span class="opacity-70 ml-2">{{ product_price }}</span>
+        {% endif %}
+      </a>
     </div>
   </div>
 </section>
