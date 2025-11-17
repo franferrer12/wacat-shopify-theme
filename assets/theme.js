@@ -79,39 +79,10 @@
     });
 
     // ==========================================================================
-    // HERO ANIMATIONS - Subtle, progressive reveal
+    // HERO ANIMATIONS - DISABLED for visibility
     // ==========================================================================
-
-    if (!prefersReducedMotion) {
-      // Animate hero elements with stagger
-      const heroTitle = document.querySelector('.hero-title');
-      const heroSubtitle = document.querySelector('.hero-subtitle');
-      const heroCta = document.querySelector('.hero-cta');
-      const heroImage = document.querySelector('.hero-image');
-
-      // Simple fade-in sequence
-      setTimeout(function() {
-        if (heroTitle) heroTitle.style.opacity = '1';
-      }, 100);
-
-      setTimeout(function() {
-        if (heroSubtitle) heroSubtitle.style.opacity = '1';
-      }, 200);
-
-      setTimeout(function() {
-        if (heroCta) heroCta.style.opacity = '1';
-      }, 300);
-
-      setTimeout(function() {
-        if (heroImage) heroImage.style.opacity = '1';
-      }, 150);
-    } else {
-      // Instant reveal if reduced motion is preferred
-      const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta, .hero-image');
-      heroElements.forEach(function(el) {
-        if (el) el.style.opacity = '1';
-      });
-    }
+    // Commented out to ensure hero elements are visible by default
+    // Progressive enhancement: content should be visible without JavaScript
 
     // ==========================================================================
     // STATISTICS COUNTER - Smooth number counting
@@ -662,29 +633,10 @@
     };
 
     // ========================================================================
-    // INTERSECTION ANIMATIONS - Reveal on scroll with stagger
+    // INTERSECTION ANIMATIONS - Reveal on scroll with stagger (DISABLED for visibility)
     // ========================================================================
-    const staggerElements = document.querySelectorAll('.card, .benefit-card, .faq-item');
-
-    const staggerObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry, index) {
-        if (entry.isIntersecting) {
-          setTimeout(function() {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }, index * 50); // 50ms stagger
-
-          staggerObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    staggerElements.forEach(function(el) {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-      staggerObserver.observe(el);
-    });
+    // Commented out to ensure all elements are visible by default
+    // Elements should be visible without JavaScript for progressive enhancement
 
     // ========================================================================
     // ENHANCED FOCUS STATES - Keyboard navigation
