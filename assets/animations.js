@@ -1,6 +1,6 @@
 /**
- * WACAT Theme - Anime.js Animation System
- * Configurable animations for all sections
+ * WACAT Theme - Animation System (B3TTER FOODS Style)
+ * EXACT B3TTER FOODS values: 400ms duration, ease easing
  */
 
 (function() {
@@ -13,76 +13,76 @@
       return;
     }
 
-    // Animation presets
+    // Animation presets - EXACT B3TTER FOODS STYLE
     const animationPresets = {
       fadeIn: {
         opacity: [0, 1],
-        easing: 'easeOutQuad'
+        easing: 'easeOutQuad' // Closest to CSS 'ease'
       },
       fadeInUp: {
         opacity: [0, 1],
         translateY: [40, 0],
-        easing: 'easeOutCubic'
+        easing: 'easeOutQuad' // EXACTO B3TTER - similar to CSS 'ease'
       },
       fadeInDown: {
         opacity: [0, 1],
         translateY: [-40, 0],
-        easing: 'easeOutCubic'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       fadeInLeft: {
         opacity: [0, 1],
         translateX: [-40, 0],
-        easing: 'easeOutCubic'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       fadeInRight: {
         opacity: [0, 1],
         translateX: [40, 0],
-        easing: 'easeOutCubic'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       scaleIn: {
         opacity: [0, 1],
         scale: [0.8, 1],
-        easing: 'easeOutBack'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       zoomIn: {
         opacity: [0, 1],
         scale: [0.3, 1],
-        easing: 'easeOutBack'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       slideInUp: {
         translateY: [100, 0],
         opacity: [0, 1],
-        easing: 'easeOutExpo'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       slideInDown: {
         translateY: [-100, 0],
         opacity: [0, 1],
-        easing: 'easeOutExpo'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       slideInLeft: {
         translateX: [-100, 0],
         opacity: [0, 1],
-        easing: 'easeOutExpo'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       slideInRight: {
         translateX: [100, 0],
         opacity: [0, 1],
-        easing: 'easeOutExpo'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       rotateIn: {
         opacity: [0, 1],
         rotate: [-90, 0],
-        easing: 'easeOutBack'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       flipInX: {
         opacity: [0, 1],
         rotateX: [-90, 0],
-        easing: 'easeOutBack'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       flipInY: {
         opacity: [0, 1],
         rotateY: [-90, 0],
-        easing: 'easeOutBack'
+        easing: 'easeOutQuad' // EXACTO B3TTER
       },
       bounceIn: {
         opacity: [0, 1],
@@ -111,8 +111,8 @@
         if (entry.isIntersecting) {
           const section = entry.target;
           const animationType = section.dataset.animationType || 'fadeInUp';
-          const duration = parseInt(section.dataset.animationDuration) || 800;
-          const delay = parseInt(section.dataset.animationDelay) || 0;
+          const duration = parseInt(section.dataset.animationDuration) || 400; // EXACTO B3TTER FOODS
+          const delay = parseInt(section.dataset.animationDelay) || 0; // EXACTO B3TTER FOODS
           const stagger = parseInt(section.dataset.animationStagger) || 0;
 
           // Get the animation preset
@@ -173,8 +173,8 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const animationType = container.dataset.animationType || 'fadeInUp';
-            const duration = parseInt(container.dataset.animationDuration) || 600;
-            const delay = parseInt(container.dataset.animationDelay) || 0;
+            const duration = parseInt(container.dataset.animationDuration) || 400; // EXACTO B3TTER FOODS
+            const delay = parseInt(container.dataset.animationDelay) || 0; // EXACTO B3TTER FOODS
             const stagger = parseInt(container.dataset.animationStagger) || 100;
 
             const animationConfig = animationPresets[animationType] || animationPresets.fadeInUp;
