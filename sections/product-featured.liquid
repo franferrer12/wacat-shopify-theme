@@ -48,6 +48,18 @@
       "id": "guarantee_description",
       "label": "Guarantee Description",
       "default": "30 días o te devolvemos tu dinero"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Featured Badge Text",
+      "default": "Producto destacado"
+    },
+    {
+      "type": "text",
+      "id": "tax_text",
+      "label": "Tax Text",
+      "default": "IVA incluido"
     }
   ],
   "blocks": [
@@ -152,7 +164,7 @@
           <div class="mb-4">
             <span class="badge badge-primary">
               <i class="las la-star mr-1"></i>
-              Producto destacado
+              {{ section.settings.badge_text }}
             </span>
           </div>
 
@@ -166,7 +178,7 @@
 
           <div class="flex items-baseline gap-3 mb-8">
             <span class="text-5xl font-extralight text-wacat-navy">{{ product_price }}</span>
-            <span class="caption text-tertiary">IVA incluido</span>
+            <span class="caption text-tertiary">{{ section.settings.tax_text }}</span>
           </div>
         </div>
 

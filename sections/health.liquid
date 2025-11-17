@@ -25,6 +25,12 @@
       "id": "with_title",
       "label": "With Hydration Title",
       "default": "Con hidratación"
+    },
+    {
+      "type": "text",
+      "id": "recommended_badge",
+      "label": "Recommended Badge Text",
+      "default": "Recomendado"
     }
   ],
   "blocks": [
@@ -101,7 +107,7 @@
         <div class="absolute top-4 right-4">
           <span class="badge badge-primary text-xs">
             <i class="las la-star"></i>
-            Recomendado
+            {{ section.settings.recommended_badge }}
           </span>
         </div>
 

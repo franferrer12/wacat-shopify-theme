@@ -9,28 +9,16 @@
       "default": "Dónde comprar"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "subtitle",
       "label": "Subtitle",
       "default": "Farmacias seleccionadas"
     },
     {
-      "type": "text",
-      "id": "pharmacy_title",
-      "label": "Pharmacy Section Title",
-      "default": "En tu farmacia"
-    },
-    {
-      "type": "text",
-      "id": "cities",
-      "label": "Cities List",
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
       "default": "Madrid · Barcelona · Valencia · Sevilla"
-    },
-    {
-      "type": "text",
-      "id": "contact_title",
-      "label": "Contact Title",
-      "default": "Contacto"
     },
     {
       "type": "text",
@@ -49,12 +37,13 @@
         {{ section.settings.title }}
       </h2>
       <p class="body-lg text-secondary mb-6">
-        {{ section.settings.cities }}
+        {{ section.settings.description }}
       </p>
       <a
         href="mailto:{{ section.settings.email }}"
-        class="body-md text-wacat-navy hover:text-wacat-navy-dark transition-colors"
+        class="btn btn-primary btn-lg"
       >
+        <i class="las la-envelope"></i>
         {{ section.settings.email }}
       </a>
     </div>

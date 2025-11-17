@@ -54,6 +54,18 @@
       "id": "testimonial_cat_age",
       "label": "Testimonial Cat Age",
       "default": "7 años"
+    },
+    {
+      "type": "text",
+      "id": "trust_guarantee",
+      "label": "Trust Indicator - Guarantee",
+      "default": "Garantía 30 días"
+    },
+    {
+      "type": "text",
+      "id": "trust_shipping",
+      "label": "Trust Indicator - Shipping",
+      "default": "Envío 24-48h"
     }
   ]
 }
@@ -103,11 +115,11 @@
       <div class="flex flex-wrap justify-center items-center gap-8 text-white/70">
         <div class="flex items-center gap-2">
           <i class="las la-shield-alt text-xl"></i>
-          <span class="text-sm">Garantía 30 días</span>
+          <span class="text-sm">{{ section.settings.trust_guarantee }}</span>
         </div>
         <div class="flex items-center gap-2">
           <i class="las la-shipping-fast text-xl"></i>
-          <span class="text-sm">Envío 24-48h</span>
+          <span class="text-sm">{{ section.settings.trust_shipping }}</span>
         </div>
       </div>
     </div>
