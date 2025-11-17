@@ -54,10 +54,13 @@
 }
 {% endschema %}
 
-<section id="testimonios" class="bg-white py-20 md:py-32">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-20">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-wacat-navy">
+<section id="testimonios" class="bg-white section-spacing">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Divider superior -->
+    <div class="divider mb-20"></div>
+
+    <div class="text-center mb-24">
+      <h2 class="heading-xl text-wacat-navy">
         {{ section.settings.title }}
       </h2>
     </div>
@@ -67,18 +70,38 @@
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           <div class="swiper-slide">
-            <div class="text-center max-w-xl mx-auto">
-              <blockquote class="text-lg md:text-xl text-wacat-navy/70 font-light mb-8 leading-relaxed">
-                "{{ block.settings.quote }}"
+            <div class="text-center max-w-2xl mx-auto">
+              <!-- Quote icon -->
+              <div class="mb-8">
+                <i class="las la-quote-left text-4xl text-wacat-navy/20"></i>
+              </div>
+
+              <!-- Quote text -->
+              <blockquote class="body-lg text-wacat-navy/80 mb-10">
+                {{ block.settings.quote }}
               </blockquote>
-              <p class="text-sm font-medium text-wacat-navy/50">{{ block.settings.author }}</p>
+
+              <!-- Author info -->
+              <div class="space-y-2">
+                <p class="text-base font-medium text-primary">
+                  {{ block.settings.author }}
+                </p>
+                {% if block.settings.cat_name %}
+                  <p class="caption text-tertiary">
+                    {{ block.settings.cat_name }}{% if block.settings.cat_age %} · {{ block.settings.cat_age }}{% endif %}
+                  </p>
+                {% endif %}
+              </div>
             </div>
           </div>
         {% endfor %}
       </div>
 
       <!-- Pagination -->
-      <div class="swiper-pagination mt-12"></div>
+      <div class="swiper-pagination mt-16"></div>
     </div>
+
+    <!-- Divider inferior -->
+    <div class="divider mt-20"></div>
   </div>
 </section>

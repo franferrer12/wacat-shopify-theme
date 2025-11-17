@@ -36,24 +36,29 @@
 }
 {% endschema %}
 
-<section id="faq" class="bg-wacat-cream py-20 md:py-32">
-  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-wacat-navy">
+<section id="faq" class="bg-wacat-cream section-spacing">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <h2 class="heading-xl text-wacat-navy">
         {{ section.settings.title }}
       </h2>
     </div>
 
-    <div class="space-y-6">
+    <div class="space-y-1">
       {% for block in section.blocks %}
-        <details class="group border-b border-wacat-navy/10 py-6">
-          <summary class="flex justify-between items-center cursor-pointer text-base font-medium text-wacat-navy">
-            {{ block.settings.question }}
-            <i class="las la-plus text-xl text-wacat-navy/30 group-open:rotate-45 transition-transform duration-300 flex-shrink-0 ml-4"></i>
+        <details class="group bg-white rounded-lg transition-all duration-300 hover:shadow-sm">
+          <summary class="flex justify-between items-center cursor-pointer px-6 py-5 list-none">
+            <span class="text-base font-medium text-primary pr-8">
+              {{ block.settings.question }}
+            </span>
+            <i class="las la-plus text-2xl text-tertiary group-open:rotate-45 transition-all duration-300 flex-shrink-0"></i>
           </summary>
-          <p class="mt-5 text-sm text-wacat-navy/60 font-light leading-relaxed">
-            {{ block.settings.answer }}
-          </p>
+          <div class="px-6 pb-6 pt-2">
+            <div class="divider mb-4"></div>
+            <p class="body-sm text-secondary leading-relaxed">
+              {{ block.settings.answer }}
+            </p>
+          </div>
         </details>
       {% endfor %}
     </div>
