@@ -129,10 +129,18 @@
   }
 
   #footer-{{ section.id }} .footer-column-title {
-    font-size: 18px;
+    font-size: 17px; /* h3 mobile EXACTO B3TTER */
     font-weight: 400;
+    letter-spacing: 0.06rem; /* EXACTO B3TTER */
+    line-height: 1.3; /* EXACTO B3TTER */
     margin: 0 0 24px 0;
     color: #ffffff;
+  }
+
+  @media (min-width: 750px) {
+    #footer-{{ section.id }} .footer-column-title {
+      font-size: 18px; /* h3 desktop EXACTO B3TTER */
+    }
   }
 
   #footer-{{ section.id }} .footer-brand-description {
