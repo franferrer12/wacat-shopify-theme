@@ -1,23 +1,17 @@
 {% schema %}
 {
-  "name": "Hero B3TTER Style",
+  "name": "Hero B3TTER EXACT",
   "settings": [
     {
       "type": "textarea",
       "id": "title",
       "label": "Hero Title",
-      "default": "AGUA QUE TU GATO ELIJE. SALUD QUE AGRADECES."
+      "default": "AGUA QUE TU GATO ELIJE.\nSALUD QUE AGRADECES."
     },
     {
       "type": "image_picker",
       "id": "hero_image",
       "label": "Hero Background Image"
-    },
-    {
-      "type": "text",
-      "id": "image_alt_text",
-      "label": "Image Alt Text",
-      "default": "WACAT - Hidratación natural para gatos"
     },
     {
       "type": "select",
@@ -29,76 +23,6 @@
         { "value": "middle", "label": "Middle" },
         { "value": "bottom", "label": "Bottom" }
       ]
-    },
-    {
-      "type": "select",
-      "id": "text_align",
-      "label": "Text Alignment",
-      "default": "center",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ]
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#6B6B6B"
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "label": "Overlay Opacity",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "default": 0,
-      "unit": "%",
-      "info": "Dark overlay para mejorar legibilidad"
-    },
-    {
-      "type": "header",
-      "content": "Animaciones"
-    },
-    {
-      "type": "checkbox",
-      "id": "animation_enabled",
-      "label": "Habilitar animaciones",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "animation_type",
-      "label": "Tipo de animación",
-      "default": "fadeIn",
-      "options": [
-        { "value": "none", "label": "Sin animación" },
-        { "value": "fadeIn", "label": "Fade In" },
-        { "value": "fadeInUp", "label": "Fade In Up" },
-        { "value": "fadeInDown", "label": "Fade In Down" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "animation_duration",
-      "label": "Duración animación (ms)",
-      "min": 200,
-      "max": 2000,
-      "step": 100,
-      "default": 800,
-      "unit": "ms"
-    },
-    {
-      "type": "range",
-      "id": "animation_delay",
-      "label": "Delay animación (ms)",
-      "min": 0,
-      "max": 2000,
-      "step": 100,
-      "default": 0,
-      "unit": "ms"
     }
   ]
 }
@@ -111,70 +35,86 @@
   {%- assign hero_image = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=2000&h=1200&fit=crop' -%}
 {%- endif -%}
 
+{% comment %} ESTRUCTURA EXACTA B3TTER FOODS {% endcomment %}
+<div class="web-b3-v2-section b3-section-header">
+  <div class="b3-section-header-banners">
+    <div class="b3-section-header-banners-title {{ section.settings.text_position }}">
+      {{ section.settings.title | newline_to_br }}
+    </div>
+    <div class="b3-section-header-banners-imagen">
+      <img src="{{ hero_image }}" alt="WACAT - Hidratación natural para gatos">
+    </div>
+  </div>
+</div>
+
 <style>
-  #hero-b3tter-{{ section.id }} {
-    min-height: 85vh;
+  /* Hero EXACTO B3TTER FOODS - Inline styles para asegurar aplicación */
+  #shopify-section-{{ section.id }} .b3-section-header {
     position: relative;
-    display: flex;
-    align-items: {% if section.settings.text_position == 'top' %}flex-start{% elsif section.settings.text_position == 'bottom' %}flex-end{% else %}center{% endif %};
-    justify-content: center;
-    background-image: url('{{ hero_image }}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners {
+    position: relative;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    font-family: Assistant, sans-serif;
+    color: #121212; /* EXACTO B3TTER - texto NEGRO no blanco */
+    font-weight: 400; /* EXACTO B3TTER - 400 no 300 */
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.2;
+    padding: 0 2rem;
+    letter-spacing: normal;
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title.top {
+    top: 20%;
+    transform: translateY(-20%);
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title.middle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title.bottom {
+    top: 80%;
+    transform: translateY(-80%);
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-imagen {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
     overflow: hidden;
   }
 
-  #hero-b3tter-{{ section.id }}::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
-    pointer-events: none;
+  #shopify-section-{{ section.id }} .b3-section-header-banners-imagen img {
+    width: 100%;
+    height: 100%;
+    min-height: 85vh;
+    object-fit: cover;
+    border-radius: 0; /* Hero NO tiene border-radius en B3TTER */
+    display: block;
   }
 
-  #hero-b3tter-{{ section.id }} .hero-content {
-    position: relative;
-    z-index: 10;
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    text-align: {{ section.settings.text_align }};
-  }
-
-  #hero-b3tter-{{ section.id }} .hero-title {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: {{ section.settings.text_color }};
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    #hero-b3tter-{{ section.id }} {
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .b3-section-header-banners-imagen {
       min-height: 70vh;
     }
 
-    #hero-b3tter-{{ section.id }} .hero-content {
-      padding: 2rem 1rem;
+    #shopify-section-{{ section.id }} .b3-section-header-banners-imagen img {
+      min-height: 70vh;
     }
 
-    #hero-b3tter-{{ section.id }} .hero-title {
+    #shopify-section-{{ section.id }} .b3-section-header-banners-title {
       font-size: clamp(1.75rem, 6vw, 2.5rem);
     }
   }
 </style>
-
-<section id="hero-b3tter-{{ section.id }}"
-  {% if section.settings.animation_enabled %}
-    data-animate="true"
-    data-animation-type="{{ section.settings.animation_type }}"
-    data-animation-duration="{{ section.settings.animation_duration }}"
-    data-animation-delay="{{ section.settings.animation_delay }}"
-  {% endif %}>
-  <div class="hero-content">
-    <h1 class="hero-title">
-      {{ section.settings.title }}
-    </h1>
-  </div>
-</section>
