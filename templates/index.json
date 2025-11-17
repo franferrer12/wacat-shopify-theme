@@ -64,9 +64,7 @@
           "settings": {
             "icon": "la-tint",
             "title": "Hidratación natural",
-            "description": "Formulado con electrolitos que estimulan la sed natural de tu gato. Resultados visibles en 3-5 días.",
-            "footer_icon": "la-check-circle",
-            "footer_text": "Probado clínicamente"
+            "description": "Formulado con electrolitos que estimulan la sed natural de tu gato. Resultados visibles en 3-5 días."
           }
         },
         "benefit_2": {
@@ -74,9 +72,7 @@
           "settings": {
             "icon": "la-leaf",
             "title": "100% Natural",
-            "description": "Sin químicos, sin aditivos artificiales. Solo ingredientes que tu gato reconoce instintivamente.",
-            "footer_icon": "la-check-circle",
-            "footer_text": "Ingredientes certificados"
+            "description": "Sin químicos, sin aditivos artificiales. Solo ingredientes que tu gato reconoce instintivamente."
           }
         },
         "benefit_3": {
@@ -84,9 +80,7 @@
           "settings": {
             "icon": "la-heart",
             "title": "Salud renal",
-            "description": "Apoya la función renal y previene problemas urinarios. Para gatos de todas las edades.",
-            "footer_icon": "la-check-circle",
-            "footer_text": "Recomendado por veterinarios"
+            "description": "Apoya la función renal y previene problemas urinarios. Para gatos de todas las edades."
           }
         }
       },
@@ -95,14 +89,7 @@
         "benefit_2",
         "benefit_3"
       ],
-      "settings": {
-        "title": "",
-        "subtitle": "",
-        "cta_title": "",
-        "cta_description": "",
-        "cta_button_text": "",
-        "product": ""
-      }
+      "settings": {}
     },
     "product-featured": {
       "type": "product-featured",
