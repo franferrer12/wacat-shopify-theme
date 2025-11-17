@@ -16,32 +16,32 @@
     },
     {
       "type": "header",
-      "content": "Espaciado"
+      "content": "Espaciado Móvil (< 768px)"
     },
     {
       "type": "range",
-      "id": "padding_top",
-      "label": "Espaciado superior (px)",
+      "id": "padding_top_mobile",
+      "label": "Espaciado superior móvil (px)",
       "min": 0,
       "max": 400,
       "step": 8,
-      "default": 96,
+      "default": 64,
       "unit": "px"
     },
     {
       "type": "range",
-      "id": "padding_bottom",
-      "label": "Espaciado inferior (px)",
+      "id": "padding_bottom_mobile",
+      "label": "Espaciado inferior móvil (px)",
       "min": 0,
       "max": 400,
       "step": 8,
-      "default": 96,
+      "default": 64,
       "unit": "px"
     },
     {
       "type": "range",
-      "id": "padding_left",
-      "label": "Espaciado izquierdo (px)",
+      "id": "padding_left_mobile",
+      "label": "Espaciado izquierdo móvil (px)",
       "min": 0,
       "max": 200,
       "step": 4,
@@ -50,28 +50,131 @@
     },
     {
       "type": "range",
-      "id": "padding_right",
-      "label": "Espaciado derecho (px)",
+      "id": "padding_right_mobile",
+      "label": "Espaciado derecho móvil (px)",
       "min": 0,
       "max": 200,
       "step": 4,
       "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_gap_mobile",
+      "label": "Separación entre elementos móvil (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 32,
       "unit": "px"
     },
     {
       "type": "header",
-      "content": "Espaciado Interno"
+      "content": "Espaciado Tablet (768px - 1024px)"
     },
     {
       "type": "range",
-      "id": "content_gap",
-      "label": "Separación entre elementos (px)",
+      "id": "padding_top_tablet",
+      "label": "Espaciado superior tablet (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_tablet",
+      "label": "Espaciado inferior tablet (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_tablet",
+      "label": "Espaciado izquierdo tablet (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_tablet",
+      "label": "Espaciado derecho tablet (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_gap_tablet",
+      "label": "Separación entre elementos tablet (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado Desktop (>= 1024px)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Espaciado superior desktop (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Espaciado inferior desktop (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Espaciado izquierdo desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Espaciado derecho desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_gap_desktop",
+      "label": "Separación entre elementos desktop (px)",
       "min": 0,
       "max": 200,
       "step": 4,
       "default": 64,
-      "unit": "px",
-      "info": "Controla el espacio entre elementos principales de la sección"
+      "unit": "px"
     }
   ],
   "blocks": [
@@ -95,9 +198,48 @@
 }
 {% endschema %}
 
-<section id="faq" class="bg-wacat-cream" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; padding-left: {{ section.settings.padding_left }}px; padding-right: {{ section.settings.padding_right }}px;">
+<style>
+  #faq-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+
+  #faq-{{ section.id }} .faq-container {
+    gap: {{ section.settings.content_gap_mobile }}px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #faq-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_tablet }}px;
+      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
+      padding-left: {{ section.settings.padding_left_tablet }}px;
+      padding-right: {{ section.settings.padding_right_tablet }}px;
+    }
+
+    #faq-{{ section.id }} .faq-container {
+      gap: {{ section.settings.content_gap_tablet }}px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #faq-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+
+    #faq-{{ section.id }} .faq-container {
+      gap: {{ section.settings.content_gap_desktop }}px;
+    }
+  }
+</style>
+
+<section id="faq-{{ section.id }}" class="bg-wacat-cream">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col" style="gap: {{ section.settings.content_gap }}px;">
+    <div class="faq-container flex flex-col">
       <div class="text-center">
         <h2 class="heading-xl text-wacat-navy">
           {{ section.settings.title }}
