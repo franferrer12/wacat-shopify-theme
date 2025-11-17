@@ -101,7 +101,7 @@
 {%- elsif product.featured_image -%}
   {%- assign hero_image = product.featured_image | img_url: 'master' -%}
 {%- else -%}
-  {%- assign hero_image = '' -%}
+  {%- assign hero_image = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=800&fit=crop' -%}
 {%- endif -%}
 
 {%- if product.selected_or_first_available_variant -%}
@@ -109,7 +109,7 @@
   {%- assign product_price = variant.price | money_without_trailing_zeros -%}
   {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
 {%- else -%}
-  {%- assign product_price = '' -%}
+  {%- assign product_price = '29€' -%}
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 

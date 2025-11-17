@@ -65,7 +65,7 @@
   {%- assign product_price = variant.price | money_without_trailing_zeros -%}
   {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
 {%- else -%}
-  {%- assign product_price = '' -%}
+  {%- assign product_price = '29€' -%}
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
