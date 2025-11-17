@@ -5,13 +5,99 @@
     {
       "type": "image_picker",
       "id": "logo",
-      "label": "Logo"
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_height_desktop",
+      "label": "Logo Height Desktop (px)",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "logo_height_mobile",
+      "label": "Logo Height Mobile (px)",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "default": 36,
+      "unit": "px"
     },
     {
       "type": "text",
       "id": "logo_text",
-      "label": "Logo Text",
+      "label": "Logo Text (if no image)",
       "default": "WACAT"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_1_text",
+      "label": "Nav Link 1 Text",
+      "default": "Beneficios"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_1_url",
+      "label": "Nav Link 1 URL",
+      "default": "#beneficios"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_2_text",
+      "label": "Nav Link 2 Text",
+      "default": "Cómo Funciona"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_2_url",
+      "label": "Nav Link 2 URL",
+      "default": "#como-funciona"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_3_text",
+      "label": "Nav Link 3 Text",
+      "default": "Testimonios"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_3_url",
+      "label": "Nav Link 3 URL",
+      "default": "#testimonios"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_4_text",
+      "label": "Nav Link 4 Text",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_4_url",
+      "label": "Nav Link 4 URL",
+      "default": "#faq"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Comprar"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "CTA Button URL",
+      "default": "#producto"
+    },
+    {
+      "type": "text",
+      "id": "mobile_cta_text",
+      "label": "Mobile CTA Text",
+      "default": "Comprar Ahora"
     }
   ]
 }
@@ -23,7 +109,20 @@
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-wacat-navy hover:text-wacat-navy-dark transition-colors">
         {%- if section.settings.logo != blank -%}
-          <img src="{{ section.settings.logo | img_url: '120x' }}" alt="{{ shop.name }}" class="h-7 sm:h-8" loading="lazy">
+          <img
+            src="{{ section.settings.logo | img_url: 'master' }}"
+            alt="{{ shop.name }}"
+            style="height: {{ section.settings.logo_height_mobile }}px; width: auto; max-width: 200px; object-fit: contain;"
+            class="sm:hidden"
+            loading="eager"
+          >
+          <img
+            src="{{ section.settings.logo | img_url: 'master' }}"
+            alt="{{ shop.name }}"
+            style="height: {{ section.settings.logo_height_desktop }}px; width: auto; max-width: 300px; object-fit: contain;"
+            class="hidden sm:block"
+            loading="eager"
+          >
         {%- else -%}
           <span>{{ section.settings.logo_text }}</span>
         {%- endif -%}
@@ -31,25 +130,25 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
-        <a href="#beneficios" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
-          Beneficios
+        <a href="{{ section.settings.nav_link_1_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+          {{ section.settings.nav_link_1_text }}
         </a>
-        <a href="#como-funciona" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
-          Cómo Funciona
+        <a href="{{ section.settings.nav_link_2_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+          {{ section.settings.nav_link_2_text }}
         </a>
-        <a href="#testimonios" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
-          Testimonios
+        <a href="{{ section.settings.nav_link_3_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+          {{ section.settings.nav_link_3_text }}
         </a>
-        <a href="#faq" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
-          FAQ
+        <a href="{{ section.settings.nav_link_4_url }}" class="text-sm font-medium text-wacat-navy/70 hover:text-wacat-navy transition-colors">
+          {{ section.settings.nav_link_4_text }}
         </a>
       </nav>
 
       <!-- CTA & Mobile Menu -->
       <div class="flex items-center gap-3">
-        <a href="#producto" class="hidden md:inline-flex items-center gap-2 bg-wacat-navy text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark transition-all duration-300 shadow-md">
+        <a href="{{ section.settings.cta_url }}" class="hidden md:inline-flex items-center gap-2 bg-wacat-navy text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-wacat-navy-dark transition-all duration-300 shadow-md">
           <i class="las la-shopping-cart"></i>
-          Comprar
+          {{ section.settings.cta_text }}
         </a>
 
         <!-- Mobile Menu Button -->
@@ -90,25 +189,25 @@
 
       <!-- Mobile Navigation -->
       <nav class="p-4 space-y-1">
-        <a href="#beneficios" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
-          Beneficios
+        <a href="{{ section.settings.nav_link_1_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          {{ section.settings.nav_link_1_text }}
         </a>
-        <a href="#como-funciona" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
-          Cómo Funciona
+        <a href="{{ section.settings.nav_link_2_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          {{ section.settings.nav_link_2_text }}
         </a>
-        <a href="#testimonios" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
-          Testimonios
+        <a href="{{ section.settings.nav_link_3_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          {{ section.settings.nav_link_3_text }}
         </a>
-        <a href="#faq" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
-          FAQ
+        <a href="{{ section.settings.nav_link_4_url }}" class="mobile-menu-link block px-4 py-3 text-base font-medium text-wacat-navy hover:bg-wacat-cream-light rounded-xl transition-colors">
+          {{ section.settings.nav_link_4_text }}
         </a>
       </nav>
 
       <!-- Mobile CTA -->
       <div class="p-4 border-t border-wacat-navy/10">
-        <a href="#producto" class="mobile-menu-link flex items-center justify-center gap-2 bg-wacat-navy text-white px-6 py-4 rounded-full text-base font-bold hover:bg-wacat-navy-dark transition-all duration-300 shadow-lg w-full">
+        <a href="{{ section.settings.cta_url }}" class="mobile-menu-link flex items-center justify-center gap-2 bg-wacat-navy text-white px-6 py-4 rounded-full text-base font-bold hover:bg-wacat-navy-dark transition-all duration-300 shadow-lg w-full">
           <i class="las la-shopping-cart"></i>
-          Comprar Ahora
+          {{ section.settings.mobile_cta_text }}
         </a>
       </div>
     </div>

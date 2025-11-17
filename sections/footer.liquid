@@ -4,9 +4,87 @@
   "settings": [
     {
       "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "WACAT"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand Description",
+      "default": "Hidratación natural para gatos.\nSalud renal y vitalidad."
+    },
+    {
+      "type": "text",
+      "id": "links_title",
+      "label": "Links Section Title",
+      "default": "Enlaces"
+    },
+    {
+      "type": "text",
+      "id": "link_1_text",
+      "label": "Link 1 Text",
+      "default": "Beneficios"
+    },
+    {
+      "type": "text",
+      "id": "link_1_url",
+      "label": "Link 1 URL",
+      "default": "#beneficios"
+    },
+    {
+      "type": "text",
+      "id": "link_2_text",
+      "label": "Link 2 Text",
+      "default": "Cómo Funciona"
+    },
+    {
+      "type": "text",
+      "id": "link_2_url",
+      "label": "Link 2 URL",
+      "default": "#como-funciona"
+    },
+    {
+      "type": "text",
+      "id": "link_3_text",
+      "label": "Link 3 Text",
+      "default": "Testimonios"
+    },
+    {
+      "type": "text",
+      "id": "link_3_url",
+      "label": "Link 3 URL",
+      "default": "#testimonios"
+    },
+    {
+      "type": "text",
+      "id": "link_4_text",
+      "label": "Link 4 Text",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "link_4_url",
+      "label": "Link 4 URL",
+      "default": "#faq"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Section Title",
+      "default": "Contacto"
+    },
+    {
+      "type": "text",
       "id": "email",
       "label": "Email",
       "default": "info@wacat.com"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "Todos los derechos reservados."
     }
   ]
 }
@@ -17,27 +95,26 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
       <!-- Brand -->
       <div class="space-y-6">
-        <h3 class="text-2xl font-bold tracking-tight">WACAT</h3>
+        <h3 class="text-2xl font-bold tracking-tight">{{ section.settings.brand_name }}</h3>
         <p class="text-white/70 font-light leading-relaxed tracking-tight">
-          Hidratación natural para gatos.<br>
-          Salud renal y vitalidad.
+          {{ section.settings.brand_description | newline_to_br }}
         </p>
       </div>
 
       <!-- Links -->
       <div class="space-y-6">
-        <h4 class="text-lg font-semibold tracking-tight">Enlaces</h4>
+        <h4 class="text-lg font-semibold tracking-tight">{{ section.settings.links_title }}</h4>
         <nav class="flex flex-col gap-3">
-          <a href="#beneficios" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">Beneficios</a>
-          <a href="#como-funciona" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">Cómo Funciona</a>
-          <a href="#testimonios" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">Testimonios</a>
-          <a href="#faq" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">FAQ</a>
+          <a href="{{ section.settings.link_1_url }}" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">{{ section.settings.link_1_text }}</a>
+          <a href="{{ section.settings.link_2_url }}" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">{{ section.settings.link_2_text }}</a>
+          <a href="{{ section.settings.link_3_url }}" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">{{ section.settings.link_3_text }}</a>
+          <a href="{{ section.settings.link_4_url }}" class="text-white/70 hover:text-white transition-colors font-light tracking-tight">{{ section.settings.link_4_text }}</a>
         </nav>
       </div>
 
       <!-- Contact -->
       <div class="space-y-6">
-        <h4 class="text-lg font-semibold tracking-tight">Contacto</h4>
+        <h4 class="text-lg font-semibold tracking-tight">{{ section.settings.contact_title }}</h4>
         <div class="space-y-3">
           <a href="mailto:{{ section.settings.email }}" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors font-light tracking-tight">
             <i class="las la-envelope text-xl"></i>
@@ -50,7 +127,7 @@
     <!-- Bottom -->
     <div class="pt-8 border-t border-white/20 text-center">
       <p class="text-white/60 text-sm font-light tracking-tight">
-        © {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos los derechos reservados.
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_text }}
       </p>
     </div>
   </div>

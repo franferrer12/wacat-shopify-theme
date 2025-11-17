@@ -41,6 +41,12 @@
       "type": "image_picker",
       "id": "hero_image",
       "label": "Hero Image (optional, will use product image if not set)"
+    },
+    {
+      "type": "text",
+      "id": "image_alt_text",
+      "label": "Image Alt Text",
+      "default": "WACAT - Hidratación natural para gatos"
     }
   ]
 }
@@ -117,7 +123,7 @@
           {% if hero_image != '' %}
             <img
               src="{{ hero_image }}"
-              alt="WACAT - Hidratación natural para gatos"
+              alt="{{ section.settings.image_alt_text }}"
               class="w-full h-auto rounded-3xl shadow-lg"
               loading="eager"
             />
