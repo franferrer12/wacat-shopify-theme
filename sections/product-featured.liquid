@@ -125,36 +125,22 @@
 
       <!-- Product Image Column -->
       <div class="relative animated-section">
-        <!-- Decorative background -->
-        <div class="absolute -top-12 -right-12 w-80 h-80 bg-wacat-cream rounded-full opacity-60 blur-3xl"></div>
-        <div class="absolute -bottom-12 -left-12 w-80 h-80 bg-wacat-navy/5 rounded-full opacity-60 blur-3xl"></div>
+        <!-- Decorative background - simplified -->
+        <div class="absolute -top-12 -right-12 w-80 h-80 bg-wacat-cream rounded-full opacity-30 blur-3xl hidden lg:block"></div>
 
         <div class="relative z-10">
           {% if product.featured_image %}
             <img
               src="{{ product.featured_image | img_url: 'master' }}"
               alt="{{ product.title }}"
-              class="w-full h-auto rounded-3xl shadow-2xl"
+              class="w-full h-auto rounded-3xl shadow-lg"
               loading="lazy"
             />
           {% else %}
-            <div class="aspect-square bg-gradient-to-br from-wacat-cream to-white rounded-3xl shadow-2xl flex items-center justify-center">
+            <div class="aspect-square bg-gradient-to-br from-wacat-cream to-white rounded-3xl shadow-lg flex items-center justify-center">
               <i class="las la-box text-9xl text-wacat-navy/20"></i>
             </div>
           {% endif %}
-
-          <!-- Floating guarantee badge -->
-          <div class="absolute -bottom-8 -right-8 bg-white rounded-2xl shadow-xl p-6 hidden sm:block">
-            <div class="flex items-center gap-3">
-              <div class="icon-circle bg-green-500/10">
-                <i class="las la-check-circle text-2xl text-green-600"></i>
-              </div>
-              <div>
-                <div class="text-sm font-medium text-primary">{{ section.settings.guarantee_title }}</div>
-                <div class="caption text-tertiary">{{ section.settings.guarantee_description }}</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -188,7 +174,7 @@
         {% if section.blocks.size > 0 %}
           {% assign feature_blocks = section.blocks | where: "type", "feature" %}
           {% if feature_blocks.size > 0 %}
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-6">
               {% for block in feature_blocks %}
                 <div class="flex items-start gap-3 p-4 bg-wacat-cream/30 rounded-xl">
                   <div class="icon-circle icon-circle-sm bg-white flex-shrink-0">
@@ -226,6 +212,11 @@
                   <span class="caption">{{ block.settings.text }}</span>
                 </div>
               {% endfor %}
+              <!-- Guarantee integrated -->
+              <div class="flex items-center gap-2 text-green-600">
+                <i class="las la-check-circle text-lg"></i>
+                <span class="caption">{{ section.settings.guarantee_title }}</span>
+              </div>
             </div>
           {% endif %}
         {% endif %}
