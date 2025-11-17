@@ -16,6 +16,12 @@
     },
     {
       "type": "text",
+      "id": "stat_1_label",
+      "label": "Stat 1 Label",
+      "default": "Gatos deshidratados"
+    },
+    {
+      "type": "text",
       "id": "stat_2_number",
       "label": "Stat 2 Number",
       "default": "30"
@@ -28,6 +34,12 @@
     },
     {
       "type": "text",
+      "id": "stat_2_label",
+      "label": "Stat 2 Label",
+      "default": "Problemas renales"
+    },
+    {
+      "type": "text",
       "id": "stat_3_number",
       "label": "Stat 3 Number",
       "default": "3"
@@ -37,12 +49,18 @@
       "id": "stat_3_unit",
       "label": "Stat 3 Unit",
       "default": "×"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Stat 3 Label",
+      "default": "Más hidratación"
     }
   ]
 }
 {% endschema %}
 
-<section id="estadisticas" class="bg-white py-20 md:py-32">
+<section id="estadisticas" class="bg-white section-spacing">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-24">
       <!-- Stat 1 -->
@@ -51,7 +69,7 @@
           {{ section.settings.stat_1_number }}{{ section.settings.stat_1_unit }}
         </div>
         <p class="caption text-wacat-navy/50">
-          Gatos deshidratados
+          {{ section.settings.stat_1_label }}
         </p>
       </div>
 
@@ -61,7 +79,7 @@
           {{ section.settings.stat_2_number }}{{ section.settings.stat_2_unit }}
         </div>
         <p class="caption text-wacat-navy/50">
-          Problemas renales
+          {{ section.settings.stat_2_label }}
         </p>
       </div>
 
@@ -71,7 +89,7 @@
           {{ section.settings.stat_3_number }}{{ section.settings.stat_3_unit }}
         </div>
         <p class="caption text-wacat-navy">
-          Más hidratación
+          {{ section.settings.stat_3_label }}
         </p>
       </div>
     </div>

@@ -42,18 +42,18 @@
 }
 {% endschema %}
 
-<section id="donde-comprar" class="bg-white py-20 md:py-32">
+<section id="donde-comprar" class="bg-white section-spacing">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-wacat-navy mb-8">
+    <div class="text-center">
+      <h2 class="heading-xl text-wacat-navy mb-6">
         {{ section.settings.title }}
       </h2>
-      <p class="text-base text-wacat-navy/60 font-light mb-6">
+      <p class="body-lg text-secondary mb-6">
         {{ section.settings.cities }}
       </p>
       <a
         href="mailto:{{ section.settings.email }}"
-        class="text-base text-wacat-navy hover:opacity-70 transition-opacity"
+        class="body-md text-wacat-navy hover:text-wacat-navy-dark transition-colors"
       >
         {{ section.settings.email }}
       </a>

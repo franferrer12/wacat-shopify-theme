@@ -10,9 +10,27 @@
     },
     {
       "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Tu gato necesita más agua"
+    },
+    {
+      "type": "textarea",
       "id": "subtitle",
       "label": "Subtitle",
       "default": "La mayoría de los gatos están deshidratados y sus dueños no lo saben. WACAT hace que beber agua sea irresistible para tu gato."
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "label": "Primary CTA Text",
+      "default": "Comprar ahora"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "label": "Secondary CTA Text",
+      "default": "Ver beneficios"
     },
     {
       "type": "product",
@@ -47,11 +65,11 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section class="relative min-h-screen flex items-center overflow-hidden bg-white">
+<section class="relative min-h-screen flex items-center overflow-hidden bg-white section-spacing">
   <!-- Background pattern - subtle -->
   <div class="absolute inset-0 bg-pattern-dots opacity-20"></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
       <!-- Content -->
@@ -66,44 +84,27 @@
 
         <!-- Main heading -->
         <div class="space-y-6">
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extralight text-wacat-navy leading-tight tracking-tight hero-title">
-            Tu gato necesita
-            <span class="block font-light text-gradient">más agua</span>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extralight text-wacat-navy leading-tight tracking-tight">
+            {{ section.settings.title }}
           </h1>
 
-          <p class="body-lg text-secondary max-w-xl hero-subtitle">
+          <p class="body-lg text-secondary max-w-xl">
             {{ section.settings.subtitle }}
           </p>
         </div>
 
         <!-- CTA -->
         <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <a href="{{ checkout_url }}" class="btn btn-primary btn-lg hero-cta">
+          <a href="{{ checkout_url }}" class="btn btn-primary btn-lg">
             <i class="las la-shopping-cart"></i>
-            Comprar ahora
+            {{ section.settings.cta_primary_text }}
             {% if product_price != '' %}
               <span class="ml-2">{{ product_price }}</span>
             {% endif %}
           </a>
           <a href="#beneficios" class="btn btn-secondary btn-lg">
-            Ver beneficios
+            {{ section.settings.cta_secondary_text }}
           </a>
-        </div>
-
-        <!-- Trust badges -->
-        <div class="flex flex-wrap items-center gap-6 pt-6 text-sm text-tertiary">
-          <div class="flex items-center gap-2">
-            <i class="las la-shipping-fast text-lg"></i>
-            <span>Envío 24-48h</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="las la-shield-alt text-lg"></i>
-            <span>Garantía 30 días</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="las la-user-md text-lg"></i>
-            <span>Recomendado por vets</span>
-          </div>
         </div>
       </div>
 
