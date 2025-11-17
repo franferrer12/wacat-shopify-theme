@@ -1167,13 +1167,8 @@ img {
 /* Image Load Fade In - Progressive enhancement
    ========================================================================== */
 img {
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-img.loaded,
-img[loading="eager"] {
   opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Focus Ring - Enhanced keyboard navigation
@@ -1301,11 +1296,6 @@ img[loading="eager"] {
 
 /* Initial page load - prevent flash of unstyled content */
 body {
-  opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-body.dom-loaded {
   opacity: 1;
 }
 
