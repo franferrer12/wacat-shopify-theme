@@ -13,6 +13,30 @@
       "id": "subtitle",
       "label": "Subtitle",
       "default": "Gatos más felices"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espaciado superior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espaciado inferior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
     }
   ],
   "blocks": [
@@ -54,7 +78,7 @@
 }
 {% endschema %}
 
-<section id="testimonios" class="bg-white section-spacing">
+<section id="testimonios" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Divider superior -->
     <div class="divider mb-20"></div>

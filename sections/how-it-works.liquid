@@ -49,12 +49,36 @@
       "id": "step_3_description",
       "label": "Step 3 Description",
       "default": "Mejora su salud renal y vitalidad general"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espaciado superior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espaciado inferior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
     }
   ]
 }
 {% endschema %}
 
-<section id="como-funciona" class="bg-white section-spacing">
+<section id="como-funciona" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->

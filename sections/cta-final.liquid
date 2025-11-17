@@ -66,6 +66,30 @@
       "id": "trust_shipping",
       "label": "Trust Indicator - Shipping",
       "default": "Envío 24-48h"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espaciado superior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espaciado inferior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
     }
   ]
 }
@@ -81,7 +105,7 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section class="relative bg-wacat-navy section-spacing overflow-hidden">
+<section class="relative bg-wacat-navy overflow-hidden" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
   <!-- Background pattern -->
   <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
 

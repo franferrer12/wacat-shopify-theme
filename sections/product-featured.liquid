@@ -60,6 +60,30 @@
       "id": "tax_text",
       "label": "Tax Text",
       "default": "IVA incluido"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espaciado superior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espaciado inferior (px)",
+      "min": 0,
+      "max": 400,
+      "step": 8,
+      "default": 96,
+      "unit": "px"
     }
   ],
   "blocks": [
@@ -119,7 +143,7 @@
   {%- assign checkout_url = '#producto' -%}
 {%- endif -%}
 
-<section id="producto" class="bg-white section-spacing">
+<section id="producto" class="bg-white" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section Header -->
