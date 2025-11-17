@@ -1,0 +1,120 @@
+{% schema %}
+{
+  "name": "Hero B3TTER EXACT",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Hero Title",
+      "default": "AGUA QUE TU GATO ELIJE.\nSALUD QUE AGRADECES."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text Position",
+      "default": "middle",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "middle", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} Get hero image {% endcomment %}
+{%- if section.settings.hero_image != blank -%}
+  {%- assign hero_image = section.settings.hero_image | img_url: '2000x' -%}
+{%- else -%}
+  {%- assign hero_image = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=2000&h=1200&fit=crop' -%}
+{%- endif -%}
+
+{% comment %} ESTRUCTURA EXACTA B3TTER FOODS {% endcomment %}
+<div class="web-b3-v2-section b3-section-header">
+  <div class="b3-section-header-banners">
+    <div class="b3-section-header-banners-title {{ section.settings.text_position }}">
+      {{ section.settings.title | newline_to_br }}
+    </div>
+    <div class="b3-section-header-banners-imagen">
+      <img src="{{ hero_image }}" alt="WACAT - Hidratación natural para gatos">
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Hero EXACTO B3TTER FOODS - Inline styles para asegurar aplicación */
+  #shopify-section-{{ section.id }} .b3-section-header {
+    position: relative;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners {
+    position: relative;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    font-family: Assistant, sans-serif;
+    color: #121212; /* EXACTO B3TTER - texto NEGRO no blanco */
+    font-weight: 400 !important; /* EXACTO B3TTER - 400 no 300 */
+    font-size: clamp(2rem, 5vw, 4rem) !important;
+    line-height: 1.2 !important;
+    padding: 0 2rem;
+    letter-spacing: 0.06rem !important; /* EXACTO B3TTER */
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title.top {
+    top: 20%;
+    transform: translateY(-20%);
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title.middle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-title.bottom {
+    top: 80%;
+    transform: translateY(-80%);
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-imagen {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .b3-section-header-banners-imagen img {
+    width: 100%;
+    height: 100%;
+    min-height: 85vh;
+    object-fit: cover;
+    border-radius: 0; /* Hero NO tiene border-radius en B3TTER */
+    display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .b3-section-header-banners-imagen {
+      min-height: 70vh;
+    }
+
+    #shopify-section-{{ section.id }} .b3-section-header-banners-imagen img {
+      min-height: 70vh;
+    }
+
+    #shopify-section-{{ section.id }} .b3-section-header-banners-title {
+      font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+    }
+  }
+</style>

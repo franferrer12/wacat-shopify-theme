@@ -1,0 +1,144 @@
+<style>
+  #footer-wacat {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Assistant, sans-serif;
+    padding: 48px 21px;
+  }
+
+  #footer-wacat .footer-container {
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #footer-wacat .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: 768px) {
+    #footer-wacat {
+      padding: 48px 28px;
+    }
+
+    #footer-wacat .footer-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #footer-wacat {
+      padding: 48px 36px;
+    }
+  }
+
+  #footer-wacat .footer-column-title {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.06rem;
+    line-height: 1.3;
+    margin: 0 0 24px 0;
+    color: #ffffff;
+  }
+
+  @media (min-width: 750px) {
+    #footer-wacat .footer-column-title {
+      font-size: 18px;
+    }
+  }
+
+  #footer-wacat .footer-brand-description {
+    font-size: 14px;
+    font-weight: 400;
+    color: #7C7C7C;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+  }
+
+  #footer-wacat .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #footer-wacat .footer-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: #7C7C7C;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  #footer-wacat .footer-link:hover {
+    color: #ffffff;
+  }
+
+  #footer-wacat .footer-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #7C7C7C;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  #footer-wacat .footer-email:hover {
+    color: #ffffff;
+  }
+
+  #footer-wacat .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(124, 124, 124, 0.2);
+    text-align: center;
+  }
+
+  #footer-wacat .footer-copyright {
+    font-size: 14px;
+    font-weight: 400;
+    color: #7C7C7C;
+    margin: 0;
+  }
+</style>
+
+<footer id="footer-wacat">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div>
+        <h3 class="footer-column-title">WACAT</h3>
+        <p class="footer-brand-description">Hidratación natural para gatos.
+Salud renal y vitalidad.</p>
+      </div>
+
+      <div>
+        <h3 class="footer-column-title">Enlaces</h3>
+        <nav class="footer-links">
+          <a href="#beneficios" class="footer-link">Beneficios</a>
+          <a href="#como-funciona" class="footer-link">Cómo Funciona</a>
+          <a href="#testimonios" class="footer-link">Testimonios</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="footer-column-title">Contacto</h3>
+        <a href="mailto:info@wacat.com" class="footer-email">
+          <i class="las la-envelope"></i>
+          info@wacat.com
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

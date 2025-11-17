@@ -1,0 +1,240 @@
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Testimonios"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Gatos más felices"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name"
+        },
+        {
+          "type": "text",
+          "id": "cat_name",
+          "label": "Cat Name"
+        },
+        {
+          "type": "text",
+          "id": "cat_age",
+          "label": "Cat Age"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "default": 5
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #section-{{ section.id }} {
+    padding: 21px 27px;
+    background: #ffffff;
+    font-family: Assistant, sans-serif;
+  }
+
+  #section-{{ section.id }} .container {
+    max-width: 100rem;
+    margin: 0 auto;
+  }
+
+  #section-{{ section.id }} .divider {
+    height: 1px;
+    background: #EDEDED;
+    margin: 48px 0;
+  }
+
+  #section-{{ section.id }} .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  #section-{{ section.id }} .section-title {
+    font-size: 30px !important; /* h1 mobile EXACTO B3TTER */
+    font-weight: 400 !important;
+    color: #121212;
+    margin: 0;
+    line-height: 1.2 !important;
+    letter-spacing: 0.06rem !important; /* EXACTO B3TTER */
+  }
+
+  #section-{{ section.id }} .swiper {
+    width: 100%;
+    padding-bottom: 48px;
+  }
+
+  #section-{{ section.id }} .swiper-slide {
+    text-align: center;
+    padding: 32px 16px;
+  }
+
+  #section-{{ section.id }} .testimonial-content {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  #section-{{ section.id }} .quote-icon {
+    margin-bottom: 32px;
+  }
+
+  #section-{{ section.id }} .quote-icon i {
+    font-size: 48px !important;
+    color: rgba(18, 18, 18, 0.1);
+  }
+
+  #section-{{ section.id }} .quote-text {
+    font-size: 16px !important; /* body text EXACTO B3TTER */
+    font-weight: 400 !important;
+    color: #121212;
+    margin: 0 0 40px 0;
+    line-height: 1.6 !important;
+    letter-spacing: 0.06rem !important; /* EXACTO B3TTER */
+  }
+
+  #section-{{ section.id }} .author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #section-{{ section.id }} .author-name {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #121212;
+    margin: 0;
+  }
+
+  #section-{{ section.id }} .cat-info {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: #7C7C7C;
+    margin: 0;
+  }
+
+  #section-{{ section.id }} .swiper-pagination {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  #section-{{ section.id }} .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #EDEDED;
+    border-radius: 50%;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  #section-{{ section.id }} .swiper-pagination-bullet-active {
+    background: #121212;
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  @media (min-width: 768px) {
+    #section-{{ section.id }} {
+      padding: 28px 36px;
+    }
+
+    #section-{{ section.id }} .divider {
+      margin: 64px 0;
+    }
+
+    #section-{{ section.id }} .section-header {
+      margin-bottom: 64px;
+    }
+
+    #section-{{ section.id }} .quote-text {
+      font-size: 20px !important; /* h2 mobile EXACTO B3TTER */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #section-{{ section.id }} {
+      padding: 36px 48px;
+    }
+
+    #section-{{ section.id }} .section-title {
+      font-size: 40px !important; /* h1 desktop EXACTO B3TTER */
+    }
+
+    #section-{{ section.id }} .quote-text {
+      font-size: 24px !important; /* h2 desktop EXACTO B3TTER */
+    }
+  }
+</style>
+
+<section id="section-{{ section.id }}">
+  <div class="container">
+
+    <div class="divider"></div>
+
+    <div class="section-header">
+      <h2 class="section-title">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="testimonial-content">
+
+              <div class="quote-icon">
+                <i class="las la-quote-left"></i>
+              </div>
+
+              <blockquote class="quote-text">
+                {{ block.settings.quote }}
+              </blockquote>
+
+              <div class="author-info">
+                <p class="author-name">{{ block.settings.author }}</p>
+                {% if block.settings.cat_name %}
+                  <p class="cat-info">
+                    {{ block.settings.cat_name }}{% if block.settings.cat_age %} · {{ block.settings.cat_age }}{% endif %}
+                  </p>
+                {% endif %}
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="divider"></div>
+
+  </div>
+</section>
