@@ -1,277 +1,7 @@
 {% schema %}
 {
-  "name": "Benefits",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "¿Qué hace que WACAT sea diferente?"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Diseñado específicamente para el comportamiento y las necesidades de los gatos"
-    },
-    {
-      "type": "text",
-      "id": "cta_title",
-      "label": "CTA Title",
-      "default": "Tu gato merece lo mejor"
-    },
-    {
-      "type": "textarea",
-      "id": "cta_description",
-      "label": "CTA Description",
-      "default": "Miles de dueños ya han mejorado la salud de sus gatos con WACAT. Únete a ellos y dale a tu gato la hidratación que necesita."
-    },
-    {
-      "type": "text",
-      "id": "cta_button_text",
-      "label": "CTA Button Text",
-      "default": "Empezar ahora"
-    },
-    {
-      "type": "product",
-      "id": "product",
-      "label": "Product (for pricing)"
-    },
-    {
-      "type": "header",
-      "content": "Espaciado Móvil (< 768px)"
-    },
-    {
-      "type": "range",
-      "id": "padding_top_mobile",
-      "label": "Espaciado superior móvil (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 64,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_mobile",
-      "label": "Espaciado inferior móvil (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 64,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_left_mobile",
-      "label": "Espaciado izquierdo móvil (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 16,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_right_mobile",
-      "label": "Espaciado derecho móvil (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 16,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "content_gap_mobile",
-      "label": "Separación entre elementos móvil (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Espaciado Tablet (768px - 1024px)"
-    },
-    {
-      "type": "range",
-      "id": "padding_top_tablet",
-      "label": "Espaciado superior tablet (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 80,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_tablet",
-      "label": "Espaciado inferior tablet (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 80,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_left_tablet",
-      "label": "Espaciado izquierdo tablet (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 24,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_right_tablet",
-      "label": "Espaciado derecho tablet (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 24,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "content_gap_tablet",
-      "label": "Separación entre elementos tablet (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 48,
-      "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Espaciado Desktop (>= 1024px)"
-    },
-    {
-      "type": "range",
-      "id": "padding_top_desktop",
-      "label": "Espaciado superior desktop (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 96,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_desktop",
-      "label": "Espaciado inferior desktop (px)",
-      "min": 0,
-      "max": 400,
-      "step": 8,
-      "default": 96,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_left_desktop",
-      "label": "Espaciado izquierdo desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_right_desktop",
-      "label": "Espaciado derecho desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "content_gap_desktop",
-      "label": "Separación entre elementos desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 64,
-      "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Animaciones"
-    },
-    {
-      "type": "checkbox",
-      "id": "animation_enabled",
-      "label": "Habilitar animaciones",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "animation_type",
-      "label": "Tipo de animación",
-      "default": "fadeInUp",
-      "options": [
-        { "value": "none", "label": "Sin animación" },
-        { "value": "fadeIn", "label": "Fade In" },
-        { "value": "fadeInUp", "label": "Fade In Up" },
-        { "value": "fadeInDown", "label": "Fade In Down" },
-        { "value": "fadeInLeft", "label": "Fade In Left" },
-        { "value": "fadeInRight", "label": "Fade In Right" },
-        { "value": "scaleIn", "label": "Scale In" },
-        { "value": "zoomIn", "label": "Zoom In" },
-        { "value": "slideInUp", "label": "Slide In Up" },
-        { "value": "slideInDown", "label": "Slide In Down" },
-        { "value": "slideInLeft", "label": "Slide In Left" },
-        { "value": "slideInRight", "label": "Slide In Right" },
-        { "value": "rotateIn", "label": "Rotate In" },
-        { "value": "flipInX", "label": "Flip In X" },
-        { "value": "flipInY", "label": "Flip In Y" },
-        { "value": "bounceIn", "label": "Bounce In" },
-        { "value": "elastic", "label": "Elastic" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "animation_duration",
-      "label": "Duración animación (ms)",
-      "min": 200,
-      "max": 2000,
-      "step": 100,
-      "default": 800,
-      "unit": "ms"
-    },
-    {
-      "type": "range",
-      "id": "animation_delay",
-      "label": "Delay animación (ms)",
-      "min": 0,
-      "max": 2000,
-      "step": 100,
-      "default": 0,
-      "unit": "ms"
-    },
-    {
-      "type": "range",
-      "id": "animation_stagger",
-      "label": "Stagger entre elementos (ms)",
-      "min": 0,
-      "max": 300,
-      "step": 50,
-      "default": 100,
-      "unit": "ms",
-      "info": "Retraso escalonado entre elementos hijos animados"
-    },
-    {
-      "type": "checkbox",
-      "id": "animation_repeat",
-      "label": "Repetir animación al hacer scroll",
-      "default": false
-    }
-  ],
+  "name": "Benefits B3TTER",
+  "settings": [],
   "blocks": [
     {
       "type": "benefit",
@@ -280,32 +10,20 @@
         {
           "type": "text",
           "id": "icon",
-          "label": "Line Awesome Icon (e.g., la-leaf)",
-          "default": "la-leaf"
+          "label": "Icon (Line Awesome class)",
+          "default": "la-tint"
         },
         {
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "100% Natural"
+          "default": "Benefit Title"
         },
         {
           "type": "textarea",
           "id": "description",
           "label": "Description",
-          "default": "Sin químicos, sin aditivos. Solo ingredientes naturales que tu gato reconoce instintivamente"
-        },
-        {
-          "type": "text",
-          "id": "footer_icon",
-          "label": "Footer Icon",
-          "default": "la-check-circle"
-        },
-        {
-          "type": "text",
-          "id": "footer_text",
-          "label": "Footer Text",
-          "default": "Seguro para uso diario"
+          "default": "Benefit description"
         }
       ]
     }
@@ -313,118 +31,97 @@
 }
 {% endschema %}
 
-{%- assign product = all_products[section.settings.product] -%}
-{%- if product.selected_or_first_available_variant -%}
-  {%- assign variant = product.selected_or_first_available_variant -%}
-  {%- assign product_price = variant.price | money_without_trailing_zeros -%}
-  {%- assign checkout_url = '/cart/add?id=' | append: variant.id -%}
-{%- else -%}
-  {%- assign product_price = '' -%}
-  {%- assign checkout_url = '#producto' -%}
-{%- endif -%}
-
 <style>
+  /* Benefits EXACTO B3TTER FOODS */
   #benefits-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top_mobile }}px;
-    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-    padding-left: {{ section.settings.padding_left_mobile }}px;
-    padding-right: {{ section.settings.padding_right_mobile }}px;
+    padding: 28px 32px 36px 32px; /* Desktop padding EXACTO */
+    background: #ffffff;
   }
 
   #benefits-{{ section.id }} .benefits-container {
-    gap: {{ section.settings.content_gap_mobile }}px;
+    max-width: 120rem; /* 1200px EXACTO */
+    margin: 0 auto;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  #benefits-{{ section.id }} .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas EXACTO B3TTER */
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #benefits-{{ section.id }} .benefit-item {
+    text-align: center;
+  }
+
+  #benefits-{{ section.id }} .benefit-icon {
+    font-size: 48px;
+    color: #121212;
+    margin-bottom: 20px;
+  }
+
+  #benefits-{{ section.id }} .benefit-title {
+    font-family: Assistant, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #121212;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+  }
+
+  #benefits-{{ section.id }} .benefit-description {
+    font-family: Assistant, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #7C7C7C;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 749px) {
     #benefits-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top_tablet }}px;
-      padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
-      padding-left: {{ section.settings.padding_left_tablet }}px;
-      padding-right: {{ section.settings.padding_right_tablet }}px;
+      padding: 21px 16px 27px 16px; /* Mobile padding EXACTO */
     }
 
-    #benefits-{{ section.id }} .benefits-container {
-      gap: {{ section.settings.content_gap_tablet }}px;
+    #benefits-{{ section.id }} .benefits-grid {
+      grid-template-columns: 1fr; /* 1 columna mobile */
+      gap: 32px;
+    }
+
+    #benefits-{{ section.id }} .benefit-icon {
+      font-size: 40px;
+    }
+
+    #benefits-{{ section.id }} .benefit-title {
+      font-size: 18px;
+    }
+
+    #benefits-{{ section.id }} .benefit-description {
+      font-size: 15px;
     }
   }
 
-  @media (min-width: 1024px) {
-    #benefits-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top_desktop }}px;
-      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
-      padding-left: {{ section.settings.padding_left_desktop }}px;
-      padding-right: {{ section.settings.padding_right_desktop }}px;
-    }
-
-    #benefits-{{ section.id }} .benefits-container {
-      gap: {{ section.settings.content_gap_desktop }}px;
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #benefits-{{ section.id }} .benefits-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas tablet */
     }
   }
 </style>
 
-<section id="benefits-{{ section.id }}" class="bg-wacat-cream"
-  {% if section.settings.animation_enabled %}
-    data-animate="true"
-    data-animation-type="{{ section.settings.animation_type }}"
-    data-animation-duration="{{ section.settings.animation_duration }}"
-    data-animation-delay="{{ section.settings.animation_delay }}"
-    data-animation-stagger="{{ section.settings.animation_stagger }}"
-    data-animation-repeat="{{ section.settings.animation_repeat }}"
-  {% endif %}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Header -->
-    <div class="text-center mb-16 max-w-3xl mx-auto">
-      <h2 class="heading-xl text-wacat-navy mb-6">
-        {{ section.settings.title }}
-      </h2>
-      <p class="body-lg text-secondary">
-        {{ section.settings.subtitle }}
-      </p>
-    </div>
-
-    <!-- Benefits grid -->
-    <div class="benefits-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+<section id="benefits-{{ section.id }}">
+  <div class="benefits-container">
+    <div class="benefits-grid">
       {% for block in section.blocks %}
-        <div class="card" data-animate-child>
-          <!-- Icon header -->
-          <div class="icon-circle icon-circle-lg bg-wacat-navy/5 mb-6">
-            <i class="las {{ block.settings.icon }} text-3xl text-wacat-navy"></i>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="las {{ block.settings.icon }}"></i>
           </div>
-
-          <!-- Content -->
-          <h3 class="heading-md text-primary mb-3">
-            {{ block.settings.title }}
-          </h3>
-
-          <p class="body-sm text-secondary">
-            {{ block.settings.description }}
-          </p>
+          <h3 class="benefit-title">{{ block.settings.title }}</h3>
+          <p class="benefit-description">{{ block.settings.description }}</p>
         </div>
       {% endfor %}
     </div>
-
-    <!-- Bottom CTA -->
-    <div class="mt-16 text-center">
-      <div class="inline-flex flex-col items-center gap-6 p-10 bg-white rounded-3xl shadow-lg max-w-2xl">
-        <div>
-          <h3 class="heading-lg text-primary mb-3">
-            {{ section.settings.cta_title }}
-          </h3>
-          <p class="body-md text-secondary">
-            {{ section.settings.cta_description }}
-          </p>
-        </div>
-
-        <a href="{{ checkout_url }}" class="btn btn-primary btn-xl">
-          <i class="las la-shopping-cart"></i>
-          {{ section.settings.cta_button_text }}
-          {% if product_price != '' %}
-            <span class="ml-2">{{ product_price }}</span>
-          {% endif %}
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
