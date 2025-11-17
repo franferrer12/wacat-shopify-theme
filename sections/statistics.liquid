@@ -4,18 +4,6 @@
   "settings": [
     {
       "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "No estás solo en esta preocupación"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Miles de dueños comparten tu inquietud sobre la hidratación de sus gatos"
-    },
-    {
-      "type": "text",
       "id": "stat_1_number",
       "label": "Stat 1 Number",
       "default": "70"
@@ -23,20 +11,8 @@
     {
       "type": "text",
       "id": "stat_1_unit",
-      "label": "Stat 1 Unit (%,×, or blank)",
+      "label": "Stat 1 Unit",
       "default": "%"
-    },
-    {
-      "type": "text",
-      "id": "stat_1_title",
-      "label": "Stat 1 Title",
-      "default": "de los gatos están deshidratados"
-    },
-    {
-      "type": "textarea",
-      "id": "stat_1_description",
-      "label": "Stat 1 Description",
-      "default": "La mayoría de los dueños no se dan cuenta hasta que aparecen problemas"
     },
     {
       "type": "text",
@@ -52,18 +28,6 @@
     },
     {
       "type": "text",
-      "id": "stat_2_title",
-      "label": "Stat 2 Title",
-      "default": "enfermedad renal en gatos mayores"
-    },
-    {
-      "type": "textarea",
-      "id": "stat_2_description",
-      "label": "Stat 2 Description",
-      "default": "La prevención temprana es clave para evitar problemas graves"
-    },
-    {
-      "type": "text",
       "id": "stat_3_number",
       "label": "Stat 3 Number",
       "default": "3"
@@ -73,30 +37,6 @@
       "id": "stat_3_unit",
       "label": "Stat 3 Unit",
       "default": "×"
-    },
-    {
-      "type": "text",
-      "id": "stat_3_title",
-      "label": "Stat 3 Title",
-      "default": "más hidratación con WACAT"
-    },
-    {
-      "type": "textarea",
-      "id": "stat_3_description",
-      "label": "Stat 3 Description",
-      "default": "Los gatos beben hasta 3 veces más agua sin darse cuenta"
-    },
-    {
-      "type": "text",
-      "id": "stat_3_footer",
-      "label": "Stat 3 Footer",
-      "default": "Datos verificados por veterinarios"
-    },
-    {
-      "type": "text",
-      "id": "hope_message",
-      "label": "Hope Message",
-      "default": "La buena noticia: la deshidratación tiene solución fácil y natural"
     }
   ]
 }
@@ -106,7 +46,7 @@
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-24">
       <!-- Stat 1 -->
-      <div class="animated-section text-center">
+      <div class="text-center">
         <div class="stat-number text-7xl md:text-8xl font-extralight text-wacat-navy/30 mb-6 leading-none" data-target="{{ section.settings.stat_1_number }}" data-unit="{{ section.settings.stat_1_unit }}">
           {{ section.settings.stat_1_number }}{{ section.settings.stat_1_unit }}
         </div>
@@ -116,7 +56,7 @@
       </div>
 
       <!-- Stat 2 -->
-      <div class="animated-section text-center">
+      <div class="text-center">
         <div class="stat-number text-7xl md:text-8xl font-extralight text-wacat-navy/30 mb-6 leading-none" data-target="{{ section.settings.stat_2_number }}" data-unit="{{ section.settings.stat_2_unit }}">
           {{ section.settings.stat_2_number }}{{ section.settings.stat_2_unit }}
         </div>
@@ -126,7 +66,7 @@
       </div>
 
       <!-- Stat 3 - Featured -->
-      <div class="animated-section text-center">
+      <div class="text-center">
         <div class="stat-number text-7xl md:text-8xl font-extralight text-wacat-navy mb-6 leading-none" data-target="{{ section.settings.stat_3_number }}" data-unit="{{ section.settings.stat_3_unit }}">
           {{ section.settings.stat_3_number }}{{ section.settings.stat_3_unit }}
         </div>
